@@ -17,109 +17,89 @@ class Comment
     // CONSTRUCTOR
     public function __construct($id, $user_id, $post_id, $content, $date_creation, $status)
     {
-        $this->commentary_id = $commentary_id;
-        $this->fk_blogpost_id = $fk_blogpost_id;
-        $this->username = $username;
-        $this->titleCommentary = $titleCommentary;
+        $this->id = $id;
+        $this->user_id = $user_id;
+        $this->post_id = $post_id;
         $this->content = $content;
-        $this->commentary_status = $commentary_status;
         $this->date_creation = $date_creation;
-        $this->update_date = $update_date;
+        $this->status = $status;
     }
 
 
     // GETTERS
     public function getIdCommentary()
     {
-        return $this->commentary_id;
+        return $this->id;
     }
-    public function getIdBlogPost()
+    public function getUserId()
     {
-        return $this->fk_blogpost_id;
+        return $this->user_id;
     }
-    public function getUsername()
+    public function getPostId()
     {
-        return $this->username;
-    }
-    public function getTitleCommentary()
-    {
-        return $this->titleCommentary;
+        return $this->post_id;
     }
     public function getContent()
     {
         return $this->content;
     }
-    public function getValidateStatus()
-    {
-        return $this->commentary_status;
-    }
-    public function getDateCommentary()
+    public function getDate()
     {
         return $this->date_creation;
     }
-    public function getUpdateDate()
+    public function getStatus()
     {
-        return $this->update_date;
+        return $this->status;
     }
 
 
     // SETTERS
-    public function setIdCommentary($idCommentary)
+    public function setId($id)
     {
-        $idCommentary = (int) $idCommentary;
-        if ($idCommentary > 0) {
-            $this->idCommentary = $idCommentary;
+        $id = (int) $id;
+        if ($id > 0) {
+            $this->id = $id;
         } else {
-            throw new \Exception('Problème avec $blogpost_date_creation!');
+            throw new \Exception('Problem with $id in Comment model!');
         }
     }
-    public function setIdBlogPost($idBlogPost)
+    public function setUserId($user_id)
     {
-        $idBlogPost = (int) $idBlogPost;
-        if ($idBlogPost > 0) {
-            $this->idBlogPost = $idBlogPost;
+        $user_id = (int) $user_id;
+        if ($user_id > 0) {
+            $this->user_id = $user_id;
         } else {
-            throw new \Exception('Problème avec $idBlogPost!');
+            throw new \Exception('Problem with $user_id in Comment model!');
         }
     }
-    public function setAuthorCommentary($authorCommentary)
+    public function setPostId($post_id)
     {
-        if (is_string($authorCommentary)) {
-            $this->authorCommentary = $authorCommentary;
+        $post_id = (int) $post_id;
+        if ($post_id > 0) {
+            $this->post_id = $post_id;
         } else {
-            throw new \Exception('Problème avec $authorCommentary!');
+            throw new \Exception('Problem with $post_id in Comment model!');
         }
     }
-    public function setTitleCommentary($titleCommentary)
-    {
-        if (is_string($titleCommentary)) {
-            $this->titleCommentary = $titleCommentary;
-        } else {
-            throw new \Exception('Problème avec $titleCommentary!');
-        }
-    }
-    public function setContentCommentary($content)
+    public function setContent($content)
     {
         if (is_string($content)) {
             $this->content = $content;
         } else {
-            throw new \Exception('Problème avec $content!');
+            throw new \Exception('Problem with $content!');
         }
     }
-    public function setValidateStatus($validateStatus)
-    {
-        if (is_bool($validateStatus)) {
-            $this->validateStatus = $validateStatus;
-        } else {
-            throw new \Exception('Problème avec $validateStatus!');
-        }
-    }
-    public function setDateCommentary($date_creation)
+    public function setDate($date_creation)
     {
         return $this->date_creation = $date_creation;
     }
-    public function setUpdateCommentary($update_date)
+    public function setStatus($status)
     {
-        return $this->update_date = $update_date;
+        $status = (int) $status;
+        if ($status > 0) {
+            $this->status = $status;
+        } else {
+            throw new \Exception('Problem with $status in Comment model!');
+        }
     }
 }
