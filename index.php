@@ -1,7 +1,8 @@
 <?php
+namespace App\Controller;
 require_once __DIR__ . '/vendor/autoload.php';
 
-use App\Model\Comment;
+$router = new Router();
 
-new Comment();
+
 
