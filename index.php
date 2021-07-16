@@ -1,8 +1,4 @@
 <?php
-namespace App\Controller;
-require_once __DIR__ . '/vendor/autoload.php';
-
+namespace controller;
+require_once('Router.php');
 $router = new Router();
-
-
-

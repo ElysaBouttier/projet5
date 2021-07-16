@@ -1,7 +1,10 @@
 <?php
-namespace App\Controller;
-require_once __DIR__ . '/vendor/autoload.php';
 
+namespace controller;
+
+session_start();
+// Autoloader 
+require_once('vendor/autoload.php');
 
 class Router
 {
