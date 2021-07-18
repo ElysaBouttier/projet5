@@ -1,0 +1,81 @@
+@font-face {
+	font-family: "Pierson-Regular";
+	font-style: regular;
+	src: url('font/Pierson-Regular.ttf');
+}
+@font-face {
+	font-family: "Cormorant-light";
+	font-style: light;
+	src: url('font/Cormorant-Light.ttf');
+}
+@font-face {
+	font-family: "Pierson-Thin";
+	font-style: thin;
+	src: url('font/Pierson-Thin.ttf');
+}
+@font-face {
+	font-family: "Fredericka";
+	font-style: regular;
+	src: url('font/FrederickatheGreat-Regular.ttf');
+}
+@font-face {
+	font-family: "Tokyo";
+	font-style: regular;
+	src: url('font/ZenTokyoZoo-Regular.ttf');
+}
+
+
+/*  TEMPLATE  */
+html{
+    height: 100%;
+    font-family: Cormorant-Light;
+}
+header{
+    display: flex;
+    position: fixed;
+    height: 100%;
+    width: 12%;
+    background-color: lightskyblue;
+}
+.nav{
+    height: 100%;
+}
+.nav_device_laptop{
+    height: 100%;
+}
+#display-none {
+    display: none;
+}
+.welcome_btn{
+    height: 35%;
+}
+.nav_burger{
+    height: 30%;
+    line-height: 3;
+    list-style-type: none;
+    padding: 0;
+}
+body{
+    height: 100%;
+}
+main{
+    width: 88%;
+    float: right;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+/* HOME */
+.img-home {
+    max-width: 100%;
+    height: 90%;
+}
+.author_name{
+    font-family:  Fredericka, Cormorant-Light;
+    position: absolute;
+    top: 50%;
+    left: 42%;
+    color: lightskyblue;
+    font-size: 5rem;
+}
