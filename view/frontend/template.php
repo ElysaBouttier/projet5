@@ -25,16 +25,24 @@
     <header>
         <nav class="nav_device_laptop">
             <ul class="nav flex-column">
-                <li class="welcome_btn">Accueil</li>
+                <li class="welcome_btn">
+                    <i class="fab fa-artstation" class="nav-link active"></i>
+                </li>
                 <ul class="nav_burger">
                     <li>
-                        <a href="">Connexion</a>
+                        <a href="" class="nav-link active">
+                            <i class="fas fa-user"></i>
+                        </a>
                     </li>
                     <li>
-                        <a href="">Articles</a>
+                        <a href="" class="nav-link">
+                            <i class="fas fa-newspaper"></i>
+                        </a>
                     </li>
                     <li>
-                        <a href="">Contact</a>
+                        <a href="" class="nav-link">
+                            <i class="fas fa-envelope"></i>
+                        </a>
                     </li>
                 </ul>
             </ul>

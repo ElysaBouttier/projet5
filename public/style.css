@@ -28,17 +28,21 @@
 /*  TEMPLATE  */
 html{
     height: 100%;
-    font-family: Cormorant-Light;
+    font-family: Cormorant-Light, Arial, Helvetica, sans-serif;
+    color: #4a4746;
+    background-color: #f4ece8;
+
 }
 header{
     display: flex;
     position: fixed;
     height: 100%;
     width: 12%;
-    background-color: lightskyblue;
+    background-color: #f4ece8;
 }
 .nav{
     height: 100%;
+    align-self: center;
 }
 .nav_device_laptop{
     height: 100%;
@@ -48,34 +52,87 @@ header{
 }
 .welcome_btn{
     height: 35%;
+    align-self: center;
+
+}
+.fab{
+    font-size: xxx-large;
+    margin-top: 60%;
+}
+.fas{
+    font-size: xx-large;
 }
 .nav_burger{
     height: 30%;
     line-height: 3;
     list-style-type: none;
     padding: 0;
+    align-self: center;
+}
+.nav-link, .welcome_btn{
+    color: #4a4746;
+}
+.nav-link:hover{
+    color: #8d7f7a;
 }
 body{
     height: 100%;
+    background-color: #080605;
 }
 main{
     width: 88%;
     float: right;
-    height: 100%;
     display: flex;
     flex-direction: row;
+    background-color: #faf3efe0;
 }
 
 /* HOME */
+.image_instagram{
+    position: relative;
+}
 .img-home {
-    max-width: 100%;
-    height: 90%;
+    min-width: 100%;
+    min-height: 90%;
 }
 .author_name{
     font-family:  Fredericka, Cormorant-Light;
     position: absolute;
     top: 50%;
-    left: 42%;
-    color: lightskyblue;
+    text-align: center;
+    width: 97%;
+    color: #4a4746;
     font-size: 5rem;
 }
+.author_description{
+    padding: 8%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.set_images{
+    background-color: #f4ece8;
+    width: 100%;
+    display: flex;
+    padding-top: 5%;
+}
+.figure{
+    width: 45%;
+    height: 20em;
+    margin: auto;
+    position:relative;
+    transform: scale(1);
+    filter: grayscale(0.6);
+    transition: filter 400ms ease, transform 400ms;
+}
+.figure:hover{
+    transform: scale(1.10);
+    filter: grayscale(0);
+}
+.figure-img{
+    height: 100%;
+}
+figcaption{
+    position:absolute;
+    top: 50%;
+    left: 25%;
+}
+
