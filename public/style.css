@@ -81,6 +81,7 @@ body{
 }
 main{
     width: 88%;
+    height: 100%;
     float: right;
     display: flex;
     flex-direction: row;
@@ -137,3 +138,9 @@ figcaption{
 }
 
 /* BLOG VIEW */
+
+
+/* CONTACT VIEW */
+.contactForm{
+    margin-top: 10%;
+}
