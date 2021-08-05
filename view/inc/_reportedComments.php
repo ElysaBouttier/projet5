@@ -13,9 +13,9 @@
             <th class="text-center">Action</th>
         </tr>
     </thead>
-    <?php
-    foreach ($comments as $comment) {
-    ?>
+    <!-- <?php
+    // foreach ($comments as $comment) {
+    ?> -->
         <tbody align="center">
             <tr>
                 <td>Titre de l'article</td>
@@ -32,7 +32,8 @@
                 </td>
             </tr>
         </tbody>
-    <?php
-    }
-    ?>
+    <!-- <?php
+    // }
+    ?> -->
 </table>
+<hr>

@@ -12,7 +12,7 @@
         </tr>
     </thead>
     <?php
-    foreach ($posts as $post) {
+    // foreach ($posts as $post) {
     ?>
         <tbody align="center">
             <tr>
@@ -30,7 +30,7 @@
             </tr>
         </tbody>
     <?php
-    }
+    // }
     ?>
 </table>
 

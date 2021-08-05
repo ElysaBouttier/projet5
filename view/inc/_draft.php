@@ -1,4 +1,4 @@
-<h3><u>Articles en lignes</u></h3>
+<h3><u>Brouillons enregistrés</u></h3>
 <br />
 <br />
 <!-- Table on pannel config -->
@@ -11,9 +11,9 @@
             <th class="text-center">Action</th>
         </tr>
     </thead>
-    <?php
-    foreach ($drafts as $draft) {
-    ?>
+    <!-- <?php
+    // foreach ($drafts as $draft) {
+    ?> -->
         <tbody align="center">
             <tr>
                 <td><a href="" title="Lire le billet">Titre</a></td>
@@ -30,7 +30,7 @@
             </tr>
         </tbody>
     <?php
-    }
+    // }
     ?>
 </table>
 
