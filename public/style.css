@@ -161,3 +161,28 @@ figcaption{
 .label-login-form{
     margin-bottom: 12%;
 }
+.button-login{
+    align-self: center;
+}
+.not-registrer{
+    padding-left: 11%;
+    border-left: solid 1px #80808078;
+}
+
+/* REGISTRER VIEW */
+.registrer-content{
+    display: flex;
+    flex-direction: column;
+    padding-top: 5%;
+}
+.form-registrer{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+.form-group{
+    margin-bottom: 3%;
+}
+.form-group, input{
+    margin-top:1% ;
+}    

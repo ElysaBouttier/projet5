@@ -28,8 +28,8 @@
             </form>
         </div>
 
-        <div class="d-flex align-middle col-4 ">
-            <button type="button" class="btn btn-link align-middle" data-bs-toggle="collapse" data-bs-target="#registrerContent" aria-controls="registrerContent" aria-expanded="false" aria-label="Toggle navigation">
+        <div class="d-flex col-4 not-registrer">
+            <button type="button" class="btn btn-link h-25 button-login" data-bs-toggle="collapse" data-bs-target="#registrerContent" aria-controls="registrerContent" aria-expanded="false" aria-label="Toggle navigation">
             Pas encore inscrit ?</button>
         </div>
       </div>
