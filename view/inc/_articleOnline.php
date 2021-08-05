@@ -16,14 +16,14 @@
     ?>
         <tbody align="center">
             <tr>
-                <td><a href="?controller=PostController&action=showAction&blogpost_id=<?= $post->getId() ?>" title="Lire le billet"><?= (html_entity_decode($post->getTitle())) ?></a></td>
-                <td><?= $post->getCreationDate() ?></td>
-                <td><?= $post->getUpdateDate() ?></td>
+                <td><a href="" title="Lire le billet">Titre</a></td>
+                <td>Date de création</td>
+                <td>Date de modification</td>
                 <td align="center">
-                    <a href="?controller=AdminController&action=editPostAction&blogpost_id=<?= $post->getId() ?>" title="Modifier le billet">
+                    <a href="" title="Modifier le billet">
                         <i class="fas fa-pencil-alt"></i>
                     </a>
-                    <a href="?controller=AdminController&action=deletePostAction&blogpost_id=<?= $post->getId() ?>" title="Supprimer le billet" onclick="return(confirm('ATTENTION ! Voulez-vous définitivement supprimer ce billet ?'))">
+                    <a href="" title="Supprimer le billet">
                         <i class="fas fa-trash-alt"></i>
                     </a>
                 </td>

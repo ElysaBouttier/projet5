@@ -18,15 +18,15 @@
     ?>
         <tbody align="center">
             <tr>
-                <td><?= $comment->getUsername() ?></td>
-                <td><?= $comment->getTitleArticle() ?></td>
-                <td><a href="?controller=PostController&action=showAction&blogpost_id=<?= $comment->getIdBlogPost() ?>" title="Lire le commentaire"><?= substr(nl2br(html_entity_decode($comment->getContent())), 0, 25) . '...' ?></a></td>
-                <td><?= $comment->getDateCommentary() ?></td>
+                <td>Titre de l'article</td>
+                <td>nom auteur</td>
+                <td><a title="Lire le commentaire">commentaires</a></td>
+                <td>Date du commentaire</td>
                 <td>
-                    <a href="?controller=AdminController&action=editCommentAction&commentary_id=<?= $comment->getIdCommentary() ?>" title="Valider le commentaire">
+                    <a href="" title="Valider le commentaire">
                         <i class="fas fa-solid fa-check"></i>
                     </a>
-                    <a href="?controller=AdminController&action=deleteCommentAction&commentary_id=<?= $comment->getIdCommentary() ?>" title="Supprimer le commentaire" onclick="return(confirm('ATTENTION ! Voulez-vous définitivement supprimer ce commentaire ?'))">
+                    <a href="" title="Supprimer le commentaire">
                         <i class="fas fa-trash-alt"></i>
                     </a>
                 </td>
