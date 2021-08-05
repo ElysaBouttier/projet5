@@ -2,7 +2,7 @@
 
 <div class="container">
     <div class="contact-wrap w-100 p-md-5 p-4">
-    <h3 class="mb-4">Contact Us</h3>
+    <h3 class="mb-4 contact_us_h3">Contact Us</h3>
 
         <form method="POST" id="contactForm" name="contactForm" class="contactForm">
             <div class="row">

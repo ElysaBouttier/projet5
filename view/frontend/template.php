@@ -32,7 +32,11 @@
                 </li>
                 <ul class="nav_burger">
                     <li>
-                        <a href="" class="nav-link active">
+                        <!-- Button trigger modal -->
+                        <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Launch demo modal
+                        </button> -->
+                        <a href="" class="nav-link active" data-bs-toggle="modal" data-bs-target="#exampleModal">
                             <i class="fas fa-user"></i>
                         </a>
                     </li>
@@ -75,6 +79,9 @@
 
     <main>
         <?php echo $content; ?>
+        <?php
+            require_once ('../inc/_login.php');
+        ?>
     </main>
     
 </body>

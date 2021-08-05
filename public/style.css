@@ -42,10 +42,12 @@ header{
 }
 .nav{
     height: 100%;
+    width: 100%;
     align-self: center;
 }
 .nav_device_laptop{
     height: 100%;
+    width: 100%;
 }
 #display-none {
     display: none;
@@ -83,7 +85,6 @@ main{
     width: 88%;
     height: 100%;
     float: right;
-    display: flex;
     flex-direction: row;
     background-color: #f4ece8;
 }
@@ -138,9 +139,25 @@ figcaption{
 }
 
 /* BLOG VIEW */
+.title_blog{
+    text-align: center;
+}
+
+.add_comments{
+    margin-top: 11%;
+}
+
 
 
 /* CONTACT VIEW */
 .contactForm{
     margin-top: 10%;
+}
+.contact_us_h3{
+    text-align: center;
+}
+
+/* LOGIN VIEW */
+.label-login-form{
+    margin-bottom: 12%;
 }

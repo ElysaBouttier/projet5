@@ -1,6 +1,6 @@
 <div class="row">
     
-    <div class="col-md-6 offset-md-3">
+    <div class=" col-11 offset-md-1">
     <h4>Ajouter un commentaire : </h4><br />
 
     <form action="" method="post">            
