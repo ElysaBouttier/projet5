@@ -1,7 +1,7 @@
 <?php ob_start(); ?>
 
 <div class="container">
-
+<h1 class="text-center">Compte administrateur</h1>
     <?php
         require_once ('../inc/_articleOnline.php');
     ?>
@@ -15,7 +15,7 @@
     ?>
 
 <div>
-    <h3>Texte en description :</h3>
+    <h3>Edito :</h3>
     <p></p>
     <a href="http://">Modifier</a>
 </div>

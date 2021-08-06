@@ -27,27 +27,24 @@
     <header>
         <nav class="nav_device_laptop">
             <ul class="nav flex-column">
-                <li class="welcome_btn">
-                    <i class="fab fa-artstation" class="nav-link active"></i>
+                <li class="welcome_btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <i class="fab fa-artstation fas fa-sign-out-alt"></i>
                 </li>
                 <ul class="nav_burger">
                     <li>
-                        <!-- Button trigger modal -->
-                        <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        Launch demo modal
-                        </button> -->
-                        <a href="" class="nav-link active" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                            <i class="fas fa-user"></i>
+                        <a href="" class="nav-link active" >
+                            <i class="fas fa-home"></i>
                         </a>
                     </li>
+                    <!-- <li>
+                        <a href="" class="nav-link">
+                            <i class="fas fa-newspaper"></i>
+                            <i class="far fa-plus-square"></i>
+                        </a>
+                    </li> -->
                     <li>
                         <a href="" class="nav-link">
                             <i class="fas fa-newspaper"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="" class="nav-link">
-                            <i class="fas fa-envelope"></i>
                         </a>
                     </li>
                 </ul>
