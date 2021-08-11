@@ -27,15 +27,24 @@
     <header>
         <nav class="nav_device_laptop">
             <ul class="nav flex-column">
-                <li class="welcome_btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    <i class="fab fa-artstation fas fa-sign-out-alt"></i>
+                <li class="welcome_btn" >
+                    <a href=""  class="welcome_btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <i class="fab fa-artstation"></i>
+                    </a>
                 </li>
+
+                <!-- If connected -->
+                <!-- <li class="welcome_btn" >
+                    <i class="fab fa-artstation fas fa-sign-out-alt"></i>
+                </li> -->
+
                 <ul class="nav_burger">
                     <li>
                         <a href="" class="nav-link active" >
                             <i class="fas fa-home"></i>
                         </a>
                     </li>
+                    <!-- If connected -->
                     <!-- <li>
                         <a href="" class="nav-link">
                             <i class="fas fa-newspaper"></i>
@@ -45,6 +54,12 @@
                     <li>
                         <a href="" class="nav-link">
                             <i class="fas fa-newspaper"></i>
+                        </a>
+                    </li>
+                    <!-- If not connected -->
+                    <li>
+                        <a href="" class="nav-link">
+                            <i class="fas fa-envelope"></i>
                         </a>
                     </li>
                 </ul>

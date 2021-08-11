@@ -9,33 +9,33 @@ class UserController
 {
 
     // registrer
-    public function register($pseudo, $password, $email, $firstname, $lastname)
+    public function register($username, $password, $email, $firstname, $lastname)
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $newMessage = new Message();
 
-            if (!empty($_POST['pseudo']) && !empty($_POST['password']) && !empty($_POST['password_confirm']) 
+            if (!empty($_POST['username']) && !empty($_POST['password']) && !empty($_POST['password_confirm']) 
             && !empty($_POST['email'])  && !empty($_POST['firstname']) && !empty($_POST['lastname'])) {
 
-                // Check the pseudo lenght 
-                $pseudoLength = strlen($pseudo);
-                if ($pseudoLength <= 40) {
+                // Check the username lenght 
+                $usernameLength = strlen($username);
+                if ($usernameLength <= 40) {
 
                     // Check email format
                     if (preg_match("#^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#", $email)) {
 
-                        // Check pseudo format
-                        if (preg_match("#^[a-zA-Z0-9]+$#", $pseudo)) {
+                        // Check username format
+                        if (preg_match("#^[a-zA-Z0-9]+$#", $username)) {
                             $newUserManager = new UserManager();
-                            // $newUserManager->checkUserPseudo($pseudo);
-                            $checkedUserPseudo = $GLOBALS['checkedUserPseudo'];
-                            if ($checkedUserPseudo == 0) {
+                            $newUserManager->numberOfUsername($username);
+                            $numberOfUsername = $GLOBALS['numberOfUsername'];
+                            if ($numberOfUsername == 0) {
                                 $newUserManager = new UserManager();
-                                // $newUserManager->checkUserEmail($email);
-                                $checkedUserEmail = $GLOBALS['checkedUserEmail'];
+                                $newUserManager->numberOfUserEmail($email);
+                                $numberOfUserEmail = $GLOBALS['numberOfUserEmail'];
 
                                 // Check password format
-                                if ($checkedUserEmail == 0) {
+                                if ($numberOfUserEmail == 0) {
                                     if ($_POST['password'] == $_POST['password_confirm']) {
                                         if (preg_match('#^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).{8,}$#', $_POST['password'])) {
                                             
@@ -44,12 +44,12 @@ class UserController
 
                                                 // Check lastname format
                                                 if (preg_match("#^[a-zA-Z]+$#", $lastname)) {
-                                                    $pseudo = htmlspecialchars($pseudo);
+                                                    $username = htmlspecialchars($username);
                                                     $password = htmlspecialchars($password);
                                                     $email = htmlspecialchars($email);
                                                     $email = htmlspecialchars($firstname);
                                                     $email = htmlspecialchars($lastname);
-                                                    // $newUserManager->addUser($pseudo, $password, $email);
+                                                    // $newUserManager->addUser($username, $password, $email);
                                                     $newMessage->setSuccess("<p>Compte crée avec succès ! 
                                                     <a href='?controller=AdminController&action=indexAction'>
                                                     Se connecter</a>
@@ -75,16 +75,16 @@ class UserController
                                     $newMessage->setError("<p>Cette adresse email est déjà utilisée !</p>");
                                 }
                             } else {
-                                $newMessage->setError("<p>Ce pseudo est déjà utilisé !</p>");
+                                $newMessage->setError("<p>Ce username est déjà utilisé !</p>");
                             }
                         } else {
-                            $newMessage->setError("<p>Pseudo invalide !</p>");
+                            $newMessage->setError("<p>username invalide !</p>");
                         }
                     } else {
                         $newMessage->setError("<p>Adresse email invalide !</p>");
                     }
                 } else {
-                    $newMessage->setError("<p>Votre pseudo ne doit pas dépasser 40 caractères !</p>");
+                    $newMessage->setError("<p>Votre username ne doit pas dépasser 40 caractères !</p>");
                 }
             } else {
                 $newMessage->setError("<p>Veuillez remplir tous les champs !</p>");
