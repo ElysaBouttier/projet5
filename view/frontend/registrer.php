@@ -12,9 +12,19 @@
                 <form action="?controller=UserController&action=registerAction" method="POST" class="col-9">
                     <div class="form-group">
                         <label>Pseudo :</label>
-                        <input type="pseudo" name="pseudo" class="form-control" placeholder="entrez votre pseudo" value="<?php if (isset($pseudo)) {
-                                                                                                                                echo $pseudo;
+                        <input type="pseudo" name="username" class="form-control" placeholder="entrez votre pseudo" value="<?php if (isset($username)) {
+                                                                                                                                echo $username;
                                                                                                                             } ?>">
+                    </div>
+                    <hr>
+                    <div class="form-group">
+                        <label>Prénom :</label>
+                        <input type="firstname" name="firstname" class="form-control" placeholder="entrez votre prénom">
+                    </div>
+                    <hr>
+                    <div class="form-group">
+                        <label>Nom :</label>
+                        <input type="lastename" name="lastename" class="form-control" placeholder="entrez votre nom" >
                     </div>
                     <hr>
                     <div class="form-group">

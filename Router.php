@@ -22,6 +22,15 @@ class Router
                     {
 
                     }
+                    // ContactController
+                    if($_GET['controller'] == 'ContactController')
+                    {
+                        // Go to contact page
+                        if ($_GET['action'] == 'showContactView') {
+                            $newContactController = new ContactController();
+                            $newContactController->showContactView();
+                        }
+                    }
                     // ImageController
                     if ($_GET['controller'] == 'ImageController') 
                     {
@@ -33,6 +42,13 @@ class Router
                     // UserController
                     if ($_GET['controller'] == 'UserController') 
                     {
+                        // Go to registrer page
+                        if ($_GET['action'] == 'showRegistrerView') {
+                            $newUserController = new UserController();
+                            $newUserController->showRegistrerAction();
+                            var_dump("coucou .....////////////////////////////////////////////////////");
+
+                        }
                         // Registrer
                         if ($_GET['action'] == 'registerAction') {
                             // Delete HTML and PHP tags from the username, password, email, firstname, lastname
@@ -41,8 +57,11 @@ class Router
                             $email = isset($_POST['email']) ? strip_tags($_POST['email']) : NULL;
                             $firstname = isset($_POST['firstname']) ? strip_tags($_POST['firstname']) : NULL;
                             $lastname = isset($_POST['lastname']) ? strip_tags($_POST['lastname']) : NULL;
-                            $userController = new UserController();
-                            $userController->register($username, $password_hash, $email, $firstname, $lastname);
+                            $newUserController = new UserController();
+                            $newUserController->register($username, $password_hash, $email, $firstname, $lastname);
+                            print_r("coucou .....////////////////////////////////////////////////////");
+                            var_dump("coucou .....////////////////////////////////////////////////////");
+
                         }
 
                         // Connection

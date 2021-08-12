@@ -35,18 +35,18 @@
 
                 <!-- If connected -->
                 <!-- <li class="welcome_btn" >
-                    <i class="fab fa-artstation fas fa-sign-out-alt"></i>
+                    <i class="fab fa-artstation fas fa-sign-out-alt title="Se déconnecter" href="?controller=UserController&action=logout""></i>
                 </li> -->
 
                 <ul class="nav_burger">
                     <li>
-                        <a href="" class="nav-link active" >
+                        <a href="../frontend/home.php"  class="nav-link active" >
                             <i class="fas fa-home"></i>
                         </a>
                     </li>
                     <!-- If connected -->
                     <!-- <li>
-                        <a href="" class="nav-link">
+                        <a href="?controller=PostController&action=showAddPost" class="nav-link">
                             <i class="fas fa-newspaper"></i>
                             <i class="far fa-plus-square"></i>
                         </a>
@@ -58,7 +58,7 @@
                     </li>
                     <!-- If not connected -->
                     <li>
-                        <a href="" class="nav-link">
+                        <a href="?controller=ContactController&action=showContactView" class="nav-link">
                             <i class="fas fa-envelope"></i>
                         </a>
                     </li>
@@ -75,13 +75,13 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Connexion</a>
+                        <a class="nav-link active" aria-current="page" href="?controller=UserController&action=showLogin">Connexion</a>
                         </li>        
                         <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Blog</a>
+                        <a class="nav-link active" aria-current="page" href="?controller=PostController&action=showBlog">Blog</a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link" href="#">Contact</a>
+                        <a class="nav-link" href="?controller=ContactController&action=showContactView">Contact</a>
                         </li>
                     </ul>
                 </div>
@@ -93,6 +93,7 @@
         <?php echo $content; ?>
         <?php
             require_once ('../inc/_login.php');
+            require_once('../inc/_messageError.php');
         ?>
     </main>
     

@@ -8,9 +8,13 @@ use App\Model\UserManager;
 class UserController
 {
 
+    public function showRegistrerAction(){
+        require_once('../view/frontend/registrer.php');
+    }
     // registrer
     public function register($username, $password, $email, $firstname, $lastname)
     {
+        print("coucou .....////////////////////////////////////////////////////");
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $newMessage = new Message();
 
@@ -49,12 +53,7 @@ class UserController
                                                     $email = htmlspecialchars($email);
                                                     $email = htmlspecialchars($firstname);
                                                     $email = htmlspecialchars($lastname);
-                                                    // $newUserManager->addUser($username, $password, $email);
-                                                    $newMessage->setSuccess("<p>Compte crée avec succès ! 
-                                                    <a href='?controller=AdminController&action=indexAction'>
-                                                    Se connecter</a>
-                                                    </p>");
-                                                
+                                                    $newUserManager->addUser($username, $password, $email, $firstname, $lastname);                                                
                                                 } else {
                                                     $newMessage->setError("<p>Prénom invalide !</p>");                                                    
                                                 }

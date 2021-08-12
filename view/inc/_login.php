@@ -29,8 +29,7 @@
         </div>
 
         <div class="d-flex col-4 not-registrer">
-            <button type="button" class="btn btn-link h-25 button-login" data-bs-toggle="collapse" data-bs-target="#registrerContent" aria-controls="registrerContent" aria-expanded="false" aria-label="Toggle navigation">
-            Pas encore inscrit ?</button>
+            <a class="nav-link btn-link h-25 button-login" href="?controller=UserController&action=showRegistrerView" title="Mentions Légales">Pas encore inscrit ?</a>   
         </div>
       </div>
     </div>
