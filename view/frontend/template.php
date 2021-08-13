@@ -40,7 +40,7 @@
 
                 <ul class="nav_burger">
                     <li>
-                        <a href="../frontend/home.php"  class="nav-link active" >
+                        <a href="./view/frontend/home.php"  class="nav-link active" >
                             <i class="fas fa-home"></i>
                         </a>
                     </li>
@@ -92,8 +92,8 @@
     <main>
         <?php 
             echo $content;
-            require_once ('../inc/_login.php');
-            require_once('../inc/_messageError.php');
+            require_once ('./view/inc/_login.php');
+            require_once('./view/inc/_messageError.php');
         ?>
     </main>
     

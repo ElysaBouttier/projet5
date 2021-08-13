@@ -1,5 +1,5 @@
 <?php
-namespace App\Controller;
+namespace Controller;
 
 // Methode : pas de maj au début mais camelCase
 

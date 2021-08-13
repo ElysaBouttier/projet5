@@ -1,6 +1,6 @@
 <?php
 
-namespace App\controller;
+namespace controller;
 
 session_start();
 // Autoloader 
@@ -11,8 +11,8 @@ class Router
     public function __construct()
     {
         try{
-            if(isset($_GET['controller']))
             // If controller exist
+            if(isset($_GET['controller']))
             {
                 // If action in post
                 if(isset($_GET['action']))
@@ -20,36 +20,32 @@ class Router
                     // CommentController
                     if($_GET['controller'] == 'CommentController')
                     {
-                        
+
                     }
                     // ContactController
-                    if($_GET['controller'] == 'ContactController')
+                    elseif($_GET['controller'] == 'ContactController')
                     {
-                        echo("Coucou -------------------------------------------------------------------------------------------------");
                         // Go to contact page
                         if ($_GET['action'] == 'showContactView') {
-                            echo('coucou /////////////////////////////');
-                            // $newContactController = new ContactController();
-                            // $newContactController->showContactView();
+                            $newContactController = new ContactController();
+                            $newContactController->showContactView();
                         }
                     }
                     // ImageController
-                    if ($_GET['controller'] == 'ImageController') 
+                    elseif ($_GET['controller'] == 'ImageController') 
                     {
                     }
                     // PostController
-                    if ($_GET['controller'] == 'PostController') 
+                    elseif ($_GET['controller'] == 'PostController') 
                     {
                     }
                     // UserController
-                    if ($_GET['controller'] == 'UserController') 
+                    elseif ($_GET['controller'] == 'UserController') 
                     {
                         // Go to registrer page
                         if ($_GET['action'] == 'showRegistrerView') {
                             $newUserController = new UserController();
                             $newUserController->showRegistrerAction();
-                            var_dump("coucou .....////////////////////////////////////////////////////");
-
                         }
                         // Registrer
                         elseif ($_GET['action'] == 'registerAction') {
@@ -61,9 +57,6 @@ class Router
                             $lastname = isset($_POST['lastname']) ? strip_tags($_POST['lastname']) : NULL;
                             $newUserController = new UserController();
                             $newUserController->register($username, $password_hash, $email, $firstname, $lastname);
-                            print_r("coucou .....////////////////////////////////////////////////////");
-                            var_dump("coucou .....////////////////////////////////////////////////////");
-
                         }
 
                         // Connection
@@ -83,6 +76,12 @@ class Router
                         }
                     }
                 }
+                else {
+                    require_once('view/frontend/404.php');
+                }
+            }
+            else {
+                require_once('view/frontend/home.php');
             }
         }        
         catch (\Exception $e) {

@@ -1,8 +1,8 @@
 <?php
-namespace App\Controller;
+namespace Controller;
 
-use App\Model\Message;
-use App\Model\UserManager;
+use Model\Message;
+use Model\UserManager;
 // Admin123!!
 
 class UserController
