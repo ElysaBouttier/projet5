@@ -1,6 +1,6 @@
 <?php
 
-namespace controller;
+namespace App\controller;
 
 session_start();
 // Autoloader 
@@ -11,8 +11,8 @@ class Router
     public function __construct()
     {
         try{
-            // If controller exist
             if(isset($_GET['controller']))
+            // If controller exist
             {
                 // If action in post
                 if(isset($_GET['action']))
@@ -20,15 +20,17 @@ class Router
                     // CommentController
                     if($_GET['controller'] == 'CommentController')
                     {
-
+                        
                     }
                     // ContactController
                     if($_GET['controller'] == 'ContactController')
                     {
+                        echo("Coucou -------------------------------------------------------------------------------------------------");
                         // Go to contact page
                         if ($_GET['action'] == 'showContactView') {
-                            $newContactController = new ContactController();
-                            $newContactController->showContactView();
+                            echo('coucou /////////////////////////////');
+                            // $newContactController = new ContactController();
+                            // $newContactController->showContactView();
                         }
                     }
                     // ImageController
@@ -50,7 +52,7 @@ class Router
 
                         }
                         // Registrer
-                        if ($_GET['action'] == 'registerAction') {
+                        elseif ($_GET['action'] == 'registerAction') {
                             // Delete HTML and PHP tags from the username, password, email, firstname, lastname
                             $username = isset($_POST['username']) ? strip_tags($_POST['username']) : NULL;
                             $password_hash = isset($_POST['password']) ? password_hash($_POST['password'], PASSWORD_DEFAULT) : NULL;
@@ -65,16 +67,16 @@ class Router
                         }
 
                         // Connection
-                        // elseif ($_GET['action'] == 'loginAction') {
-                        //     if (empty($_SESSION)) {
-                        //         $username = isset($_POST['username']) ? strip_tags($_POST['username']) : NULL;
-                        //         $password = isset($_POST['password']) ? strip_tags($_POST['password']) : NULL;
-                        //         $newUserController = new UserController();
-                        //         $newUserController->login($username, $password);
-                        //     } else {
-                        //         header('Location: /');
-                        //     }
-                        // }
+                        elseif ($_GET['action'] == 'loginAction') {
+                            if (empty($_SESSION)) {
+                                $username = isset($_POST['username']) ? strip_tags($_POST['username']) : NULL;
+                                $password = isset($_POST['password']) ? strip_tags($_POST['password']) : NULL;
+                                $newUserController = new UserController();
+                                $newUserController->login($username, $password);
+                            } else {
+                                header('Location: /');
+                            }
+                        }
                         // Log out if click on logout button
                         elseif ($_GET['action'] == 'logoutAction') {
                             require_once('view/backend/deconnection.php');

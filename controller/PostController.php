@@ -1,3 +1,3 @@
 <?php
-namespace Controller;
+namespace App\Controller;
 

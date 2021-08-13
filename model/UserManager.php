@@ -14,8 +14,8 @@ class UserManager extends BaseManager
       print_r($username);
       print("coucou .....////////////////////////////////////////////////////");
       var_dump("coucou .....////////////////////////////////////////////////////");
-      $request = $db->prepare('INSERT INTO users (username, password, email, firstname, lastname, about, is_admin) VALUES (?, ?, ?, ?, ?," ", 1)');
-      // $request = $db->prepare("INSERT INTO users (username, password, email, firstname, lastname, about, is_admin) VALUES ('admin', 'Admin123!', 'eee@eee.fr', 'coucou', 'coucou', ' ', 1)");
+      // $request = $db->prepare('INSERT INTO users (username, password, email, firstname, lastname, about, is_admin) VALUES (?, ?, ?, ?, ?," ", 1)');
+      $request = $db->prepare("INSERT INTO users (username, password, email, firstname, lastname, about, is_admin) VALUES ('admin', 'Admin123!', 'eee@eee.fr', 'coucou', 'coucou', ' ', 1)");
      
       
       $request->execute(array($username, $password, $email, $firstname, $lastname));

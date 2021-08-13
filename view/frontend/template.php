@@ -90,8 +90,8 @@
     </header>
 
     <main>
-        <?php echo $content; ?>
-        <?php
+        <?php 
+            echo $content;
             require_once ('../inc/_login.php');
             require_once('../inc/_messageError.php');
         ?>

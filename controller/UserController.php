@@ -1,9 +1,9 @@
 <?php
-namespace Controller;
+namespace App\Controller;
 
 use App\Model\Message;
 use App\Model\UserManager;
-
+// Admin123!!
 
 class UserController
 {
@@ -90,5 +90,40 @@ class UserController
             }
         }
         require_once('view/frontend/register.php');
+    }
+
+    // Login Action
+    public function login($username, $password)
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $newMessage = new Message();
+            if (!empty($_POST['username']) && !empty($_POST['password'])) {
+                // Make some verification if pseudo & password match
+                $newUserManager = new UserManager();
+                $newUserManager->checkUserParams($_POST['username']);
+                $checkedUserParams = $GLOBALS['checkedUserParams'];
+                $isPasswordCorrect = password_verify($_POST['password'], $checkedUserParams['password']);
+
+                if ($isPasswordCorrect == true) {
+                    $_SESSION['id'] = $checkedUserParams['id'];
+                    $_SESSION['username'] = $checkedUserParams['username'];
+                    $_SESSION['email'] = $checkedUserParams['email'];
+                    $_SESSION['firstname'] = $checkedUserParams['firstname'];
+                    $_SESSION['lastname'] = $checkedUserParams['lastname'];
+                    $_SESSION['is_admin'] = $checkedUserParams['is_admin'];
+
+                    $newMessage->setSuccess("<p>Inscription Validée, veuillez vous connecter!</p>");
+
+                    // Redirection after connection on index.php
+                    header("Location: index.php");
+                    exit;
+                } else {
+                    $newMessage->setError("<p>Erreur d'identifiants!</p>");
+                }
+            } else {
+                $newMessage->setError("<p>Tous les champs doivent être remplis !</p>");
+            }
+        }
+        require_once('view/inc/_login.php');
     }
 }
