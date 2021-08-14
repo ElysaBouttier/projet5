@@ -38,25 +38,37 @@ class Router
                     // PostController
                     elseif ($_GET['controller'] == 'PostController') 
                     {
+                        // Go to blog page
+                        if ($_GET['action'] == 'showRHomeView') {
+                            $newPostController = new PostController();
+                            $newPostController->showRBlogView();
+                        }
+                        
                     }
                     // UserController
                     elseif ($_GET['controller'] == 'UserController') 
                     {
-                        // Go to registrer page
-                        if ($_GET['action'] == 'showRegistrerView') {
+                        // Go to home page
+                        if ($_GET['action'] == 'showRHomeView') {
                             $newUserController = new UserController();
-                            $newUserController->showRegistrerAction();
+                            $newUserController->showRHomeView();
+                        }
+                        // Go to registrer page
+                        elseif ($_GET['action'] == 'showRegistrerView') {
+                            $newUserController = new UserController();
+                            $newUserController->showRegistrerView();
                         }
                         // Registrer
                         elseif ($_GET['action'] == 'registerAction') {
                             // Delete HTML and PHP tags from the username, password, email, firstname, lastname
                             $username = isset($_POST['username']) ? strip_tags($_POST['username']) : NULL;
                             $password_hash = isset($_POST['password']) ? password_hash($_POST['password'], PASSWORD_DEFAULT) : NULL;
+                            $password_confirm = isset($_POST['password_confirm']) ? password_hash($_POST['password_confirm'], PASSWORD_DEFAULT) : NULL;
                             $email = isset($_POST['email']) ? strip_tags($_POST['email']) : NULL;
                             $firstname = isset($_POST['firstname']) ? strip_tags($_POST['firstname']) : NULL;
                             $lastname = isset($_POST['lastname']) ? strip_tags($_POST['lastname']) : NULL;
                             $newUserController = new UserController();
-                            $newUserController->register($username, $password_hash, $email, $firstname, $lastname);
+                            $newUserController->register($username, $password_hash, $password_confirm, $email, $firstname, $lastname);
                         }
 
                         // Connection

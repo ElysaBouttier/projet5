@@ -12,7 +12,7 @@
             Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         </p>
     </div>
-    <div class="set_images">
+    <div class="set_images" id="set_images">
         <figure class="figure">
             <a href="" class="article">
                 <figcaption class="figure-caption">A caption for the above image.</figcaption>

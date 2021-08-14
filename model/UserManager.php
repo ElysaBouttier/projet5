@@ -1,6 +1,6 @@
 <?php
 
-namespace Model;
+namespace model;
 
 class UserManager extends BaseManager
 {
@@ -10,12 +10,9 @@ class UserManager extends BaseManager
     public function addUser($username, $password, $email, $firstname, $lastname)
     {
       $db = $this->dbConnect();
-      var_dump($username);
-      print_r($username);
-      print("coucou .....////////////////////////////////////////////////////");
-      var_dump("coucou .....////////////////////////////////////////////////////");
-      // $request = $db->prepare('INSERT INTO users (username, password, email, firstname, lastname, about, is_admin) VALUES (?, ?, ?, ?, ?," ", 1)');
-      $request = $db->prepare("INSERT INTO users (username, password, email, firstname, lastname, about, is_admin) VALUES ('admin', 'Admin123!', 'eee@eee.fr', 'coucou', 'coucou', ' ', 1)");
+
+      $request = $db->prepare('INSERT INTO users (username, password, email, firstname, lastname, about, is_admin) VALUES (?, ?, ?, ?, ?," ", 1)');
+      // $request = $db->prepare("INSERT INTO users (username, password, email, firstname, lastname, about, is_admin) VALUES ('admin', 'Admin123!', 'eee@eee.fr', 'coucou', 'coucou', ' ', 1)");
      
       
       $request->execute(array($username, $password, $email, $firstname, $lastname));
@@ -33,6 +30,7 @@ class UserManager extends BaseManager
     global $checkedUsername;
     $checkedUsername = $request->rowCount();
     return $checkedUsername;
+    var_dump('$checkedUsername ' . $checkedUsername);
     }
 
     public function numberOfUserEmail($email)

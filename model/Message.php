@@ -1,6 +1,6 @@
 <?php
 
-namespace Model;
+namespace model;
 
 class Message
 {
@@ -11,7 +11,6 @@ class Message
     // Return error message
     public function setError($message)
     {
-        log("errror msg");
         global $alert;
         $alert = [
             'alertMessage' => $message
@@ -21,7 +20,6 @@ class Message
     // Return succes message
     public function setSuccess($message)
     {
-        log("Success msg");
         global $success;
         $success = [
             'successMessage' => $message

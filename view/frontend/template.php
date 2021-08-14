@@ -40,7 +40,7 @@
 
                 <ul class="nav_burger">
                     <li>
-                        <a href="./view/frontend/home.php"  class="nav-link active" >
+                        <a href="?controller=UserController&action=showRHomeView"  class="nav-link active" >
                             <i class="fas fa-home"></i>
                         </a>
                     </li>
@@ -52,7 +52,7 @@
                         </a>
                     </li> -->
                     <li>
-                        <a href="" class="nav-link">
+                        <a href="#set_images" class="nav-link">
                             <i class="fas fa-newspaper"></i>
                         </a>
                     </li>
@@ -78,7 +78,7 @@
                         <a class="nav-link active" aria-current="page" href="?controller=UserController&action=showLogin">Connexion</a>
                         </li>        
                         <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="?controller=PostController&action=showBlog">Blog</a>
+                        <a class="nav-link active" aria-current="page" href="#set_images">Blog</a>
                         </li>
                         <li class="nav-item">
                         <a class="nav-link" href="?controller=ContactController&action=showContactView">Contact</a>

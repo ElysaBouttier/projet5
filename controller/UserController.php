@@ -1,23 +1,25 @@
 <?php
 namespace Controller;
 
-use Model\Message;
-use Model\UserManager;
+use model\Message;
+use model\UserManager;
 // Admin123!!
 
 class UserController
 {
+    public function showRHomeView(){
+        require_once('./view/frontend/home.php');
+    }
 
-    public function showRegistrerAction(){
-        require_once('../view/frontend/registrer.php');
+    public function showRegistrerView(){
+        require_once('./view/frontend/registrer.php');
     }
     // registrer
-    public function register($username, $password, $email, $firstname, $lastname)
+    public function register($username, $password, $password_confirm, $email, $firstname, $lastname)
     {
-        print("coucou .....////////////////////////////////////////////////////");
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $newMessage = new Message();
-
+            
             if (!empty($_POST['username']) && !empty($_POST['password']) && !empty($_POST['password_confirm']) 
             && !empty($_POST['email'])  && !empty($_POST['firstname']) && !empty($_POST['lastname'])) {
 
@@ -55,10 +57,10 @@ class UserController
                                                     $email = htmlspecialchars($lastname);
                                                     $newUserManager->addUser($username, $password, $email, $firstname, $lastname);                                                
                                                 } else {
-                                                    $newMessage->setError("<p>Prénom invalide !</p>");                                                    
+                                                    $newMessage->setError("<p>Veuillez remplir votre nom !</p>");                                                    
                                                 }
                                             } else {
-                                                $newMessage->setError("<p>Prénom invalide !</p>");
+                                                $newMessage->setError("<p>Veuillez remplir votre prénom !</p>");
                                             }        
                                         } else {
                                             $newMessage->setError("<p>Votre mot de passe doit contenir 8 caractères minimum dont <br/>
@@ -89,7 +91,7 @@ class UserController
                 $newMessage->setError("<p>Veuillez remplir tous les champs !</p>");
             }
         }
-        require_once('view/frontend/register.php');
+        require_once('./view/frontend/registrer.php');
     }
 
     // Login Action

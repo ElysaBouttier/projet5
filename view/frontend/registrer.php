@@ -24,7 +24,7 @@
                     <hr>
                     <div class="form-group">
                         <label>Nom :</label>
-                        <input type="lastename" name="lastename" class="form-control" placeholder="entrez votre nom" >
+                        <input type="lastename" name="lastname" class="form-control" placeholder="entrez votre nom" >
                     </div>
                     <hr>
                     <div class="form-group">
