@@ -10,21 +10,16 @@ class Router
 {
     public function __construct()
     {
-        try{
+        try {
             // If controller exist
-            if(isset($_GET['controller']))
-            {
+            if (isset($_GET['controller'])) {
                 // If action in post
-                if(isset($_GET['action']))
-                {
+                if (isset($_GET['action'])) {
                     // CommentController
-                    if($_GET['controller'] == 'CommentController')
-                    {
-
+                    if ($_GET['controller'] == 'CommentController') {
                     }
                     // ContactController
-                    elseif($_GET['controller'] == 'ContactController')
-                    {
+                    elseif ($_GET['controller'] == 'ContactController') {
                         // Go to contact page
                         if ($_GET['action'] == 'showContactView') {
                             $newContactController = new ContactController();
@@ -32,16 +27,14 @@ class Router
                         }
                     }
                     // ImageController
-                    elseif ($_GET['controller'] == 'ImageController') 
-                    {
+                    elseif ($_GET['controller'] == 'ImageController') {
                     }
                     // PostController
-                    elseif ($_GET['controller'] == 'PostController') 
-                    {
+                    elseif ($_GET['controller'] == 'PostController') {
                         // Go to blog page
-                        if ($_GET['action'] == 'showHomeView') {
+                        if ($_GET['action'] == 'showBlogView') {
                             $newPostController = new PostController();
-                            $newPostController->showRBlogView();
+                            $newPostController->showBlogView();
                         }
 
                         // Go to addPost page
@@ -49,24 +42,21 @@ class Router
                             $newPostController = new PostController();
                             $newPostController->showAddPostView();
                         }
-                        
-                        
                     }
                     // UserController
-                    elseif ($_GET['controller'] == 'UserController') 
-                    {
+                    elseif ($_GET['controller'] == 'UserController') {
                         // Go to home page
                         if ($_GET['action'] == 'showHomeView') {
                             $newUserController = new UserController();
                             $newUserController->showHomeView();
                         }
-                        
+
                         // Go to pannel_config page
                         if ($_GET['action'] == 'showAddPostView') {
                             $newUserController = new UserController();
                             $newUserController->showAddPostView();
                         }
-                        
+
                         // Go to pannel_config page
                         if ($_GET['action'] == 'showPannelView') {
                             $newUserController = new UserController();
@@ -89,8 +79,8 @@ class Router
                             $lastname = isset($_POST['lastname']) ? strip_tags($_POST['lastname']) : NULL;
                             $newUserController = new UserController();
                             $newUserController->register($username, $password_hash, $password_confirm, $email, $firstname, $lastname);
-                            var_dump('password_hash '. $password_hash);
-                            var_dump('password_confirm '. $password_confirm);
+                            var_dump('password_hash ' . $password_hash);
+                            var_dump('password_confirm ' . $password_confirm);
                         }
 
                         // Connection
@@ -109,16 +99,13 @@ class Router
                             require_once('view/backend/log_out.php');
                         }
                     }
-                }
-                else {
+                } else {
                     require_once('view/frontend/404.php');
                 }
-            }
-            else {
+            } else {
                 require_once('view/frontend/home.php');
             }
-        }        
-        catch (\Exception $e) {
+        } catch (\Exception $e) {
             $errorMessage = $e->getMessage();
             echo $errorMessage;
             exit;
@@ -126,4 +113,3 @@ class Router
         }
     }
 }
-?>

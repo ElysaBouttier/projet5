@@ -1,4 +1,5 @@
 <?php
+
 namespace Controller;
 
 use model\Message;
@@ -7,19 +8,23 @@ use model\UserManager;
 
 class UserController
 {
-    public function showHomeView(){
+    public function showHomeView()
+    {
         require_once('./view/frontend/home.php');
-    }    
-    
-    public function showPannelView(){
+    }
+
+    public function showPannelView()
+    {
         require_once('./view/backend/pannel_config.php');
     }
-    
-    public function showAddPostView(){
+
+    public function showAddPostView()
+    {
         require_once('./view/backend/add_post.php');
     }
 
-    public function showRegistrerView(){
+    public function showRegistrerView()
+    {
         require_once('./view/frontend/registrer.php');
     }
     // registrer
@@ -27,9 +32,11 @@ class UserController
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $newMessage = new Message();
-            
-            if (!empty($_POST['username']) && !empty($_POST['password']) && !empty($_POST['password_confirm']) 
-            && !empty($_POST['email'])  && !empty($_POST['firstname']) && !empty($_POST['lastname'])) {
+
+            if (
+                !empty($_POST['username']) && !empty($_POST['password']) && !empty($_POST['password_confirm'])
+                && !empty($_POST['email'])  && !empty($_POST['firstname']) && !empty($_POST['lastname'])
+            ) {
 
                 // Check the username lenght 
                 $usernameLength = strlen($username);
@@ -52,7 +59,7 @@ class UserController
                                 if ($numberOfUserEmail == 0) {
                                     if ($_POST['password'] == $_POST['password_confirm']) {
                                         if (preg_match('#^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).{8,}$#', $_POST['password'])) {
-                                            
+
                                             // Check firstname format
                                             if (preg_match("#^[a-zA-Z]+$#", $firstname)) {
 
@@ -63,14 +70,14 @@ class UserController
                                                     $email = htmlspecialchars($email);
                                                     $email = htmlspecialchars($firstname);
                                                     $email = htmlspecialchars($lastname);
-                                                    $newUserManager->addUser($username, $password, $email, $firstname, $lastname);                                                
-                                                    $newMessage->setSuccess("<p>Inscription validée ! Vous pouvez vous connecter!</p>");                                                    
+                                                    $newUserManager->addUser($username, $password, $email, $firstname, $lastname);
+                                                    $newMessage->setSuccess("<p>Inscription validée ! Vous pouvez vous connecter!</p>");
                                                 } else {
-                                                    $newMessage->setError("<p>Veuillez remplir votre nom !</p>");                                                    
+                                                    $newMessage->setError("<p>Veuillez remplir votre nom !</p>");
                                                 }
                                             } else {
                                                 $newMessage->setError("<p>Veuillez remplir votre prénom !</p>");
-                                            }        
+                                            }
                                         } else {
                                             $newMessage->setError("<p>Votre mot de passe doit contenir 8 caractères minimum dont <br/>
                                             au moins une lettre majuscule!<br/>
@@ -109,13 +116,14 @@ class UserController
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $newMessage = new Message();
             if (!empty($_POST['username']) && !empty($_POST['password'])) {
-                
+
                 // Make some verification if pseudo & password match
                 $newUserManager = new UserManager();
                 $newUserManager->checkUserParams($_POST['username']);
                 $checkedUserParams = $GLOBALS['checkedUserParams'];
                 $isPasswordCorrect = password_verify($_POST['password'], $checkedUserParams['password']);
 
+                echo('$isPasswordCorrect '. $isPasswordCorrect);
                 if ($isPasswordCorrect == true) {
                     $_SESSION['id'] = $checkedUserParams['id'];
                     $_SESSION['username'] = $checkedUserParams['username'];
@@ -124,8 +132,14 @@ class UserController
                     $_SESSION['lastname'] = $checkedUserParams['lastname'];
                     $_SESSION['is_admin'] = $checkedUserParams['is_admin'];
 
+                    $admin = $_SESSION['is_admin'];
+                    var_dump('$admin ' . $admin);
                     // Redirection after connection on index.php
-                    header("Location: index.php?controller=UserController&action=showPannelView");
+                    if ($admin == 0) {
+                        header("Location: index.php?controller=UserController&action=showPannelView");
+                    } else {
+                        header("Location: index.php?controller=UserController&action=showHomeView");
+                    }
                     // require_once('./view/frontend/home.php');
                     exit;
                 } else {
