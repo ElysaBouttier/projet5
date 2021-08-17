@@ -69,6 +69,8 @@ class Router
                             $lastname = isset($_POST['lastname']) ? strip_tags($_POST['lastname']) : NULL;
                             $newUserController = new UserController();
                             $newUserController->register($username, $password_hash, $password_confirm, $email, $firstname, $lastname);
+                            var_dump('password_hash '. $password_hash);
+                            var_dump('password_confirm '. $password_confirm);
                         }
 
                         // Connection

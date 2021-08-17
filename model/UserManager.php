@@ -27,10 +27,9 @@ class UserManager extends BaseManager
     $db = $this->dbConnect();
     $request = $db->prepare('SELECT * FROM users WHERE username = ?');
     $request->execute(array($username));
-    global $checkedUsername;
-    $checkedUsername = $request->rowCount();
-    return $checkedUsername;
-    var_dump('$checkedUsername ' . $checkedUsername);
+    global $numberOfUsername;
+    $numberOfUsername = $request->rowCount();
+    return $numberOfUsername;
     }
 
     public function numberOfUserEmail($email)
@@ -38,9 +37,9 @@ class UserManager extends BaseManager
     $db = $this->dbConnect();
     $request = $db->prepare('SELECT * FROM users WHERE email = ?');
     $request->execute(array($email));
-    global $checkedUserEmail;
-    $checkedUserEmail = $request->rowCount();
-    return $checkedUserEmail;
+    global $numberOfUserEmail;
+    $numberOfUserEmail = $request->rowCount();
+    return $numberOfUserEmail;
     }
 
     //Check if the user username is in DB
