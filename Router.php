@@ -85,8 +85,8 @@ class Router
                             }
                         }
                         // Log out if click on logout button
-                        elseif ($_GET['action'] == 'logoutAction') {
-                            require_once('view/backend/deconnection.php');
+                        elseif ($_GET['action'] == 'logout') {
+                            require_once('view/backend/log_out.php');
                         }
                     }
                 }

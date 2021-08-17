@@ -46,7 +46,7 @@
                 if (isset($_SESSION) && !empty($_SESSION)) {
                 ?>
                 <li class="welcome_btn" >
-                    <i class="fab fa-artstation fas fa-sign-out-alt title="Se déconnecter" href="?controller=UserController&action=logout""></i>
+                    <a class="nav-link  fas fa-sign-out-alt" title="Se déconnecter" href="?controller=UserController&action=logout"></a>
                 </li>
                 <?php
                 }
