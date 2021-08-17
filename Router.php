@@ -43,6 +43,13 @@ class Router
                             $newPostController = new PostController();
                             $newPostController->showRBlogView();
                         }
+
+                        // Go to addPost page
+                        if ($_GET['action'] == 'showAddPostView') {
+                            $newPostController = new PostController();
+                            $newPostController->showAddPostView();
+                        }
+                        
                         
                     }
                     // UserController

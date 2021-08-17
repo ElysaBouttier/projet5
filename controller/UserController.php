@@ -14,6 +14,7 @@ class UserController
     public function showPannelView(){
         require_once('./view/backend/pannel_config.php');
     }
+    
     public function showAddPostView(){
         require_once('./view/backend/add_post.php');
     }

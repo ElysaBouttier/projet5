@@ -7,4 +7,4 @@
 <?php $content = ob_get_clean(); ?>
 
 <!-- Vue require -->
-<?php require_once('../frontend/template.php'); ?>
+<?php require_once('./view/frontend/template.php'); ?>

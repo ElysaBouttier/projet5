@@ -78,7 +78,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="?controller=PostController&action=showPannelView" class="nav-link">
+                            <a href="?controller=UserController&action=showPannelView" class="nav-link">
                                 <i class="fas fa-wrench"></i>
                             </a>
                         </li>
