@@ -53,6 +53,19 @@ class Router
                             $newUserController = new UserController();
                             $newUserController->showHomeView();
                         }
+                        
+                        // Go to pannel_config page
+                        if ($_GET['action'] == 'showAddPostView') {
+                            $newUserController = new UserController();
+                            $newUserController->showAddPostView();
+                        }
+                        
+                        // Go to pannel_config page
+                        if ($_GET['action'] == 'showPannelView') {
+                            $newUserController = new UserController();
+                            $newUserController->showPannelView();
+                        }
+
                         // Go to registrer page
                         elseif ($_GET['action'] == 'showRegistrerView') {
                             $newUserController = new UserController();

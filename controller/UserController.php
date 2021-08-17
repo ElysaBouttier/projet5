@@ -9,6 +9,13 @@ class UserController
 {
     public function showHomeView(){
         require_once('./view/frontend/home.php');
+    }    
+    
+    public function showPannelView(){
+        require_once('./view/backend/pannel_config.php');
+    }
+    public function showAddPostView(){
+        require_once('./view/backend/add_post.php');
     }
 
     public function showRegistrerView(){
@@ -117,7 +124,7 @@ class UserController
                     $_SESSION['is_admin'] = $checkedUserParams['is_admin'];
 
                     // Redirection after connection on index.php
-                    header("Location: index.php?controller=UserController&action=showHomeView");
+                    header("Location: index.php?controller=UserController&action=showPannelView");
                     // require_once('./view/frontend/home.php');
                     exit;
                 } else {
