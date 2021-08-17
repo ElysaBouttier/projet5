@@ -79,8 +79,7 @@
                         </li>
                         <li>
                             <a href="?controller=PostController&action=showPannelView" class="nav-link">
-                                <i class="fas fa-newspaper"></i>
-                                <i class="far fa-plus-square"></i>
+                                <i class="fas fa-wrench"></i>
                             </a>
                         </li>
                         <?php
