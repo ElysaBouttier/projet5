@@ -11,10 +11,10 @@
 
             <!-- Login form -->
             <form action="?controller=UserController&action=loginAction" method="POST">
-                <label for="pseudo" class="col-12 label-login-form">
+                <label for="username" class="col-12 label-login-form">
                     <p class="text-center">Pseudo :</p>
                     <div class="d-flex justify-content-center">
-                        <input type="pseudo"  name="pseudo" placeholder="pseudo">
+                        <input type="username"  id="username" name="username" placeholder="Pseudo">
                     </div> 
                 </label>
                 

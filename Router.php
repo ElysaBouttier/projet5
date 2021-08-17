@@ -39,7 +39,7 @@ class Router
                     elseif ($_GET['controller'] == 'PostController') 
                     {
                         // Go to blog page
-                        if ($_GET['action'] == 'showRHomeView') {
+                        if ($_GET['action'] == 'showHomeView') {
                             $newPostController = new PostController();
                             $newPostController->showRBlogView();
                         }
@@ -49,9 +49,9 @@ class Router
                     elseif ($_GET['controller'] == 'UserController') 
                     {
                         // Go to home page
-                        if ($_GET['action'] == 'showRHomeView') {
+                        if ($_GET['action'] == 'showHomeView') {
                             $newUserController = new UserController();
-                            $newUserController->showRHomeView();
+                            $newUserController->showHomeView();
                         }
                         // Go to registrer page
                         elseif ($_GET['action'] == 'showRegistrerView') {

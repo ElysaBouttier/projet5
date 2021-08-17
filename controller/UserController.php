@@ -7,7 +7,7 @@ use model\UserManager;
 
 class UserController
 {
-    public function showRHomeView(){
+    public function showHomeView(){
         require_once('./view/frontend/home.php');
     }
 
@@ -101,6 +101,7 @@ class UserController
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $newMessage = new Message();
             if (!empty($_POST['username']) && !empty($_POST['password'])) {
+                
                 // Make some verification if pseudo & password match
                 $newUserManager = new UserManager();
                 $newUserManager->checkUserParams($_POST['username']);
@@ -115,10 +116,9 @@ class UserController
                     $_SESSION['lastname'] = $checkedUserParams['lastname'];
                     $_SESSION['is_admin'] = $checkedUserParams['is_admin'];
 
-                    $newMessage->setSuccess("<p>Inscription Validée, veuillez vous connecter!</p>");
-
                     // Redirection after connection on index.php
-                    header("Location: index.php");
+                    header("Location: index.php?controller=UserController&action=showHomeView");
+                    // require_once('./view/frontend/home.php');
                     exit;
                 } else {
                     $newMessage->setError("<p>Erreur d'identifiants!</p>");

@@ -40,7 +40,7 @@
 
                 <ul class="nav_burger">
                     <li>
-                        <a href="?controller=UserController&action=showRHomeView"  class="nav-link active" >
+                        <a href="?controller=UserController&action=showHomeView"  class="nav-link active" >
                             <i class="fas fa-home"></i>
                         </a>
                     </li>
