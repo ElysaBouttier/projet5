@@ -27,16 +27,30 @@
     <header>
         <nav class="nav_device_laptop">
             <ul class="nav flex-column">
+                <!-- If session off -->
+                <?php
+                if (empty($_SESSION)) {
+                ?>
                 <li class="welcome_btn" >
                     <a href=""  class="welcome_btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
                         <i class="fab fa-artstation"></i>
                     </a>
                 </li>
+                <?php
+                }
+                ?>
 
-                <!-- If connected -->
-                <!-- <li class="welcome_btn" >
+
+                <!-- If session on -->
+                <?php
+                if (isset($_SESSION) && !empty($_SESSION)) {
+                ?>
+                <li class="welcome_btn" >
                     <i class="fab fa-artstation fas fa-sign-out-alt title="Se déconnecter" href="?controller=UserController&action=logout""></i>
-                </li> -->
+                </li>
+                <?php
+                }
+                ?>
 
                 <ul class="nav_burger">
                     <li>
@@ -44,19 +58,27 @@
                             <i class="fas fa-home"></i>
                         </a>
                     </li>
-                    <!-- If connected -->
-                    <!-- <li>
+
+                    <!-- If session on -->
+                    <?php
+                    if (isset($_SESSION) && !empty($_SESSION)) {
+                    ?>
+                    <li>
                         <a href="?controller=PostController&action=showAddPost" class="nav-link">
                             <i class="fas fa-newspaper"></i>
                             <i class="far fa-plus-square"></i>
                         </a>
-                    </li> -->
+                    </li>
+                    <?php
+                    }
+                    ?>
+
                     <li>
                         <a href="#set_images" class="nav-link">
                             <i class="fas fa-newspaper"></i>
                         </a>
                     </li>
-                    <!-- If not connected -->
+
                     <li>
                         <a href="?controller=ContactController&action=showContactView" class="nav-link">
                             <i class="fas fa-envelope"></i>
