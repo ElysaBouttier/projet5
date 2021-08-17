@@ -91,9 +91,9 @@
 
     <main>
         <?php 
-            echo $content;
             require_once ('./view/inc/_login.php');
             require_once('./view/inc/_messageError.php');
+            echo $content;
         ?>
     </main>
     

@@ -56,6 +56,7 @@ class UserController
                                                     $email = htmlspecialchars($firstname);
                                                     $email = htmlspecialchars($lastname);
                                                     $newUserManager->addUser($username, $password, $email, $firstname, $lastname);                                                
+                                                    $newMessage->setSuccess("<p>Inscription validée ! Vous pouvez vous connecter!</p>");                                                    
                                                 } else {
                                                     $newMessage->setError("<p>Veuillez remplir votre nom !</p>");                                                    
                                                 }
