@@ -14,4 +14,14 @@ class PostController
     {
         require_once('./view/backend/add_post.php');
     }
+
+
+    // 
+    // 
+    // TODO
+    // 
+    // 
+    public function addPost(){
+
+    }
 }

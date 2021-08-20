@@ -42,6 +42,13 @@ class Router
                             $newPostController = new PostController();
                             $newPostController->showAddPostView();
                         }
+
+                        // Go to blog page
+                        if ($_GET['action'] == 'addPost') {
+                            $newPostController = new PostController();
+                            // $newPostController->addPost($title, $content, $creation_date);
+                        }
+                        
                     }
                     // UserController
                     elseif ($_GET['controller'] == 'UserController') {
@@ -79,8 +86,6 @@ class Router
                             $lastname = isset($_POST['lastname']) ? strip_tags($_POST['lastname']) : NULL;
                             $newUserController = new UserController();
                             $newUserController->register($username, $password_hash, $password_confirm, $email, $firstname, $lastname);
-                            var_dump('password_hash ' . $password_hash);
-                            var_dump('password_confirm ' . $password_confirm);
                         }
 
                         // Connection

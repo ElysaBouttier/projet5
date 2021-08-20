@@ -186,3 +186,9 @@ figcaption{
 .form-group, input{
     margin-top:1% ;
 }    
+
+/* ADDPOST VIEW */
+.title-add-post{
+    padding-top: 3%;
+    padding-bottom: 16%;
+}
