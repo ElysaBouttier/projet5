@@ -123,7 +123,6 @@ class UserController
                 $checkedUserParams = $GLOBALS['checkedUserParams'];
                 $isPasswordCorrect = password_verify($_POST['password'], $checkedUserParams['password']);
 
-                echo('$isPasswordCorrect '. $isPasswordCorrect);
                 if ($isPasswordCorrect == true) {
                     $_SESSION['id'] = $checkedUserParams['id'];
                     $_SESSION['username'] = $checkedUserParams['username'];
@@ -133,7 +132,6 @@ class UserController
                     $_SESSION['is_admin'] = $checkedUserParams['is_admin'];
 
                     $admin = $_SESSION['is_admin'];
-                    var_dump('$admin ' . $admin);
                     // Redirection after connection on index.php
                     if ($admin == 0) {
                         header("Location: index.php?controller=UserController&action=showPannelView");

@@ -1,15 +1,18 @@
 {
-    "name": "vendor/projet",
-    "autoload": {
-        "psr-4": {
-            "App\\": "src/"
-        }
-    },
+    "name": "vendor/autoload",
     "authors": [
         {
             "name": "Elysa Bouttier",
-            "email": "e.bouttier@hotmail.fr"
+            "email": "elysa.bouttier@sbsr.fr"
         }
     ],
-    "require": {}
+    "require": {},
+    
+    "autoload": {
+        "psr-4": {
+            "c": "controller/",
+            "m": "model/",
+            "v": "view/"
+        }
+    }
 }

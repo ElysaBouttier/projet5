@@ -25,9 +25,18 @@ class Router
                             $newContactController = new ContactController();
                             $newContactController->showContactView();
                         }
+                        elseif ($_GET['action'] == 'sendMessage') {
+                            $newContactController = new ContactController();
+                            $newContactController->sendMessage();
+                        }
+                        
                     }
                     // ImageController
                     elseif ($_GET['controller'] == 'ImageController') {
+                        // Add image to Post
+                        if ($_GET['action'] == 'addImage') {
+                            
+                        }
                     }
                     // PostController
                     elseif ($_GET['controller'] == 'PostController') {
@@ -38,18 +47,26 @@ class Router
                         }
 
                         // Go to addPost page
-                        if ($_GET['action'] == 'showAddPostView') {
+                        elseif ($_GET['action'] == 'showAddPostView') {
                             $newPostController = new PostController();
                             $newPostController->showAddPostView();
                         }
 
                         // Go to blog page
-                        if ($_GET['action'] == 'addPost') {
-                            $newPostController = new PostController();
+                        elseif ($_GET['action'] == 'addPost') {
                             // $newPostController->addPost($title, $content, $creation_date);
+                            $title = isset($_POST['title']) ? strip_tags($_POST['title']) : NULL;
+                            $content = isset($_POST['content']) ? $_POST['content'] : NULL;
+                            $miniatureImg = isset($_POST['miniature-img']) ? $_POST['miniature-img'] : NULL;
+                            $newPostController = new PostController();
+                            $newPostController->addPost($title, $content, $miniatureImg);
+
+                            $image = isset($_POST['text-first-img']) ? $_POST['text-first-img'] : NULL;
+                            $newImageController = new ImageController();
+                            $newImageController->addImage($title, $content, $miniatureImg);
                         }
-                        
                     }
+
                     // UserController
                     elseif ($_GET['controller'] == 'UserController') {
                         // Go to home page
