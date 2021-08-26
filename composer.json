@@ -1,18 +1,20 @@
 {
-    "name": "vendor/autoload",
+    "name": "elysa/pfive",
     "authors": [
         {
             "name": "Elysa Bouttier",
             "email": "elysa.bouttier@sbsr.fr"
         }
     ],
-    "require": {},
+    "require": {
+        "phpmailer/phpmailer": "^6.5"
+    },
     
     "autoload": {
         "psr-4": {
-            "c": "controller/",
-            "m": "model/",
-            "v": "view/"
+            "Elysa\\Pfive\\c\\": "controller/",
+            "Elysa\\Pfive\\m\\": "model/",
+            "Elysa\\Pfive\\v\\": "view/"
         }
     }
 }

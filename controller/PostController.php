@@ -1,6 +1,6 @@
 <?php
 
-namespace Controller;
+namespace Elysa\Pfive\c;
 
 
 class PostController

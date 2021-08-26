@@ -1,9 +1,5 @@
 <?php ob_start();
 
-require './PHPMailer/src/Exception.php';
-require './PHPMailer/src/PHPMailer.php';
-require './PHPMailer/src/SMTP.php';
-
 //Load Composer's autoloader
 require './vendor/autoload.php';
 ?>

@@ -1,5 +1,5 @@
 <?php
-namespace controller;
+namespace Elysa\Pfive\c;
 
 class ImageController
 {
