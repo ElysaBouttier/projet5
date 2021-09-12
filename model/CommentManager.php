@@ -1,5 +1,5 @@
 <?php
-namespace model;
+namespace Elysa\Pfive\m;
 
 class CommentManager extends BaseManager
 {

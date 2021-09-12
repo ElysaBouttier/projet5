@@ -1,6 +1,6 @@
 <?php
 
-namespace model;
+namespace Elysa\Pfive\m;
 
 class ImageManager extends BaseManager
 {

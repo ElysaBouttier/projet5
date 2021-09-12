@@ -3,6 +3,9 @@
 // namespace Elysa\Pfive\c;
 
 use Elysa\Pfive\c\ContactController;
+use Elysa\Pfive\c\UserController;
+use Elysa\Pfive\c\PostController;
+use Elysa\Pfive\c\ImageController;
 
 session_start();
 // Autoloader 

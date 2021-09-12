@@ -2,8 +2,11 @@
 
 namespace Elysa\Pfive\c;
 
-use model\Message;
-use model\UserManager;
+use Elysa\Pfive\m\Message as Message;
+use Elysa\Pfive\m\UserManager as UserManager;
+use model\Message as ModelMessage;
+use model\UserManager as ModelUserManager;
+
 // Admin123!!
 
 class UserController

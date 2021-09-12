@@ -192,3 +192,23 @@ figcaption{
     padding-top: 3%;
     padding-bottom: 16%;
 }
+.add-post-form{
+    width: 100%;
+}
+.add-post-title-form{
+    width: 37%;
+    text-align-last: left;
+}
+.add-post-label-title{
+    width: 60%;
+}
+#add-post-input-title{
+    width: 100%;
+}
+.add-post-img-div{
+    width: 100%;
+}
+.add-post-img-title{
+    width: 59%;
+    text-align-last: left;
+}
