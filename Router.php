@@ -10,6 +10,8 @@ use Elysa\Pfive\c\ImageController;
 session_start();
 // Autoloader 
 require_once('vendor/autoload.php');
+require_once('./public/vendor/autoload.php');
+
 
 class Router
 {
