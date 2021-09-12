@@ -2,6 +2,8 @@
 
 namespace Elysa\Pfive\c;
 
+use Elysa\Pfive\m\Message as Message;
+use Elysa\Pfive\m\PostManager as PostManager;
 
 class PostController
 {
@@ -13,6 +15,24 @@ class PostController
     public function showAddPostView()
     {
         require_once('./view/backend/add_post.php');
+    }    
+    
+    public function showAddPostViewComplete($id)
+    {
+        $newPostManager = new PostManager();
+        $post = $newPostManager->getPost($id);
+        // Si l'id du billet n'existe pas alors on affiche une erreur
+        if ($post->getId() == null)
+        {
+            // Vue
+            require_once ('view/frontend/404.php');
+        }
+        else
+        {
+            // Vue
+            require_once ('view/backend/add_post.php');
+        }
+        require_once('./view/backend/add_post.php');
     }
 
 
@@ -21,29 +41,23 @@ class PostController
     // TODO
     // 
     // 
-    public function addCommentAction($fk_blogpost_id, $username, $content)
-    {
-        // DEBUG
-
-
+    public function addPost($title, $content, $miniatureImg){
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            print_r('username', $username);
-            if (!empty($username) && !empty($content)) {
-                $newCommentManager = new CommentaryManager();
-                $newCommentManager->add($fk_blogpost_id, $username, $content);
+            if (!empty($title) && !empty($miniatureImg) && !empty($content)) {
+                $newCommentManager = new PostManager();
+                $newCommentManager->addPost($title, $content, $miniatureImg);
                 $newMessage = new Message();
-                $newMessage->setSuccess("<p>Merci, votre commentaire a bien été publié !</p>");
-                // Création d'un cookie pour permettre à l'utilisateur de ne pas avoir à retaper son nom après un commentaire
-                setcookie("author", $username, time() + 365 * 24 * 3600, null, null, false, true);
+                $newMessage->setSuccess("<p>Votre oeuvre à bien été créée, veuillez ajouter des photos !</p>");
             } else {
                 $newMessage = new Message();
                 $newMessage->setError("<p>Tous les champs doivent être rempli !</p>");
             }
         }
-        $newPostController = new PostController();
-        $newPostController->showAction($fk_blogpost_id);
+        var_dump($title);
+        var_dump($miniatureImg);
+        var_dump($content);
+        // Show addPost view 
+        $newUserController = new UserController();
+        $newUserController->showPannelView();
     }
-    // public function addPost($title,){
-
-    // }
 }

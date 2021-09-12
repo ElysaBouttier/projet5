@@ -67,10 +67,6 @@ class Router
                             $miniatureImg = isset($_POST['miniature-img']) ? $_POST['miniature-img'] : NULL;
                             $newPostController = new PostController();
                             $newPostController->addPost($title, $content, $miniatureImg);
-
-                            $image = isset($_POST['text-first-img']) ? $_POST['text-first-img'] : NULL;
-                            $newImageController = new ImageController();
-                            $newImageController->addImage($title, $content, $miniatureImg);
                         }
                     }
 
