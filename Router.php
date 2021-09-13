@@ -68,6 +68,17 @@ class Router
                             $newPostController = new PostController();
                             $newPostController->addPost($title, $content, $miniatureImg);
                         }
+                        
+                        // Go to Post page
+                        elseif ($_GET['action'] == 'showPostById') {
+                            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                                $newPostController = new PostController();
+                                $newPostController->showPostView($_GET['commentary_id']);
+                            } else {
+                                // error 404
+                                require_once('view/frontend/404.php');
+                            }
+                        }
                     }
 
                     // UserController
@@ -80,8 +91,8 @@ class Router
 
                         // Go to pannel_config page
                         if ($_GET['action'] == 'showAddPostView') {
-                            $newUserController = new UserController();
-                            $newUserController->showAddPostView();
+                            $newPostController = new PostController();
+                            $newPostController->showAddPostView();
                         }
 
                         // Go to pannel_config page

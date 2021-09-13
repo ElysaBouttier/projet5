@@ -4,12 +4,34 @@ namespace Elysa\Pfive\c;
 
 use Elysa\Pfive\m\Message as Message;
 use Elysa\Pfive\m\PostManager as PostManager;
+use Elysa\Pfive\m\CommentManager as CommentManager;
+
 
 class PostController
 {
     public function showBlogView()
     {
         require_once('./view/frontend/blog.php');
+    }
+
+    public function showPostView($id)
+    {
+        $newPostManager = new PostManager();
+        $newCommentManager = new CommentManager();
+        $post = $newPostManager->getPost($id);
+        $comments = $newCommentManager->getAllComments($id);
+        // Si l'id du billet n'existe pas alors on affiche une erreur
+        if ($post->getId() == null)
+        {
+            // Vue
+            require_once ('view/frontend/404.php');
+        }
+        else
+        {
+            // Vue
+            require_once ('view/frontend/article.php');
+        }
+        require_once('./view/backend/add_post.php');
     }
 
     public function showAddPostView()
@@ -30,10 +52,12 @@ class PostController
         else
         {
             // Vue
-            require_once ('view/backend/add_post.php');
+            require_once ('view/backend/add_post_complete.php');
         }
-        require_once('./view/backend/add_post.php');
+        require_once('./view/backend/add_post_complete.php');
     }
+
+
 
 
     // 
@@ -57,7 +81,9 @@ class PostController
         var_dump($miniatureImg);
         var_dump($content);
         // Show addPost view 
-        $newUserController = new UserController();
-        $newUserController->showPannelView();
+        // $newUserController = new UserController();
+        // $newUserController->showPannelView();
+        $newUserManager = new UserController();
+        $newUserManager -> showPannelView();
     }
 }

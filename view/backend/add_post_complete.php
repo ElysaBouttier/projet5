@@ -27,19 +27,13 @@
         <input type="submit" class="d-flex mx-auto btn btn-primary" value="Modifier l'oeuvre">
     </form>
 
-<!-- Uniquement si on a validé le post , après validation => autre controlleur-->
     <!-- Button trigger modal -->
     <p>
         <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addImgModal">Ajouter une image</button>
     </p>
+
+    <!-- Tant qu'il y a une image, afficher image + text description -->
     
-
-
-
-
-
-    <!-- Uniquement si image -->
-    <p> Si article : afficher article</p>
 </div>
 
 <?php $content = ob_get_clean(); ?>

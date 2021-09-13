@@ -24,22 +24,9 @@
             <p class="text-start  add-post-text-title">Texte de présentation :</p>
             <textarea id="content" name="content" rows="5" cols="33"></textarea>
         </div>
-        <input type="submit" class="d-flex mx-auto btn btn-primary" value="Créer l'oeuvre">
+        <input type="submit" class="d-flex mx-auto btn btn-primary" value="Mettre en brouillon">
     </form>
-
-<!-- Uniquement si on a validé le post , après validation => autre controlleur-->
-    <!-- Button trigger modal -->
-    <p>
-        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addImgModal">Ajouter une image</button>
-    </p>
     
-
-
-
-
-
-    <!-- Uniquement si image -->
-    <p> Si article : afficher article</p>
 </div>
 
 <?php $content = ob_get_clean(); ?>

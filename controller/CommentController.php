@@ -1,8 +1,14 @@
 <?php
+
 namespace Elysa\Pfive\c;
 
-// Methode : pas de maj au début mais camelCase
+use Elysa\Pfive\m\Message as Message;
+use Elysa\Pfive\m\UserManager as UserManager;
 
-// Classe : Maj au début, camelCase
-// maClasse.class.php
-// 
+// Admin123!!
+
+class UserController
+{
+
+
+}

@@ -12,11 +12,11 @@
         </tr>
     </thead>
     <?php
-    // foreach ($posts as $post) {
+    foreach ($posts as $post) {
     ?>
         <tbody align="center">
             <tr>
-                <td><a href="" title="Lire le billet">Titre</a></td>
+                <td><a href="?controller=PostController&action=showPostById&blogpost_id=<?= $post->getId() ?> title='Voir l'oeuvre'"><?php $post->getTitle() ?></a></td>
                 <td>Date de création</td>
                 <td>Date de modification</td>
                 <td align="center">
@@ -30,7 +30,7 @@
             </tr>
         </tbody>
     <?php
-    // }
+    }
     ?>
 </table>
 

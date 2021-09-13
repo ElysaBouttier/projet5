@@ -4,8 +4,9 @@ namespace Elysa\Pfive\c;
 
 use Elysa\Pfive\m\Message as Message;
 use Elysa\Pfive\m\UserManager as UserManager;
-use model\Message as ModelMessage;
-use model\UserManager as ModelUserManager;
+use Elysa\Pfive\m\PostManager as PostManager;
+use Elysa\Pfive\m\CommentManager as CommentManager;
+
 
 // Admin123!!
 
@@ -18,13 +19,17 @@ class UserController
 
     public function showPannelView()
     {
+        // Objet
+        $newPostManager = new PostManager();
+        $newCommentManager = new CommentManager();
+        // Méthode
+        
+        $posts = $newPostManager->getAllPost();
+        $comments = $newCommentManager->getReportedComments();
         require_once('./view/backend/pannel_config.php');
     }
 
-    public function showAddPostView()
-    {
-        require_once('./view/backend/add_post.php');
-    }
+
 
     public function showRegistrerView()
     {

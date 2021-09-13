@@ -12,7 +12,39 @@ class CommentManager extends BaseManager
     // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // //////////////////////////////////////////////              READ              ///////////////////////////////////////////////////////
     // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+    public function getAllComments($id){
+        // Connect to DB
+        $newManager = new BaseManager();
+        $db = $newManager->dbConnect();
+        // Request
+        $request = $db->prepare('SELECT id, user_id, post_id, content, DATE_FORMAT(date_creation, \'%d/%m/%Y à %Hh%i\') AS date_creation, status FROM comments WHERE id = ?');
+        $request->execute(array($id));
+        $result = $request->fetchAll();
+        // Push in array
+        $comments = [];
+        foreach ($result as $comment) {
+            $newComment = new Comment($comment['id'], $comment['user_id'], $comment['post_id'], $comment['content'], $comment['date_creation'], $comment['status']);
+            $comments[] = $newComment;
+        }
+        // Return a list of comment 
+        return $comments;
+    }
+    public function getReportedComments() {
+        // Connect to DB
+        $newManager = new BaseManager();
+        $db = $newManager->dbConnect();
+        // Request
+        $request = $db->query('SELECT id, user_id, post_id, content, DATE_FORMAT(date_creation, \'%d/%m/%Y à %Hh%i\') AS date_creation, status FROM comments WHERE status = 1 ORDER BY status DESC LIMIT 10');
+        $request->execute(array());
+        $result = $request->fetchAll();
+        // Push in array
+        $comments = [];
+        foreach ($result as $comment) {
+            $newComment = new Comment($comment['id'], $comment['user_id'], $comment['post_id'], $comment['content'], $comment['date_creation'], $comment['status']);
+            $comments[] = $newComment;
+        }
+        return $comments;
+    }
 
     // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // //////////////////////////////////////////////              UPDATE              ///////////////////////////////////////////////////////
