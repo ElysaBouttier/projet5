@@ -35,7 +35,7 @@ class PostManager extends BaseManager
         $posts = [];
         // For each post put it on an array
         foreach ($result as $post) {
-            $newPost = new Post($post['id'], $post['title'], $post['content'], $post['miniature_img'], $post['url_img'], $post['creation_date'], $post['update_date']);
+            $newPost = new Post($post['id'], $post['title'], $post['content'], $post['miniature_img'], $post['creation_date'], $post['update_date']);
             $posts[] = $newPost;
         }
 
@@ -79,7 +79,14 @@ class PostManager extends BaseManager
     // //////////////////////////////////////////////              UPDATE              ///////////////////////////////////////////////////////
     // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    public function updatePost($title, $content, $miniatureImg){
+        $newManager = new BaseManager();
+        $db = $newManager->dbConnect();
+        $request = $db->prepare('UPDATE blogposts SET title = ?, content = ?, url_img = ?, updated_datetime = NOW() WHERE blogpost_id = ?');
+        $post = $request->execute(array($title, $content, $miniatureImg));
 
+        return $post;
+    }
     // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // //////////////////////////////////////////////              DELETE              ///////////////////////////////////////////////////////
     // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

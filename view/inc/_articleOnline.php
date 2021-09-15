@@ -16,11 +16,13 @@
     ?>
         <tbody align="center">
             <tr>
-                <td><a href="?controller=PostController&action=showPostById&blogpost_id=<?= $post->getId() ?> title='Voir l'oeuvre'"><?php $post->getTitle() ?></a></td>
-                <td>Date de création</td>
-                <td>Date de modification</td>
+                <td><a href="?controller=PostController&action=showPostById&id=<?= $post->getId() ?> "
+                    title="Voir l'oeuvre"><?php (html_entity_decode($post->getTitle())) ?></a></td>
+                <td><?php $post->getCreationDate() ?></td>
+                <td><?php $post->getUpdateDate() ?></td>
                 <td align="center">
-                    <a href="" title="Modifier le billet">
+                    <a href="?controller=PostController&action=editPostAction&id=<?= $post->getId() ?>" 
+                    title="Modifier le billet">
                         <i class="fas fa-pencil-alt"></i>
                     </a>
                     <a href="" title="Supprimer le billet">

@@ -73,11 +73,15 @@ class Router
                         elseif ($_GET['action'] == 'showPostById') {
                             if (isset($_GET['id']) && $_GET['id'] > 0) {
                                 $newPostController = new PostController();
-                                $newPostController->showPostView($_GET['commentary_id']);
+                                $newPostController->showPostView($_GET['id']);
                             } else {
                                 // error 404
                                 require_once('view/frontend/404.php');
                             }
+                        }
+                        elseif ($_GET['action'] == 'editPostAction') {
+                            $newPostController = new PostController();
+                            $newPostController->editPostAction($_GET['id']);
                         }
                     }
 
@@ -89,7 +93,7 @@ class Router
                             $newUserController->showHomeView();
                         }
 
-                        // Go to pannel_config page
+                        // Go to addPost page
                         if ($_GET['action'] == 'showAddPostView') {
                             $newPostController = new PostController();
                             $newPostController->showAddPostView();

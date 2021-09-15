@@ -29,7 +29,7 @@ class PostController
         else
         {
             // Vue
-            require_once ('view/frontend/article.php');
+            require_once ('view/frontend/blog.php');
         }
         require_once('./view/backend/add_post.php');
     }
@@ -55,6 +55,20 @@ class PostController
             require_once ('view/backend/add_post_complete.php');
         }
         require_once('./view/backend/add_post_complete.php');
+    }
+
+    public function editPostAction($id){
+        if ($_SERVER['REQUEST_METHOD'] === 'POST')
+        {
+            $post = new PostManager();
+            $post->updatePost($_GET['id'], ($_POST['title']), ($_POST['content']), ($_POST['url_img']));
+            $newMessage = new Message();
+            $newMessage->setSuccess("<p>Merci, votre oeuvre a bien été modifié !</p>");
+        }
+        $newPostManager = new PostManager();
+        $post = $newPostManager->getPost($id);
+        // Vue
+        require_once ('view/backend/edit_post.php');
     }
 
 
