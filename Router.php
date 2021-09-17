@@ -73,7 +73,7 @@ class Router
                         elseif ($_GET['action'] == 'showPostById') {
                             if (isset($_GET['id']) && $_GET['id'] > 0) {
                                 $newPostController = new PostController();
-                                $newPostController->showPostView($_GET['id']);
+                                $newPostController->showPostById($_GET['id']);
                             } else {
                                 // error 404
                                 require_once('view/frontend/404.php');

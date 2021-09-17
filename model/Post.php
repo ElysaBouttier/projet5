@@ -8,16 +8,18 @@ class Post
     // VARIABLES
     private $id;
     private $title;
+    private $content;
     private $creation_date;
     private $update_date;
     private $status;
 
 
     // CONSTRUCTOR
-    public function __construct($id, $title, $creation_date, $update_date, $status)
+    public function __construct($id, $title, $content, $creation_date, $update_date, $status)
     {
         $this->id = $id;
         $this->title = $title;
+        $this->content = $content;
         $this->creation_date = $creation_date;
         $this->update_date = $update_date;
         $this->status = $status;
@@ -32,6 +34,11 @@ class Post
     public function getTitle()
     {
         return $this->title;
+    }
+
+    public function getContent()
+    {
+        return $this->content;
     }
 
     public function getCreationDate()
@@ -66,6 +73,14 @@ class Post
             $this->title = $title;
         } else {
             throw new \Exception('Problem with $title in Post model!');        }
+    }
+
+    public function setContent($content)
+    {
+        if (is_string($content)) {
+            $this->content = $content;
+        } else {
+            throw new \Exception('Problem with $content in Post model!');        }
     }
 
     public function setDateCreation($creation_date)

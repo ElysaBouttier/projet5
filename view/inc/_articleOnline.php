@@ -6,32 +6,36 @@
     <thead>
         <tr>
             <th class="text-center">Titre</th>
-            <th class="text-center">Date de publication</th>
+            <th class="text-center">Description</th>
             <th class="text-center">Dernière modification</th>
             <th class="text-center">Action</th>
         </tr>
     </thead>
     <?php
-    foreach ($posts as $post) {
-    ?>
+    foreach ($posts as $post)
+    {
+        ?>
         <tbody align="center">
-            <tr>
-                <td><a href="?controller=PostController&action=showPostById&id=<?= $post->getId() ?> "
-                    title="Voir l'oeuvre"><?php (html_entity_decode($post->getTitle())) ?></a></td>
-                <td><?php $post->getCreationDate() ?></td>
-                <td><?php $post->getUpdateDate() ?></td>
-                <td align="center">
-                    <a href="?controller=PostController&action=editPostAction&id=<?= $post->getId() ?>" 
-                    title="Modifier le billet">
-                        <i class="fas fa-pencil-alt"></i>
-                    </a>
-                    <a href="" title="Supprimer le billet">
-                        <i class="fas fa-trash-alt"></i>
-                    </a>
-                </td>
-            </tr>
+        <tr>
+            <td><a href="?controller=PostController&action=showAction&blogpost_id=<?= $post->getId() ?>"
+                   title="Lire le billet"><?= (html_entity_decode($post->getTitle())) ?></a></td>
+                   
+            <td><?= substr(nl2br(html_entity_decode($post->getContent())), 0, 15) ?></td>
+            <td><?= $post->getUpdateDate() ?></td>
+            <td align="center">
+                <a href="?controller=AdminController&action=editPostAction&blogpost_id=<?= $post->getId() ?>"
+                   title="Modifier le billet">
+                    <i class="fas fa-pencil-alt"></i>
+                </a>
+                <a href="?controller=AdminController&action=deletePostAction&blogpost_id=<?= $post->getId() ?>"
+                   title="Supprimer le billet"
+                   onclick="return(confirm('ATTENTION ! Voulez-vous définitivement supprimer cet article ?'))">
+                    <i class="fas fa-trash-alt"></i>
+                </a>
+            </td>
+        </tr>
         </tbody>
-    <?php
+        <?php
     }
     ?>
 </table>

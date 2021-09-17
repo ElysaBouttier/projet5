@@ -14,12 +14,11 @@ class PostController
         require_once('./view/frontend/blog.php');
     }
 
-    public function showPostView($id)
+    public function showPostById($id)
     {
         $newPostManager = new PostManager();
         $newCommentManager = new CommentManager();
         $post = $newPostManager->getPost($id);
-        $comments = $newCommentManager->getAllComments($id);
         // Si l'id du billet n'existe pas alors on affiche une erreur
         if ($post->getId() == null)
         {
@@ -31,7 +30,6 @@ class PostController
             // Vue
             require_once ('view/frontend/blog.php');
         }
-        require_once('./view/backend/add_post.php');
     }
 
     public function showAddPostView()

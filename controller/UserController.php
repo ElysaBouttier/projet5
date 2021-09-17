@@ -23,10 +23,11 @@ class UserController
         $newPostManager = new PostManager();
         $newCommentManager = new CommentManager();
         // Méthode
-        
         $posts = $newPostManager->getAllPost();
-        $comments = $newCommentManager->getReportedComments();
-        require_once('./view/backend/pannel_config.php');
+        $drafts = $newPostManager->getAllDraft();
+
+        // Vue
+        require_once ('view/backend/pannel_config.php');
     }
 
 
