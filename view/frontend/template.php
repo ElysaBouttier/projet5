@@ -22,6 +22,19 @@
 
         <!-- Fontawesome -->
         <script src="https://kit.fontawesome.com/22878924ef.js" crossorigin="anonymous"></script>
+
+        <!-- TinyMce 
+        <script src="https://cdn.tiny.cloud/1/xvujr781evyf8zv3dsyc6b88nx98022yqyxje6uvokzkyp8p/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+        <script src="https://cdn.tiny.cloud/1/xvujr781evyf8zv3dsyc6b88nx98022yqyxje6uvokzkyp8p/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>  <script>
+            tinymce.init({
+            selector: 'textarea',
+            plugins: 'a11ychecker advcode casechange formatpainter linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tinycomments tinymcespellchecker',
+            toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | outdent indent',
+            toolbar_mode: 'floating',
+            tinycomments_mode: 'embedded',
+            tinycomments_author: 'Author name',
+            });
+        </script>-->
     </head>
     <body>
         <header>

@@ -102,7 +102,8 @@ class Router
                         if ($_GET['action'] == 'showPannelView') {
                             $newUserController = new UserController();
                             $username = $_SESSION['username'];
-                            $newUserController->showPannelView($username);
+                            $content = isset($_POST['content']) ? strip_tags($_POST['content']) : NULL;
+                            $newUserController->showPannelView($content, $username);
                         }
 
                         // Go to registrer page
@@ -137,6 +138,13 @@ class Router
                         // Log out if click on logout button
                         elseif ($_GET['action'] == 'logout') {
                             require_once('view/backend/log_out.php');
+                        }
+                        // Update edito
+                        elseif ($_GET['action'] == 'editEdito') {
+                            $newUserController = new UserController();
+                            $content = isset($_POST['content']) ? strip_tags($_POST['content']) : NULL;
+                            $username = $_SESSION['username'];
+                            $newUserController->showPannelView($content, $username);
                         }
                     }
                 } else {
