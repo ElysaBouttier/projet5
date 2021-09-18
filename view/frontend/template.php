@@ -139,6 +139,7 @@
             <?php 
                 require_once ('./view/inc/_login.php');
                 require_once('./view/inc/_messageError.php');
+                require_once('./view/inc/_addEdito.php');
                 echo $content;
             ?>
         </main>

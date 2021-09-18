@@ -81,7 +81,6 @@ class Router
                         elseif ($_GET['action'] == 'editPostAction') {
                             $newPostController = new PostController();
                             $newPostController->editPostAction($_GET['id']);
-                            var_dump('coucou');
                         }
                     }
 
@@ -102,7 +101,8 @@ class Router
                         // Go to pannel_config page
                         if ($_GET['action'] == 'showPannelView') {
                             $newUserController = new UserController();
-                            $newUserController->showPannelView();
+                            $username = $_SESSION['username'];
+                            $newUserController->showPannelView($username);
                         }
 
                         // Go to registrer page

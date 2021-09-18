@@ -17,14 +17,16 @@ class UserController
         require_once('./view/frontend/home.php');
     }
 
-    public function showPannelView()
+    public function showPannelView($username)
     {
         // Objet
         $newPostManager = new PostManager();
         $newCommentManager = new CommentManager();
+        $newUserManager = new UserManager();
         // Méthode
         $posts = $newPostManager->getAllPost();
         $drafts = $newPostManager->getAllDraft();
+        $edito = $newUserManager -> getEdito($username);
 
         // Vue
         require_once ('view/backend/pannel_config.php');
