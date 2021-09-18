@@ -8,13 +8,13 @@ class PostManager extends BaseManager
     // //////////////////////////////////////////////              CREATE              ///////////////////////////////////////////////////////
     // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Add post and put in draft
-    public function addPost($title, $content, $miniatureImg)
+    public function addDraft($title, $content, $miniatureImg)
     {
         // DB Connection
         $newManager = new BaseManager();
         $db = $newManager->dbConnect();
         // Create new line
-        $request = $db->prepare('INSERT INTO posts (id, title, content, $miniatureImg, creation_date, status) VALUES (?, ?, ?, ?, NOW(), 1)');
+        $request = $db->prepare('INSERT INTO posts ( title, content, miniature_img, creation_date, status) VALUES ( ?, ?, ?, NOW(), 0)');
         $request->execute(array($title, $content, $miniatureImg));
     }
 

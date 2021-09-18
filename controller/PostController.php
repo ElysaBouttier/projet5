@@ -78,11 +78,11 @@ class PostController
     // TODO
     // 
     // 
-    public function addPost($title, $content, $miniatureImg){
+    public function addDraft($title, $content, $miniatureImg){
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if (!empty($title) && !empty($miniatureImg) && !empty($content)) {
                 $newCommentManager = new PostManager();
-                $newCommentManager->addPost($title, $content, $miniatureImg);
+                $newCommentManager->addDraft($title, $content, $miniatureImg);
                 $newMessage = new Message();
                 $newMessage->setSuccess("<p>Votre oeuvre à bien été créée, veuillez ajouter des photos !</p>");
             } else {
@@ -90,12 +90,6 @@ class PostController
                 $newMessage->setError("<p>Tous les champs doivent être rempli !</p>");
             }
         }
-        var_dump($title);
-        var_dump($miniatureImg);
-        var_dump($content);
-        // Show addPost view 
-        // $newUserController = new UserController();
-        // $newUserController->showPannelView();
         $newUserManager = new UserController();
         $newUserManager -> showPannelView();
     }

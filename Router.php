@@ -60,13 +60,12 @@ class Router
                         }
 
                         // Go to blog page
-                        elseif ($_GET['action'] == 'addPost') {
-                            // $newPostController->addPost($title, $content, $creation_date);
+                        elseif ($_GET['action'] == 'addDraft') {
                             $title = isset($_POST['title']) ? strip_tags($_POST['title']) : NULL;
-                            $content = isset($_POST['content']) ? $_POST['content'] : NULL;
-                            $miniatureImg = isset($_POST['miniature-img']) ? $_POST['miniature-img'] : NULL;
+                            $content = isset($_POST['content']) ? $_POST['content'] : NULL;;
+                            $miniatureImg = $_FILES["miniature_img"]["name"];
                             $newPostController = new PostController();
-                            $newPostController->addPost($title, $content, $miniatureImg);
+                            $newPostController->addDraft($title, $content, $miniatureImg);
                         }
                         
                         // Go to Post page
