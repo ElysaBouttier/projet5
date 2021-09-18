@@ -59,9 +59,10 @@ class PostController
         if ($_SERVER['REQUEST_METHOD'] === 'POST')
         {
             $post = new PostManager();
-            $post->updatePost($_GET['id'], ($_POST['title']), ($_POST['content']), ($_POST['url_img']));
+            $post->updatePost($_GET['id'], ($_POST['title']), ($_POST['content']), ($_POST['miniatureImg']));
             $newMessage = new Message();
             $newMessage->setSuccess("<p>Merci, votre oeuvre a bien été modifié !</p>");
+            var_dump('coucou');
         }
         $newPostManager = new PostManager();
         $post = $newPostManager->getPost($id);

@@ -82,6 +82,7 @@ class Router
                         elseif ($_GET['action'] == 'editPostAction') {
                             $newPostController = new PostController();
                             $newPostController->editPostAction($_GET['id']);
+                            var_dump('coucou');
                         }
                     }
 

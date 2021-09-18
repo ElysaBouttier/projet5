@@ -69,7 +69,7 @@ class PostManager extends BaseManager
         $request = $db->prepare('SELECT id, title, content, miniature_img, DATE_FORMAT(creation_date,"le : %d/%m/%Y à %Hh%i") AS creation_date, DATE_FORMAT(update_date, "le : %d/%m/%Y à %Hh%i") AS update_date, status FROM posts WHERE id = ?');
         $request->execute(array((int)$id));
         $post = $request->fetch();
-        $response = new Post($post['id'], $post['title'], $post['content'], $post['miniature_img'], $post['url_img'], $post['creation_date'], $post['update_date']);
+        $response = new Post($post['id'], $post['title'], $post['content'], $post['miniature_img'], $post['creation_date'], $post['update_date']);
 
         return $response;
     }
@@ -98,12 +98,12 @@ class PostManager extends BaseManager
     // //////////////////////////////////////////////              UPDATE              ///////////////////////////////////////////////////////
     // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    public function updatePost($title, $content, $miniatureImg){
+    public function updatePost($id, $title, $content, $miniatureImg){
         $newManager = new BaseManager();
         $db = $newManager->dbConnect();
-        $request = $db->prepare('UPDATE blogposts SET title = ?, content = ?, url_img = ?, updated_datetime = NOW() WHERE blogpost_id = ?');
-        $post = $request->execute(array($title, $content, $miniatureImg));
-
+        $request = $db->prepare('UPDATE posts SET title = ?, content = ?, miniatureImg = ?, updated_datetime = NOW() WHERE id = ?');
+        $post = $request->execute(array($id, $title, $content, $miniatureImg));
+        var_dump('coucou');
         return $post;
     }
     // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

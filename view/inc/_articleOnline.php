@@ -17,17 +17,17 @@
         ?>
         <tbody align="center">
         <tr>
-            <td><a href="?controller=PostController&action=showAction&blogpost_id=<?= $post->getId() ?>"
+            <td><a href="?controller=PostController&action=showPostById&id=<?= $post->getId() ?>"
                    title="Lire le billet"><?= (html_entity_decode($post->getTitle())) ?></a></td>
                    
             <td><?= substr(nl2br(html_entity_decode($post->getContent())), 0, 15) ?></td>
             <td><?= $post->getUpdateDate() ?></td>
             <td align="center">
-                <a href="?controller=AdminController&action=editPostAction&blogpost_id=<?= $post->getId() ?>"
+                <a href="?controller=PostController&action=editPostAction&id=<?= $post->getId() ?>"
                    title="Modifier le billet">
                     <i class="fas fa-pencil-alt"></i>
                 </a>
-                <a href="?controller=AdminController&action=deletePostAction&blogpost_id=<?= $post->getId() ?>"
+                <a href="?controller=PostController&action=deletePostAction&id=<?= $post->getId() ?>"
                    title="Supprimer le billet"
                    onclick="return(confirm('ATTENTION ! Voulez-vous définitivement supprimer cet article ?'))">
                     <i class="fas fa-trash-alt"></i>

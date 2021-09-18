@@ -6,7 +6,7 @@
 <div class="container">
 
     <h1 class="text-center title-add-post">Modifier l'oeuvre</h1>
-    <form class="add-post-form" action="?controller=PostController&action=addPost&id=<?= $post['blogpost_id'] ?>" method="POST">
+    <form class="add-post-form" action="?controller=PostController&action=addPost&id=<?= $post['id'] ?>" method="POST">
         <div class="d-flex">
             <p class="text-start add-post-title-form">Titre :</p>
             <label for="title" class="add-post-label-title">
