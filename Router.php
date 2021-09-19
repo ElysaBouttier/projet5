@@ -64,8 +64,9 @@ class Router
                             $title = isset($_POST['title']) ? strip_tags($_POST['title']) : NULL;
                             $content = isset($_POST['content']) ? $_POST['content'] : NULL;;
                             $miniatureImg = $_FILES["miniature_img"]["name"];
+                            $username = isset($_POST['username']) ? $_POST['username'] : NULL;;
                             $newPostController = new PostController();
-                            $newPostController->addDraft($title, $content, $miniatureImg);
+                            $newPostController->addDraft($title, $content, $miniatureImg, $username);
                         }
                         
                         // Go to Post page
@@ -144,7 +145,7 @@ class Router
                             $newUserController = new UserController();
                             $content = isset($_POST['content']) ? strip_tags($_POST['content']) : NULL;
                             $username = $_SESSION['username'];
-                            $newUserController->showPannelView($content, $username);
+                            $newUserController->updateEdito($content, $username);
                         }
                     }
                 } else {

@@ -7,7 +7,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form action="?controller=UserController&action=showPannelView" method="post">
+        <form action="?controller=UserController&action=editEdito" method="post">
           <textarea id="content" name="content" cols="30" rows="5" class="mceEditor"><?php echo $edito ?></textarea></br>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

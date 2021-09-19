@@ -78,7 +78,7 @@ class PostController
     // TODO
     // 
     // 
-    public function addDraft($title, $content, $miniatureImg){
+    public function addDraft($title, $content, $miniatureImg, $username){
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if (!empty($title) && !empty($miniatureImg) && !empty($content)) {
                 $newCommentManager = new PostManager();
@@ -91,6 +91,6 @@ class PostController
             }
         }
         $newUserManager = new UserController();
-        $newUserManager -> showPannelView();
+        $newUserManager -> showPannelView($username);
     }
 }

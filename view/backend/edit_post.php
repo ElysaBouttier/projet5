@@ -5,8 +5,8 @@
 
 <div class="container">
 
-    <h1 class="text-center title-add-post">Créer un post</h1>
-    <form class="add-post-form" action="?controller=PostController&action=addPost" method="POST" enctype="multipart/form-data">
+    <h1 class="text-center title-add-post">Modifier l'oeuvre</h1>
+    <form class="add-post-form" action="?controller=PostController&action=editPost" method="POST" enctype="multipart/form-data">
         <div class="d-flex">
             <p class="text-start add-post-title-form">Titre :</p>
             <label for="title" class="add-post-label-title">
@@ -27,6 +27,10 @@
         <input type="submit" class="d-flex mx-auto btn btn-primary" value="Mettre en brouillon">
     </form>
     
+    <!-- Button trigger modal -->
+    <p>
+        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addImgModal">Ajouter une image</button>
+    </p>
 </div>
 
 <?php $content = ob_get_clean(); ?>

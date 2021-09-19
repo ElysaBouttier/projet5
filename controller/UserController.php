@@ -17,7 +17,22 @@ class UserController
         require_once('./view/frontend/home.php');
     }
 
-    public function showPannelView($content, $username)
+    public function showPannelView($username)
+    {
+        // Objet
+        $newPostManager = new PostManager();
+        $newCommentManager = new CommentManager();
+        $newUserManager = new UserManager();
+        // Method
+        $posts = $newPostManager->getAllPost();
+        $drafts = $newPostManager->getAllDraft();
+        $edito = $newUserManager -> getEdito($username);
+
+        // View
+        require_once ('view/backend/pannel_config.php');
+    }
+
+    public function updateEdito($content, $username)
     {
         // Objet
         $newPostManager = new PostManager();
@@ -30,8 +45,9 @@ class UserController
         $newUserManager -> updateEdito($content);
 
         // View
-        require_once ('view/backend/pannel_config.php');
+        header("Location: index.php?controller=UserController&action=showPannelView");
     }
+
 
     // public function editEdito($content, $username)
     // {

@@ -153,6 +153,7 @@
                 require_once ('./view/inc/_login.php');
                 require_once('./view/inc/_messageError.php');
                 require_once('./view/inc/_addEdito.php');
+                require_once('./view/inc/_addImg.php');
                 echo $content;
             ?>
         </main>
