@@ -2,23 +2,24 @@
 namespace Elysa\Pfive\c;
 
 use Elysa\Pfive\m\ImageManager as ImageManager;
+use Elysa\Pfive\m\Message as Message;
+use Elysa\Pfive\m\PostManager;
 
 class ImageController
 {
-// TODO
-    // public function addImage($path, $post_id, $content){
-    //     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    //         if (!empty($title) && !empty($miniatureImg) && !empty($content)) {
-    //             $newImageModel = new ImageManager();
-    //             $newImageModel->addImage($title, $content, $miniatureImg);
-    //             $newMessage = new Message();
-    //             $newMessage->setSuccess("<p>Votre oeuvre à bien été créée, veuillez ajouter des photos !</p>");
-    //         } else {
-    //             $newMessage = new Message();
-    //             $newMessage->setError("<p>Tous les champs doivent être rempli !</p>");
-    //         }
-    //     }
-    //     $newUserManager = new UserController();
-    //     $newUserManager -> showPannelView($username);
-    // }
+
+    public function addImg($id,$url_img, $content){
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            if (!empty($url_img) && !empty($content)) {
+                $newImageManager = new ImageManager();
+                $newImageManager->addImage($id, $url_img, $content);
+                $newMessage = new Message();
+                $newMessage->setSuccess("<p>Merci, votre image a bien été ajouté à l'oeuvre !</p>");
+            } else {
+                $newMessage = new Message();
+                $newMessage->setError("<p>Tous les champs doivent être rempli !</p>");
+            }
+        }
+        $newPostManager = new PostManager();
+    }
 }

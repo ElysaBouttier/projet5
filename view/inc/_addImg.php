@@ -7,22 +7,22 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form class="add-img-form" action="?controller=ImgController&action=addImage&id=<?php echo $post->getId()?>" method="POST">
+        <form class="add-img-form" action="?controller=ImageController&action=addImage&id=<?php echo $post->getId()?>" method="POST">
             <div class="d-flex add-post-img-div">
                 <p class="text-start  add-post-img-title">Image  : </p>
-                <label for="path" class="text-end">
-                    <input class="input-add-img" type="file" id="path" name="path" accept="image/png, image/jpeg">
+                <label for="url_img" class="text-end">
+                    <input class="input-add-img" type="file" id="url_img" name="url_img" accept="image/png, image/jpeg">
                 </label>
             </div>
             <div class="d-flex row add-img-text-div">
                 <p class="text-start  add-img-text-title">Texte de présentation :</p>
                 <textarea id="content" name="content" rows="5" cols="33"></textarea>
             </div>
+            <div class="modal-footer">
+                <input type="submit" class="d-flex mx-auto btn btn-primary" value="Ajouter l'image">
+              </div>
         </form>
     </div>
-    <div class="modal-footer">
-        <input type="submit" class="d-flex mx-auto btn btn-primary" value="Ajouter l'image">
-      </div>
     </div>
   </div>
 </div>

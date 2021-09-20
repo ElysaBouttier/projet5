@@ -43,10 +43,10 @@ class Router
                         // Add image to Post
                         if ($_GET['action'] == 'addImage') {
                             if (isset($_GET['id']) && $_GET['id'] > 0) {
-                                $newImageController = new ImageController();
-                                $path = isset($_POST['path']) ? $_POST['path'] : NULL;
+                                $url_img = isset($_POST['url_img']) ? strip_tags($_POST['url_img']) : NULL;
                                 $content = isset($_POST['content']) ? $_POST['content'] : NULL;
-                                // $newImageController->addImage($path, $_GET['id'], $content);
+                                $newImgController = new ImageController();
+                                $newImgController->addImg($_GET['id'],$url_img, $content);
                             } else {
                                 // error 404
                                 require_once('view/frontend/404.php');
