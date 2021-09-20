@@ -20,6 +20,6 @@ class ImageController
                 $newMessage->setError("<p>Tous les champs doivent être rempli !</p>");
             }
         }
-        $newPostManager = new PostManager();
+        header("Location: index.php?controller=PostController&action=showEditPostView&id=".$id);
     }
 }

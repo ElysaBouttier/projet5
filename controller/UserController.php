@@ -48,22 +48,6 @@ class UserController
         header("Location: index.php?controller=UserController&action=showPannelView");
     }
 
-
-    // public function editEdito($content, $username)
-    // {
-    //      // Objet
-    //      $newPostManager = new PostManager();
-    //      $newCommentManager = new CommentManager();
-    //      $newUserManager = new UserManager();
-    //      // Method
-    //      $posts = $newPostManager->getAllPost();
-    //      $drafts = $newPostManager->getAllDraft();
-    //      $edito = $newUserManager -> getEdito($content);
-    //      $newEdito = $newUserManager -> updateEdito($content);
-    //      // View
-    //      require_once ('view/backend/pannel_config.php');
-    // }
-
     public function showRegistrerView()
     {
         require_once('./view/frontend/registrer.php');
