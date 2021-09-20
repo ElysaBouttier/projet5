@@ -8,14 +8,14 @@ class PostManager extends BaseManager
     // //////////////////////////////////////////////              CREATE              ///////////////////////////////////////////////////////
     // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Add post and put in draft
-    public function addDraft($title, $content, $miniatureImg)
+    public function addDraft($title, $content, $miniature_img)
     {
         // DB Connection
         $newManager = new BaseManager();
         $db = $newManager->dbConnect();
         // Create new line
         $request = $db->prepare('INSERT INTO posts ( title, content, miniature_img, creation_date, status) VALUES ( ?, ?, ?, NOW(), 0)');
-        $request->execute(array($title, $content, $miniatureImg));
+        $request->execute(array($title, $content, $miniature_img));
     }
 
 
@@ -69,7 +69,7 @@ class PostManager extends BaseManager
         $request = $db->prepare('SELECT id, title, content, miniature_img, DATE_FORMAT(creation_date,"le : %d/%m/%Y à %Hh%i") AS creation_date, DATE_FORMAT(update_date, "le : %d/%m/%Y à %Hh%i") AS update_date, status FROM posts WHERE id = ?');
         $request->execute(array((int)$id));
         $post = $request->fetch();
-        $response = new Post($post['id'], $post['title'], $post['content'], $post['miniature_img'], $post['creation_date'], $post['update_date']);
+        $response = new Post($post['id'], $post['title'], $post['content'], $post['miniature_img'], $post['creation_date'], $post['update_date'], $post['status']);
 
         return $response;
     }
@@ -98,12 +98,13 @@ class PostManager extends BaseManager
     // //////////////////////////////////////////////              UPDATE              ///////////////////////////////////////////////////////
     // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    public function updatePost($id, $title, $content, $miniatureImg){
+    // Show 
+    public function showEditPostView($title, $content, $miniature_img, $id){
         $newManager = new BaseManager();
         $db = $newManager->dbConnect();
-        $request = $db->prepare('UPDATE posts SET title = ?, content = ?, miniatureImg = ?, updated_datetime = NOW() WHERE id = ?');
-        $post = $request->execute(array($id, $title, $content, $miniatureImg));
-        var_dump('coucou');
+        $request = $db->prepare('UPDATE posts SET title = ?, content = ?, miniature_img = ?, update_date = NOW() WHERE id = ?');
+        $post = $request->execute(array($title, $content, $miniature_img, $id));
+
         return $post;
     }
     // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

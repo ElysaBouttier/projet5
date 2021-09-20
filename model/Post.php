@@ -15,11 +15,12 @@ class Post
 
 
     // CONSTRUCTOR
-    public function __construct($id, $title, $content, $creation_date, $update_date, $status)
+    public function __construct($id, $title, $content, $miniature_img, $creation_date, $update_date, $status)
     {
         $this->id = $id;
         $this->title = $title;
         $this->content = $content;
+        $this->miniature_img = $miniature_img;
         $this->creation_date = $creation_date;
         $this->update_date = $update_date;
         $this->status = $status;
@@ -39,6 +40,11 @@ class Post
     public function getContent()
     {
         return $this->content;
+    }
+
+    public function getMiniatureImg()
+    {
+        return $this->miniature_img;
     }
 
     public function getCreationDate()
@@ -81,6 +87,14 @@ class Post
             $this->content = $content;
         } else {
             throw new \Exception('Problem with $content in Post model!');        }
+    }
+
+    public function setMiniatureImg($miniature_img)
+    {
+        if (is_string($miniature_img)) {
+            $this->miniature_img = $miniature_img;
+        } else {
+            throw new \Exception('Problem with $miniature_img in Post model!');        }
     }
 
     public function setDateCreation($creation_date)

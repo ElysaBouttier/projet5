@@ -42,7 +42,15 @@ class Router
                     elseif ($_GET['controller'] == 'ImageController') {
                         // Add image to Post
                         if ($_GET['action'] == 'addImage') {
-                            
+                            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                                $newImageController = new ImageController();
+                                $path = isset($_POST['path']) ? $_POST['path'] : NULL;
+                                $content = isset($_POST['content']) ? $_POST['content'] : NULL;
+                                // $newImageController->addImage($path, $_GET['id'], $content);
+                            } else {
+                                // error 404
+                                require_once('view/frontend/404.php');
+                            }
                         }
                     }
                     // PostController
@@ -59,12 +67,17 @@ class Router
                             $newPostController->showAddPostView();
                         }
 
+                        elseif ($_GET['action'] == 'showEditPostView') {
+                            $newAdminController = new PostController();
+                            $newAdminController->showEditPostView($_GET['id']);
+                        }
+
                         // Go to blog page
                         elseif ($_GET['action'] == 'addDraft') {
                             $title = isset($_POST['title']) ? strip_tags($_POST['title']) : NULL;
-                            $content = isset($_POST['content']) ? $_POST['content'] : NULL;;
+                            $content = isset($_POST['content']) ? $_POST['content'] : NULL;
                             $miniatureImg = $_FILES["miniature_img"]["name"];
-                            $username = isset($_POST['username']) ? $_POST['username'] : NULL;;
+                            $username = isset($_POST['username']) ? $_POST['username'] : NULL;
                             $newPostController = new PostController();
                             $newPostController->addDraft($title, $content, $miniatureImg, $username);
                         }
@@ -79,10 +92,7 @@ class Router
                                 require_once('view/frontend/404.php');
                             }
                         }
-                        elseif ($_GET['action'] == 'editPostAction') {
-                            $newPostController = new PostController();
-                            $newPostController->editPostAction($_GET['id']);
-                        }
+                        
                     }
 
                     // UserController

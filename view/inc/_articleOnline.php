@@ -23,7 +23,7 @@
             <td><?= substr(nl2br(html_entity_decode($post->getContent())), 0, 15) ?></td>
             <td><?= $post->getUpdateDate() ?></td>
             <td align="center">
-                <a href="?controller=PostController&action=editPostAction&id=<?= $post->getId() ?>"
+                <a href="?controller=PostController&action=showEditPostView&id=<?= $post->getId() ?>"
                    title="Modifier le billet">
                     <i class="fas fa-pencil-alt"></i>
                 </a>

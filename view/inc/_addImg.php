@@ -7,16 +7,16 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form class="add-img-form" action="?controller=ImgController&action=addImg&post_id=<?php echo $post->getId()?>" method="POST">
+        <form class="add-img-form" action="?controller=ImgController&action=addImage&id=<?php echo $post->getId()?>" method="POST">
             <div class="d-flex add-post-img-div">
                 <p class="text-start  add-post-img-title">Image  : </p>
-                <label for="miniature-img" class="text-end">
-                    <input class="input-add-img" type="file" id="miniature-img" name="miniature-img" accept="image/png, image/jpeg">
+                <label for="path" class="text-end">
+                    <input class="input-add-img" type="file" id="path" name="path" accept="image/png, image/jpeg">
                 </label>
             </div>
             <div class="d-flex row add-img-text-div">
                 <p class="text-start  add-img-text-title">Texte de présentation :</p>
-                <textarea id="story" name="story" rows="5" cols="33"></textarea>
+                <textarea id="content" name="content" rows="5" cols="33"></textarea>
             </div>
         </form>
     </div>

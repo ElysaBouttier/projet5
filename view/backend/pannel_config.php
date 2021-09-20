@@ -13,6 +13,11 @@
     <?php
     require_once('./view/inc/_reportedComments.php');
     ?>
+        
+    <?php
+    require_once('./view/inc/_addEdito.php');
+    ?>   
+
 
     <div>
         <h3>Edito :</h3>
