@@ -27,7 +27,7 @@
                    title="Modifier le billet">
                     <i class="fas fa-pencil-alt"></i>
                 </a>
-                <a href="?controller=PostController&action=deletePostAction&id=<?= $post->getId() ?>"
+                <a href="?controller=PostController&action=deletePost&id=<?= $post->getId() ?>"
                    title="Supprimer le billet"
                    onclick="return(confirm('ATTENTION ! Voulez-vous définitivement supprimer cet article ?'))">
                     <i class="fas fa-trash-alt"></i>

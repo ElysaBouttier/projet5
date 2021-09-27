@@ -33,6 +33,12 @@
     <p>
         <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addImgModal">Ajouter une image</button>
     </p>
+    <div class="">
+       <?php
+            require_once('./view/inc/_imgAndDescription.php');
+        ?> 
+    </div>
+    
 </div>
 
 <?php $content = ob_get_clean(); ?>

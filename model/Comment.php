@@ -27,7 +27,7 @@ class Comment
 
 
     // GETTERS
-    public function getIdCommentary()
+    public function getId()
     {
         return $this->id;
     }

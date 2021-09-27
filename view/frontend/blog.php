@@ -1,22 +1,36 @@
 <?php ob_start(); ?>
 
+    
 <div class="container">
     <h1 class="col-md-6 offset-md-3 title_blog">Titre de l'article</h1>
-        <?php
-        require_once ('../inc/_article.php');
-        ?>
+        
 <!-- add like/love notation system -->
-<div class="row add_comments">
+<div class="add_comments">
 
-    <div class="col-6">
-    <?php
-    require_once ('../inc/_addComment.php');
-    ?>
+    <div class="col-12">
+        <?php
+            require_once ('./view/inc/_article.php');
+        ?>
     </div>
 
-    <div class=" col-6">
-        <h3>Commentaires :</h3>
-        
+    <div class="comments col-12">
+        <?php
+            if (isset($_SESSION) && !empty($_SESSION) && $_SESSION['is_admin'] != 0 ) {
+        ?>
+            <div class="col-5">
+                
+                <?php
+                    require_once ('./view/inc/_addComment.php'); 
+                ?>
+            </div>
+        <?php
+            }
+        ?>
+        <div class="col-5">
+            <?php
+                require_once ('./view/inc/_showComment.php');    
+            ?>   
+        </div>
     </div>
 
 </div>

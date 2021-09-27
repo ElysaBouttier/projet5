@@ -17,17 +17,17 @@
         ?>
         <tbody align="center">
         <tr>
-            <td><a href="?controller=PostController&action=showAction&id=<?= $draft->getId() ?>"
+            <td><a href="?controller=PostController&action=showPostById&id=<?= $post->getId() ?>"
                    title="Lire le billet"><?= (html_entity_decode($draft->getTitle())) ?></a></td>
                    
             <td><?= substr(nl2br(html_entity_decode($draft->getContent())), 0, 15) ?></td>
             <td><?= $draft->getUpdateDate() ?></td>
             <td align="center">
-                <a href="?controller=PostController&action=editPostAction&id=<?= $draft->getId() ?>"
+                <a href="?controller=PostController&action=showEditPostView&id=<?= $draft->getId() ?>"
                    title="Modifier le billet">
                     <i class="fas fa-pencil-alt"></i>
                 </a>
-                <a href="?controller=PostController&action=deletePostAction&id=<?= $post->getId() ?>"
+                <a href="?controller=PostController&action=deletePost&id=<?= $draft->getId() ?>"
                    title="Supprimer le billet"
                    onclick="return(confirm('ATTENTION ! Voulez-vous définitivement supprimer ce Brouillon ?'))">
                     <i class="fas fa-trash-alt"></i>

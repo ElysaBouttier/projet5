@@ -19,6 +19,9 @@ class PostController
         $newPostManager = new PostManager();
         $newCommentManager = new CommentManager();
         $post = $newPostManager->getPost($id);
+        $username = $newCommentManager->getUsername($id);
+        $comments = $newCommentManager->getCommentsFromPost($id);
+
         // Si l'id du billet n'existe pas alors on affiche une erreur
         if ($post->getId() == null)
         {
@@ -66,5 +69,20 @@ class PostController
         }
         $newUserManager = new UserController();
         $newUserManager -> showPannelView($username);
+    }
+
+    public function deletePost($id)
+    {
+        $newPostManager = new PostManager();
+        $deletedPost = $newPostManager->deletePost($id);
+        // Gestion des erreurs
+        if ($deletedPost === false)
+        {
+            throw new \Exception("Impossible de supprimer le billet !");
+        }
+        else
+        {
+            header('Location: ?controller=UserController&action=showPannelView');
+        }
     }
 }

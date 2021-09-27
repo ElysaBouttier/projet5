@@ -147,6 +147,11 @@ figcaption{
     margin-top: 11%;
 }
 
+.comments {
+    display: flex;
+    margin-top: 8%;
+    justify-content: space-around;
+}
 
 
 /* CONTACT VIEW */
@@ -212,4 +217,9 @@ figcaption{
 .add-post-img-title{
     text-align-last: left;
     width: 37%;
+}
+
+/* IMG AND DESCRIPTION VIEW */
+.delete-button{
+    text-align-last: right;
 }

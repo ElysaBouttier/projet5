@@ -72,6 +72,17 @@ class Router
                             $newAdminController->showEditPostView($_GET['id']);
                         }
 
+                        // Go to Post page
+                        elseif ($_GET['action'] == 'showPostById') {
+                            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                                $newPostController = new PostController();
+                                $newPostController->showPostById($_GET['id']);
+                            } else {
+                                // error 404
+                                require_once('view/frontend/404.php');
+                            }
+                        }
+
                         // Go to blog page
                         elseif ($_GET['action'] == 'addDraft') {
                             $title = isset($_POST['title']) ? strip_tags($_POST['title']) : NULL;
@@ -82,15 +93,10 @@ class Router
                             $newPostController->addDraft($title, $content, $miniatureImg, $username);
                         }
                         
-                        // Go to Post page
-                        elseif ($_GET['action'] == 'showPostById') {
-                            if (isset($_GET['id']) && $_GET['id'] > 0) {
-                                $newPostController = new PostController();
-                                $newPostController->showPostById($_GET['id']);
-                            } else {
-                                // error 404
-                                require_once('view/frontend/404.php');
-                            }
+                         // Go to blog page
+                        elseif ($_GET['action'] == 'deletePost') {
+                            $newPostController = new PostController();
+                            $newPostController->deletePost($_GET['id']);
                         }
                         
                     }

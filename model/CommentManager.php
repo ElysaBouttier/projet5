@@ -12,12 +12,12 @@ class CommentManager extends BaseManager
     // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // //////////////////////////////////////////////              READ              ///////////////////////////////////////////////////////
     // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    public function getAllComments($id){
+    public function getCommentsFromPost($id){
         // Connect to DB
         $newManager = new BaseManager();
         $db = $newManager->dbConnect();
         // Request
-        $request = $db->prepare('SELECT id, user_id, post_id, content, DATE_FORMAT(date_creation, \'%d/%m/%Y à %Hh%i\') AS date_creation, status FROM comments WHERE id = ?');
+        $request = $db->prepare('SELECT id, user_id, post_id, content, DATE_FORMAT(date_creation, \'%d/%m/%Y à %Hh%i\') AS date_creation, status FROM comments WHERE post_id = ?');
         $request->execute(array($id));
         $result = $request->fetchAll();
         // Push in array
@@ -44,6 +44,17 @@ class CommentManager extends BaseManager
             $comments[] = $newComment;
         }
         return $comments;
+    }
+
+    public function getUsername($id) {
+        // Connect to DB
+        $newManager = new BaseManager();
+        $db = $newManager->dbConnect();
+        // Request
+        $request = $db->query('SELECT username FROM users AS u, comments AS c WHERE u.id=c.user_id ');
+        $request->execute();
+        $username = $request->fetch();
+        return $username["username"];
     }
 
     // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
