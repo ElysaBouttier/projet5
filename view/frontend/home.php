@@ -18,7 +18,8 @@
             {
         ?>
         <figure class="figure">
-            <a href="" class="article">
+            <a class="article" href="?controller=PostController&action=showPostById&id=<?= $post->getId() ?>"
+                   title="Voir l'oeuvre">
                 <figcaption class="figure-caption">
                     <h1>
                         <?php echo $post->getTitle() ?>
