@@ -191,7 +191,8 @@ class Router
                     require_once('view/frontend/404.php');
                 }
             } else {
-                require_once('view/frontend/home.php');
+                $newUserController = new UserController();
+                $newUserController->showHomeView();
             }
         } catch (\Exception $e) {
             $errorMessage = $e->getMessage();

@@ -8,12 +8,12 @@ use Elysa\Pfive\m\PostManager as PostManager;
 use Elysa\Pfive\m\CommentManager as CommentManager;
 
 
-// Admin123!!
-
 class UserController
 {
     public function showHomeView()
     {
+        $newPostManager = new PostManager();
+        $posts = $newPostManager -> getAllPost();
         require_once('./view/frontend/home.php');
     }
 

@@ -19,7 +19,7 @@ class PostController
     {
         $newPostManager = new PostManager();
         $newCommentManager = new CommentManager();
-        $post = $newPostManager->getPost($id);
+        $post = $newPostManager->getPostById($id);
         $username = $newCommentManager->getUsername($id);
         $comments = $newCommentManager->getCommentsFromPost($id);
 
@@ -55,7 +55,7 @@ class PostController
         }
             
         $newPostManager = new PostManager();
-        $post = $newPostManager->getPost($id);
+        $post = $newPostManager->getPostById($id);
         
         $newImageManager = new ImageManager();
         $allImages = $newImageManager -> getAllImageFromPost($id);

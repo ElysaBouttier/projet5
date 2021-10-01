@@ -38,7 +38,6 @@ class PostManager extends BaseManager
             $newPost = new Post($post['id'], $post['title'], $post['content'], $post['miniature_img'], $post['creation_date'], $post['update_date'], $post['status']);
             $posts[] = $newPost;
         }
-
         return $posts;
     }
 
@@ -62,7 +61,7 @@ class PostManager extends BaseManager
     }
 
     // Get a post by ID
-    public function getPost($id)
+    public function getPostById($id)
     {
         $newManager = new BaseManager();
         $db = $newManager->dbConnect();

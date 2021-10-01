@@ -13,18 +13,26 @@
         </p>
     </div>
     <div class="set_images" id="set_images">
+        <?php
+            foreach ($posts as $post)
+            {
+        ?>
         <figure class="figure">
             <a href="" class="article">
-                <figcaption class="figure-caption">A caption for the above image.</figcaption>
-                <img src="../../public/img/beige.jpg" class="figure-img" alt="...">
+                <figcaption class="figure-caption">
+                    <h1>
+                        <?php echo $post->getTitle() ?>
+                    </h1> <br> 
+                    <p>
+                        <?php echo $post->getContent() ?>
+                    </p>
+                </figcaption>
+                <img src="../../public/img/<?php echo $post->getMiniatureImg() ?>" class="figure-img" alt="...">
             </a>
         </figure>
-        <figure class="figure">
-            <a href="" class="article">
-                <figcaption class="figure-caption">A caption for the above image.</figcaption>
-                <img src="../../public/img/beige1.jpg" class="figure-img " alt="...">
-            </a>
-        </figure>
+        <?php
+            }
+        ?>
     </div>
 
 <?php $content = ob_get_clean(); ?>
