@@ -23,7 +23,36 @@ class ImageManager extends BaseManager
     // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // //////////////////////////////////////////////              READ              ///////////////////////////////////////////////////////
     // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    public function getAllImageFromPost($id)
+    {
+        // Connect to DB
+        $newManager = new BaseManager();
+        $db = $newManager->dbConnect();
+        // Request
+        $request = $db->prepare('SELECT id, url_img, heart_quantity, like_quantity, post_id, content FROM images WHERE post_id = ?');
+        $request->execute(array($id));
+        $result = $request->fetchAll();
+        // Push in array
+        $images = [];
+        foreach ($result as $image) {
+            $newImage = new Image($image['id'], $image['url_img'], $image['heart_quantity'], $image['like_quantity'], $image['post_id'], $image['content']);
+            $images[] = $newImage;
+        }
+        // Return a list of comment 
+        return $images;
+    }
 
+    public function getPostIdFromId($id)
+    {
+        // Connect to DB
+        $newManager = new BaseManager();
+        $db = $newManager->dbConnect();
+        // Request
+        $request = $db->prepare('SELECT post_id FROM images WHERE id = ?');
+        $post_id = $request->execute(array($id));
+        // Return a list of comment 
+        return $post_id;    
+    }
 
     // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // //////////////////////////////////////////////              UPDATE              ///////////////////////////////////////////////////////
@@ -33,4 +62,12 @@ class ImageManager extends BaseManager
     // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // //////////////////////////////////////////////              DELETE              ///////////////////////////////////////////////////////
     // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    public function deleteImage($id)
+    {
+        $baseManager = new BaseManager();
+        $db = $baseManager->dbConnect();
+        $request = $db->prepare('DELETE FROM images WHERE id = ?');
+        $request->execute(array($id));
+    }
 }

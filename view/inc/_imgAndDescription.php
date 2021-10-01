@@ -1,11 +1,26 @@
-<div class="row align-items-start">
-    <div class="col-3">
-        <img src="../../public/img/beige.jpg" class="img-fluid" alt="...">
+<?php
+    foreach ($allImages as $image)
+    {
+?>
+    <div class="row align-items-start">
+        <div class="col-3">
+            <img src="../../public/img/<?php echo $image->getUrl()  ?>" class="img-fluid" alt="...">
+        </div>
+        <div class="col">
+            <p>
+                <?php
+                echo $image->getContent();
+                ?>
+            </p>
+        </div>
+        <div class="col-3 ">
+            <a href="?controller=ImageController&action=deleteImage&id=<?= $image->getId() ?>&post_id=<?= $image->getPostId() ?>"
+                   title="Supprimer l'image"
+                   onclick="return(confirm('ATTENTION ! Voulez-vous définitivement supprimer ce billet ?'))">
+                    Supprimer
+                </a>
+        </div>
     </div>
-    <div class="col">
-        <p>Description</p>
-    </div>
-    <div class="col-3 ">
-        <button class="rounded float-end">Supprimer</button>
-    </div>
-</div>
+<?php
+    }
+?>

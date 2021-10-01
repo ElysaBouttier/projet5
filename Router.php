@@ -6,6 +6,7 @@ use Elysa\Pfive\c\ContactController;
 use Elysa\Pfive\c\UserController;
 use Elysa\Pfive\c\PostController;
 use Elysa\Pfive\c\ImageController;
+use Elysa\Pfive\c\CommentController;
 
 session_start();
 // Autoloader 
@@ -24,6 +25,16 @@ class Router
                 if (isset($_GET['action'])) {
                     // CommentController
                     if ($_GET['controller'] == 'CommentController') {
+                        
+                        // Signal the comment 
+                        if ($_GET['action'] == 'alertComment') {
+                            if (isset($_GET['id']) && $_GET['id'] > 0 && isset($_GET['post_id']) && $_GET['post_id'] > 0) {
+                                $newCommentController = new CommentController();
+                                $newCommentController->alertComment($_GET['id'], $_GET['post_id']);
+                            }
+                        } else {
+                            require_once('view/frontend/404.php');
+                        }
                     }
                     // ContactController
                     elseif ($_GET['controller'] == 'ContactController') {
@@ -50,6 +61,18 @@ class Router
                             } else {
                                 // error 404
                                 require_once('view/frontend/404.php');
+                            }
+                        }
+
+                        // Delete
+                        elseif ($_GET['action'] == 'deleteImage') {
+                            echo('lllllll');
+                            if (isset($_GET['id']) && $_GET['id'] > 0 && isset($_GET['post_id']) && $_GET['post_id'] > 0) {
+                                $newImgController = new ImageController();
+                                echo('test');
+                                var_dump($_GET['id']);
+                                var_dump($_GET['post_id']);
+                                $newImgController->deleteImage($_GET['id'], $_GET['post_id']);
                             }
                         }
                     }

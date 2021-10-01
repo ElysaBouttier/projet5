@@ -7,7 +7,7 @@ class Image
 
     // VARIABLES
     private $id;
-    private $name;
+    private $url_img;
     private $heart_quantity;
     private $like_quantity;
     private $post_id;
@@ -15,10 +15,10 @@ class Image
 
 
     // CONSTRUCTOR
-    public function __construct($id, $name, $heart_quantity, $like_quantity, $post_id, $content)
+    public function __construct($id, $url_img, $heart_quantity, $like_quantity, $post_id, $content)
     {
         $this->id = $id;
-        $this->name = $name;
+        $this->url_img = $url_img;
         $this->heart_quantity = $heart_quantity;
         $this->like_quantity = $like_quantity;
         $this->post_id = $post_id;
@@ -31,9 +31,9 @@ class Image
     {
         return $this->id;
     }
-    public function getName()
+    public function getUrl()
     {
-        return $this->name;
+        return $this->url_img;
     }
     public function getHeartQuantity()
     {
@@ -63,12 +63,12 @@ class Image
             throw new \Exception('Problem with $id in Image model!');
         }
     }
-    public function setName($name)
+    public function setUrl($url_img)
     {
-        if (is_string($name)) {
-            $this->name = $name;
+        if (is_string($url_img)) {
+            $this->url_img = $url_img;
         } else {
-            throw new \Exception('Problem with $name in Image model!');
+            throw new \Exception('Problem with $url_img in Image model!');
         }
     }
     public function setHeartQuantity($heart_quantity)
