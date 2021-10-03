@@ -66,12 +66,8 @@ class Router
 
                         // Delete
                         elseif ($_GET['action'] == 'deleteImage') {
-                            echo('lllllll');
                             if (isset($_GET['id']) && $_GET['id'] > 0 && isset($_GET['post_id']) && $_GET['post_id'] > 0) {
                                 $newImgController = new ImageController();
-                                echo('test');
-                                var_dump($_GET['id']);
-                                var_dump($_GET['post_id']);
                                 $newImgController->deleteImage($_GET['id'], $_GET['post_id']);
                             }
                         }

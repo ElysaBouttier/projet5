@@ -29,12 +29,6 @@ class ImageController
     {
         $newImageManager = new ImageManager();
         $deletedPost = $newImageManager->deleteImage($id);
-        $post_id = $newImageManager->getPostIdFromId($id);
-        var_dump($post_id);
-        var_dump($id);
-        
-        echo "test";
-        var_dump("test");
         // Gestion des erreurs
         if ($deletedPost === false)
         {
@@ -45,4 +39,4 @@ class ImageController
             header("Location: index.php?controller=PostController&action=showEditPostView&id=".$post_id);
         }
     }
-}
+} 

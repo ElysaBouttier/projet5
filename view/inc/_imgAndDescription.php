@@ -14,7 +14,7 @@
             </p>
         </div>
         <div class="col-3 ">
-            <a href="?controller=ImageController&action=deleteImage&id=<?= $image->getId() ?>&post_id=<?= $image->getPostId() ?>"
+            <a href="?controller=ImageController&action=deleteImage&id=<?php echo $image->getId() ?>&post_id=<?php echo $image->getPostId() ?>"
                    title="Supprimer l'image"
                    onclick="return(confirm('ATTENTION ! Voulez-vous définitivement supprimer ce billet ?'))">
                     Supprimer
