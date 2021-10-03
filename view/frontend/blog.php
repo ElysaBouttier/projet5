@@ -5,9 +5,9 @@
     <h1 class="col-md-6 offset-md-3 title_blog">Titre de l'article</h1>
         
 <!-- add like/love notation system -->
-<div class="add_comments">
+<div class="content_body">
 
-    <div class="col-12">
+    <div class="col-10 carousel_img">
         <?php
             require_once ('./view/inc/_article.php');
         ?>

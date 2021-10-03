@@ -24,7 +24,7 @@
                     <hr>
                     <div class="form-group">
                         <label>Nom :</label>
-                        <input type="lastename" name="lastname" class="form-control" placeholder="entrez votre nom" >
+                        <input type="lastename" name="lastname" class="form-control" placeholder="entrez votre nom">
                     </div>
                     <hr>
                     <div class="form-group">
@@ -42,12 +42,20 @@
                         <input type="email" name="email" placeholder="exemple@hotmail.fr" class="form-control" value="<?php if (isset($email)) {
                                                                                                                         } ?>">
                     </div>
-                    <!-- <button type="button" class="btn btn-danger">Annuler</button> -->
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            J'autorise ce site à concerver mes données personnelles transmises via ce formulaire.
+                            Aucune exploitation commerciale ne sera faite des données concervées.
+                            Voir notre <a href="?controller=ContactController&action=showRgpdView">politique de gestion des données personnelles.</a>
+                        </label>
+                    </div>
+                    <br>
                     <button type="submit" class="btn btn-primary">M'inscrire</button>
-    
+
                 </form>
             </div>
-            
+
 
         </div>
     </div>

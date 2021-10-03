@@ -139,12 +139,17 @@ figcaption{
 }
 
 /* BLOG VIEW */
+
 .title_blog{
     text-align: center;
 }
 
-.add_comments{
-    margin-top: 11%;
+.content_body{
+    margin-top: 7%;
+}
+
+.carousel_img{
+    margin: auto;
 }
 
 .comments {
@@ -225,6 +230,6 @@ figcaption{
 }
 
 /* RGPD VIEW */
-.legals{
+#legals{
     margin: auto;
 }
