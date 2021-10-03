@@ -16,6 +16,10 @@ class ContactController
     {
         require_once('./view/frontend/contact.php');
     }
+    public function showRgpdView()
+    {
+        require_once('./view/frontend/rgpd.php');
+    }
 
     public function sendMessage()
     {

@@ -108,8 +108,8 @@
                             if((isset($_SESSION) && !empty($_SESSION) && ($_SESSION['is_admin'] == 1)) || (empty($_SESSION))){
                                 ?>
                         <li>
-                            <a href="#set_images" class="nav-link">
-                                <i class="fas fa-newspaper"></i>
+                            <a href="?controller=ContactController&action=showRgpdView" class="nav-link">
+                                <i class="fas fa-balance-scale"></i>
                             </a>
                         </li>
 

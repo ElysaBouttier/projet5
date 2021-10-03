@@ -43,11 +43,14 @@ class Router
                             $newContactController = new ContactController();
                             $newContactController->showContactView();
                         }
+                        elseif ($_GET['action'] == 'showRgpdView') {
+                            $newContactController = new ContactController();
+                            $newContactController->showRgpdView();
+                        }
                         elseif ($_GET['action'] == 'sendMessage') {
                             $newContactController = new ContactController();
                             $newContactController->sendMessage();
                         }
-                        
                     }
                     // ImageController
                     elseif ($_GET['controller'] == 'ImageController') {

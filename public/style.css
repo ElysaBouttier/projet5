@@ -223,3 +223,8 @@ figcaption{
 .delete-button{
     text-align-last: right;
 }
+
+/* RGPD VIEW */
+.legals{
+    margin: auto;
+}
