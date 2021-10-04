@@ -25,9 +25,21 @@ class Router
                 if (isset($_GET['action'])) {
                     // CommentController
                     if ($_GET['controller'] == 'CommentController') {
-                        
+                        if ($_GET['action'] == 'addComment') {
+                            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                                // Conditions ternaires
+                                $username = isset($_POST['username']) ? strip_tags($_POST['username']) : NULL;
+                                $content = isset($_POST['content']) ? strip_tags($_POST['content']) : NULL;
+
+                                $newCommentController = new CommentController();
+                                $newCommentController->addComment($_GET['id'], $username, $content);
+                            } else {
+                                // erreur 404
+                                require_once('view/frontend/404.php');
+                            }
+                        }
                         // Signal the comment 
-                        if ($_GET['action'] == 'alertComment') {
+                        elseif ($_GET['action'] == 'alertComment') {
                             if (isset($_GET['id']) && $_GET['id'] > 0 && isset($_GET['post_id']) && $_GET['post_id'] > 0) {
                                 $newCommentController = new CommentController();
                                 $newCommentController->alertComment($_GET['id'], $_GET['post_id']);

@@ -12,9 +12,6 @@ class UserManager extends BaseManager
     $db = $this->dbConnect();
 
     $request = $db->prepare('INSERT INTO users (username, password, email, firstname, lastname, about, is_admin) VALUES (?, ?, ?, ?, ?," ", 1)');
-    // $request = $db->prepare("INSERT INTO users (username, password, email, firstname, lastname, about, is_admin) VALUES ('admin', 'Admin123!', 'eee@eee.fr', 'coucou', 'coucou', ' ', 1)");
-
-
     $request->execute(array($username, $password, $email, $firstname, $lastname));
   }
 
@@ -62,6 +59,16 @@ class UserManager extends BaseManager
     $edito = $reponse->fetch();
     $ed = $edito['about'];
     return $ed;
+  }
+  
+  //Check if the user username is in DB
+  public function getUserIdFromName($username)
+  {
+    $db = $this->dbConnect();
+    $request = $db->prepare('SELECT id FROM users WHERE username = ?');
+    $request->execute(array($username));
+    $userId = $request->fetch();
+    return $userId['id'];
   }
 
   // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
