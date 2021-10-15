@@ -1,6 +1,6 @@
 <h3>Commentaires :</h3>
 <?php
-    // Pour chaque commentaire appartenant au billet
+    // For each comments in the blog
     foreach ($comments as $comment) {
         echo "<br />";
         echo html_entity_decode($username) . ", le : " . $comment->getDate() . "<br />";

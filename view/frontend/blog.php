@@ -2,7 +2,7 @@
 
     
 <div class="container">
-    <h1 class="col-md-6 offset-md-3 title_blog">Titre de l'article</h1>
+    <h1 class="col-md-6 offset-md-3 title_blog"><?php echo html_entity_decode($post->getTitle()) ?></h1>
         
 <!-- add like/love notation system -->
 <div class="content_body">
