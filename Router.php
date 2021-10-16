@@ -133,21 +133,16 @@ class Router
                             $newPostController->deletePost($_GET['id']);
                         }
 
-                         // Add draft online or update it
-                         elseif ($_GET['action'] == 'publish') {
-                            if (isset($_GET['post_id']) && $_GET['post_id'] > 0) {
-                                $post_id = isset($_POST['post_id']) ? strip_tags($_POST['post_id']) : NULL;
+                        // Add draft online or update it
+                         elseif ($_GET['action'] == 'updatePost') {
+                            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                                $id = isset($_GET['id']) ? strip_tags($_GET['id']) : NULL;
                                 $title = isset($_POST['title']) ? strip_tags($_POST['title']) : NULL;
                                 $content = isset($_POST['content']) ? strip_tags($_POST['content']) : NULL;
-                                $miniatureImg = isset($_POST['miniatureImg']) ? strip_tags($_POST['miniatureImg']) : NULL;
-                                if ($_POST["saveAction"]) {
-                                    $newPostController = new PostController();
-                                    $newPostController -> updateDraft($id, $title, $content, $miniatureImg);
-                                }
-                                // if ($_POST["onlineAction"]) {
-                                //     $newPostController = new PostController();
-                                //     $newPostController -> draftToPost($id, $title, $content, $miniatureImg);
-                                // }
+                                $miniatureImg = $_FILES["miniature_img"]["name"];
+                                
+                                $newPostController = new PostController();
+                                $newPostController->updateDraft($id, $title, $content, $miniatureImg, $_POST['status']);
                             }
                         }
                         

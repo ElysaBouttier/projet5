@@ -25,19 +25,7 @@ class PostController
         require_once('./view/backend/add_post.php');
     }    
     
-    public function showEditPostView($id)
-    {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST')
-        {
-            $newImageManager = new ImageManager();
-            $allImages = $newImageManager -> getAllImageFromPost($id);
-            
-            $post = new PostManager();
-            $post->updateDraft(($_POST['title']), ($_POST['url_img']), ($_POST['content']),$_GET['id']);
-            $newMessage = new Message();
-            $newMessage->setSuccess("<p>Merci, votre oeuvre a bien été modifié !</p>");
-        }
-        
+    public function showEditPostView($id){
         $newPostManager = new PostManager();
         $post = $newPostManager->getPostById($id);
         
@@ -47,7 +35,8 @@ class PostController
         // Vue
         require_once ('view/backend/edit_post.php');
     }
-       
+
+    
     // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // //////////////////////////////////////////////              Draft              ///////////////////////////////////////////////////////
     // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -67,42 +56,22 @@ class PostController
         $newUserManager = new UserController();
         $newUserManager -> showPannelView($username);
     }
-
-    public function updateDraft($id, $title, $content, $miniatureImg){
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            if ($id){
-                if (!empty($title) && !empty($miniatureImg) && !empty($content)) {
-                $newPostManager = new PostManager();
-                $newPostManager->updateDraft($id, $title, $content, $miniatureImg);
-                $newMessage = new Message();
-                $newMessage->setSuccess("<p>Votre oeuvre à bien été modifiée!</p>");
-            }else {
-                    $newMessage = new Message();
-                    $newMessage->setError("<p>Tous les champs doivent être rempli !</p>");
-                }
-            } else {
-                require_once ('view/frontend/404.php');
-            }
+    
+    public function updateDraft($id, $title, $content, $miniatureImg, $status)
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST')
+        {
+            $newImageManager = new ImageManager();
+            $allImages = $newImageManager -> getAllImageFromPost($id);
+            
+            $post = new PostManager();
+            $post->updateDraft($id, $title, $content, $miniatureImg, $status);
+            $newMessage = new Message();
+            $newMessage->setSuccess("<p>Merci, votre oeuvre a bien été modifié !</p>");
         }
-        $newUserManager = new UserController();
-        $newUserManager -> showPannelView($username);
+        header('Location: ?controller=PostController&action=showEditPostView&id='. $id);
+        
     }
-
-    // public function draftToPost($title, $content, $miniatureImg, $username){
-    //     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    //         if (!empty($title) && !empty($miniatureImg) && !empty($content)) {
-    //             $newPostManager = new PostManager();
-    //             $newPostManager->addDraft($title, $content, $miniatureImg);
-    //             $newMessage = new Message();
-    //             $newMessage->setSuccess("<p>Votre oeuvre à bien été créée, veuillez ajouter des photos !</p>");
-    //         } else {
-    //             $newMessage = new Message();
-    //             $newMessage->setError("<p>Tous les champs doivent être rempli !</p>");
-    //         }
-    //     }
-    //     $newUserManager = new UserController();
-    //     $newUserManager -> showPannelView($username);
-    // }
     
 
     // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////  
