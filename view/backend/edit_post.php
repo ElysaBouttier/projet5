@@ -26,7 +26,8 @@
             <p class="text-start  add-post-text-title">Texte de présentation :</p>
             <textarea id="content" name="content" rows="5" cols="33"><?php echo $post->getContent() ?></textarea>
         </div>
-        <input type="submit" class="d-flex mx-auto btn btn-primary" value="Mettre en ligne">
+        <input type="submit" class="d-flex mx-auto btn btn-primary" name="saveAction" value="Sauvegarder">
+        <input type="submit" class="d-flex mx-auto btn btn-primary" name="onlineAction" value="Mettre en ligne">
     </form>
     
     <!-- Button trigger modal -->

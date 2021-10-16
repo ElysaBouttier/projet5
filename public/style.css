@@ -97,7 +97,7 @@ main{
     min-width: 100%;
     min-height: 90%;
 }
-.author_name{
+#author_name{
     font-family:  Fredericka, Cormorant-Light;
     position: absolute;
     top: 50%;

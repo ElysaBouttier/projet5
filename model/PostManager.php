@@ -98,7 +98,7 @@ class PostManager extends BaseManager
     // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     // Show 
-    public function showEditPostView($title, $content, $miniature_img, $id){
+    public function updateDraft($title, $content, $miniature_img, $id){
         $newManager = new BaseManager();
         $db = $newManager->dbConnect();
         $request = $db->prepare('UPDATE posts SET title = ?, content = ?, miniature_img = ?, update_date = NOW() WHERE id = ?');

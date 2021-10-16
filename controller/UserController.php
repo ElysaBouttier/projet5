@@ -13,6 +13,8 @@ class UserController
     public function showHomeView()
     {
         $newPostManager = new PostManager();
+        $newUserManager = new UserManager();
+        $edito = $newUserManager -> getEdito();
         $posts = $newPostManager -> getAllPost();
         require_once('./view/frontend/home.php');
     }
