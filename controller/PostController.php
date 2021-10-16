@@ -63,9 +63,8 @@ class PostController
         {
             $newImageManager = new ImageManager();
             $allImages = $newImageManager -> getAllImageFromPost($id);
-            
             $post = new PostManager();
-            $post->updateDraft($id, $title, $content, $miniatureImg, $status);
+            $post->updateDraft($title, $content, $miniatureImg, $status, $id);
             $newMessage = new Message();
             $newMessage->setSuccess("<p>Merci, votre oeuvre a bien été modifié !</p>");
         }

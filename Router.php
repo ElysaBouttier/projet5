@@ -140,9 +140,15 @@ class Router
                                 $title = isset($_POST['title']) ? strip_tags($_POST['title']) : NULL;
                                 $content = isset($_POST['content']) ? strip_tags($_POST['content']) : NULL;
                                 $miniatureImg = $_FILES["miniature_img"]["name"];
-                                
                                 $newPostController = new PostController();
-                                $newPostController->updateDraft($id, $title, $content, $miniatureImg, $_POST['status']);
+
+                                if ($_POST['status'] == "draft"){
+                                    $status = 0;
+                                }
+                                if ($_POST['status'] == "online"){
+                                    $status = 1;
+                                }
+                                $newPostController->updateDraft($id, $title, $content, $miniatureImg, $status);
                             }
                         }
                         
