@@ -4,17 +4,16 @@
         <?php
         for ($i = 1; $i <= $imageCount; $i++) {
         ?>
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="<?php $i ?>" aria-current="true" aria-label="Slide <?php echo $i ?>"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="<?php echo $i ?>" aria-current="true" aria-label="Slide <?php echo $i ?>"></button>
         <?php
         }
         ?>
     </div>
     <div class="carousel-inner">
         <div class="carousel-item active">
-            <img src="../../public/img/beige.jpg" class="d-block w-100" alt="...">
+            <img src="../../public/img/<?php echo $images[0]->getUrl()?>" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
-                <h5>First slide label</h5>
-                <p>Some representative placeholder content for the first slide.</p>
+                <p><?php echo $images[0]->getContent()?></p>
             </div>
         </div>
         <?php

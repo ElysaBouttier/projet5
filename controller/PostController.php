@@ -85,7 +85,6 @@ class PostController
         $newImageManager = new ImageManager();
         $images = $newImageManager -> getAllImageFromPost($id);
         $imageCount = $newImageManager -> countImagesFromPost($id);
-        
         $newCommentManager = new CommentManager();
         $username = $newCommentManager->getUsername($id);
         $comments = $newCommentManager->getCommentsFromPost($id);
