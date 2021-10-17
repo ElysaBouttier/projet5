@@ -17,7 +17,7 @@
         ?>
         <tbody align="center">
         <tr>
-            <td><a href="?controller=PostController&action=showPostById&id=<?= $post->getId() ?>"
+            <td><a href="?controller=PostController&action=showPostById&id=<?= $draft->getId() ?>"
                    title="Lire le billet"><?= (html_entity_decode($draft->getTitle())) ?></a></td>
                    
             <td><?= substr(nl2br(html_entity_decode($draft->getContent())), 0, 15) ?></td>

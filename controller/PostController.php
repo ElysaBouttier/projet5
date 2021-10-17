@@ -80,13 +80,17 @@ class PostController
     public function showPostById($id)
     {
         $newPostManager = new PostManager();
-        $newCommentManager = new CommentManager();
-        $newImageManager = new ImageManager;
         $post = $newPostManager->getPostById($id);
-        $images = $newImageManager->getAllImageFromPost($id);
+        
+        $newImageManager = new ImageManager();
+        $images = $newImageManager -> getAllImageFromPost($id);
+        $imageCount = $newImageManager -> countImagesFromPost($id);
+        $newCommentManager = new CommentManager();
         $username = $newCommentManager->getUsername($id);
         $comments = $newCommentManager->getCommentsFromPost($id);
-
+        
+        // Vue
+        require_once ('view/frontend/blog.php');
 
         // Si l'id du billet n'existe pas alors on affiche une erreur
         if ($post->getId() == null)
