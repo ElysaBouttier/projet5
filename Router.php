@@ -109,8 +109,9 @@ class Router
                         // Go to Post page
                         elseif ($_GET['action'] == 'showPostById') {
                             if (isset($_GET['id']) && $_GET['id'] > 0) {
-                                $newPostController = new PostController();
-                                $newPostController->showPostById($_GET['id']);
+                                $id = $_GET['id'];
+                                $newAdminController = new PostController();
+                                $newAdminController->showPostById($id);
                             } else {
                                 // error 404
                                 require_once('view/frontend/404.php');

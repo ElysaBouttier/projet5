@@ -42,6 +42,13 @@ class ImageManager extends BaseManager
         return $images;
     }
 
+    public function countImagesFromPost($id){
+        $imageManager = new ImageManager;
+        $images = $imageManager -> getAllImageFromPost($id);
+        
+        return count($images);
+    }
+
     public function getPostIdFromId($id)
     {
         // Connect to DB
