@@ -18,21 +18,16 @@ class UserManager extends BaseManager
   // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   // //////////////////////////////////////////////              READ              ///////////////////////////////////////////////////////
   // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  
+
   public function getUser($username)
-    {
-        $newManager = new BaseManager();
-        $db = $newManager->dbConnect();
+  {
+    $db = $this->dbConnect();
+    $request = $db->prepare('SELECT * FROM users WHERE username = ?');
+    $request->execute(array($username));
+    $user = $request->fetch();
+    return $user;    
+  }
 
-        // Request
-        $request = $db->query('SELECT * FROM users WHERE username = ?');
-
-        $user = $request->execute(array($username));
-        // Return a list of comment 
-        var_dump($user);
-        return $user;    
-    }
-  
   // If username exist return the number of username.
   public function numberOfUsername($username)
   {
@@ -65,17 +60,17 @@ class UserManager extends BaseManager
     return $checkedUserParams;
   }
 
-// Get edito
+  // Get edito
   public function getEdito()
   {
     $newManager = new BaseManager();
     $db = $newManager->dbConnect();
-    $reponse = $db->query("SELECT about FROM users WHERE username = 'admin' AND is_admin = 0");  
+    $reponse = $db->query("SELECT about FROM users WHERE username = 'admin' AND is_admin = 0");
     $edito = $reponse->fetch();
     $ed = $edito['about'];
     return $ed;
   }
-  
+
   //Check if the user username is in DB
   public function getUserIdFromName($username)
   {
@@ -90,7 +85,8 @@ class UserManager extends BaseManager
   // //////////////////////////////////////////////              UPDATE              ///////////////////////////////////////////////////////
   // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-  public function updateEdito($content){
+  public function updateEdito($content)
+  {
     // Connect to DB
     $newManager = new BaseManager();
     $db = $newManager->dbConnect();
@@ -98,17 +94,18 @@ class UserManager extends BaseManager
     $request = $db->prepare("UPDATE users SET about = ? WHERE username = 'admin' AND is_admin = 0");
     $comment = $request->execute(array($content));
     return $comment;
-}
-public function updateCommentary($commentary_id, $content){
-  // Connect to DB
-  $newManager = new BaseManager();
-  $db = $newManager->dbConnect();
-  // Request
-  $request = $db->prepare('UPDATE comments SET content = ?, update_date = NOW() WHERE commentary_id = ?');
-  $comment = $request->execute(array($content, $commentary_id));
-  
-  return $comment;
-}
+  }
+  public function updateCommentary($commentary_id, $content)
+  {
+    // Connect to DB
+    $newManager = new BaseManager();
+    $db = $newManager->dbConnect();
+    // Request
+    $request = $db->prepare('UPDATE comments SET content = ?, update_date = NOW() WHERE commentary_id = ?');
+    $comment = $request->execute(array($content, $commentary_id));
+
+    return $comment;
+  }
 
   // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   // //////////////////////////////////////////////              DELETE              ///////////////////////////////////////////////////////

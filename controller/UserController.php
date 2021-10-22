@@ -21,13 +21,14 @@ class UserController
 
     public function showPannelView($username)
     {
+        $user_name = $_SESSION['username'];
+        
         // Objet
         $newPostManager = new PostManager();
         $newCommentManager = new CommentManager();
         $newUserManager = new UserManager();
         // Method
-        $user = $newUserManager-> getUser($username);
-        var_dump($user);
+        $user = $newUserManager-> getUser($user_name);
         $posts = $newPostManager->getAllPost();
         $drafts = $newPostManager->getAllDraft();
         $edito = $newUserManager -> getEdito($username);
