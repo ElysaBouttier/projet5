@@ -26,6 +26,8 @@ class UserController
         $newCommentManager = new CommentManager();
         $newUserManager = new UserManager();
         // Method
+        $user = $newUserManager-> getUser($username);
+        var_dump($user);
         $posts = $newPostManager->getAllPost();
         $drafts = $newPostManager->getAllDraft();
         $edito = $newUserManager -> getEdito($username);

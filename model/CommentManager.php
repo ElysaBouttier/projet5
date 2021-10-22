@@ -71,14 +71,14 @@ class CommentManager extends BaseManager
     // //////////////////////////////////////////////              UPDATE              ///////////////////////////////////////////////////////
     // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    public function alertComment($post_id)
+    public function alertComment($id)
     {
         // Connect to DB
         $newManager = new BaseManager();
         $db = $newManager->dbConnect();
         // Request
-        $request = $db->prepare('UPDATE comments SET status= 1 WHERE post_id = ?');
-        $alertedComment = $request->execute(array($post_id));
+        $request = $db->prepare('UPDATE comments SET status= 1 WHERE id = ?');
+        $alertedComment = $request->execute(array($id));
         return $alertedComment;
     }
 

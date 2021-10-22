@@ -39,10 +39,12 @@ class Router
                             }
                         }
                         // Signal the comment 
-                        elseif ($_GET['action'] == 'alertComment') {
-                            if (isset($_GET['id']) && $_GET['id'] > 0 && isset($_GET['post_id']) && $_GET['post_id'] > 0) {
+                        elseif ($_GET['action'] == 'alertComment') {                            
+                            if (isset($_GET['id']) && $_GET['id'] > 0 && isset($_GET['postId']) && $_GET['postId'] > 0) {
+                                $id = $_GET['id'];
+                                $postId = $_GET['postId'];
                                 $newCommentController = new CommentController();
-                                $newCommentController->alertComment($_GET['id'], $_GET['post_id']);
+                                $newCommentController->alertComment($id, $postId);
                             }
                         } else {
                             require_once('view/frontend/404.php');

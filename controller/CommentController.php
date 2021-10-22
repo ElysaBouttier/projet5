@@ -36,15 +36,16 @@ class CommentController
     // //////////////////////////////////////////////              UPDATE              ///////////////////////////////////////////////////////
     // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    public function alertComment($id, $post_id)
+    public function alertComment($id, $postId)
     {
         $newCommentManager = new CommentManager();
         $alertedComment = $newCommentManager->alertComment($id);
         // Gestion des erreurs
-        if ($alertedComment === false) {
-            throw new \Exception("Impossible de signaler le commentaire !");
+        if ($alertedComment === true) {
+            $newPostController = new PostController;
+            $newPostController -> showPostById($postId);
         } else {
-            header('Location: ?controller=PostController&action=showAction&post_id=' . $post_id);
+            throw new \Exception("Impossible de signaler le commentaire !");
         }
     }
 

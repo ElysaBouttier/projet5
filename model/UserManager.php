@@ -18,6 +18,21 @@ class UserManager extends BaseManager
   // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   // //////////////////////////////////////////////              READ              ///////////////////////////////////////////////////////
   // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  
+  public function getUser($username)
+    {
+        $newManager = new BaseManager();
+        $db = $newManager->dbConnect();
+
+        // Request
+        $request = $db->query('SELECT * FROM users WHERE username = ?');
+
+        $user = $request->execute(array($username));
+        // Return a list of comment 
+        var_dump($user);
+        return $user;    
+    }
+  
   // If username exist return the number of username.
   public function numberOfUsername($username)
   {

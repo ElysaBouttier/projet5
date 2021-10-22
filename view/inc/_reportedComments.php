@@ -18,8 +18,9 @@
     ?> -->
         <tbody align="center">
             <tr>
-                <td>Titre de l'article</td>
-                <td>nom auteur</td>
+                <td><a href="?controller=PostController&action=showPostById&id=<?= $post->getId() ?>"
+                   title="Lire le billet"><?= (html_entity_decode($post->getTitle())) ?></a></td>
+                <td><?= (html_entity_decode($user->getUsername())) ?></td>
                 <td><a title="Lire le commentaire">commentaires</a></td>
                 <td>Date du commentaire</td>
                 <td>
