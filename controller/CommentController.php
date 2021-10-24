@@ -19,7 +19,7 @@ class CommentController
                 $content = htmlspecialchars($content);
                 $newCommentManager = new CommentManager();
                 $newUserManager = new UserManager();
-                $userId = $newUserManager -> getUserIdFromName($username);
+                $userId = $newUserManager->getUserIdFromName($username);
                 $newCommentManager->add($userId, $id, $content);
                 $newMessage = new Message();
                 $newMessage->setSuccess("<p>Merci, votre commentaire a bien été publié !</p>");
@@ -43,10 +43,40 @@ class CommentController
         // Gestion des erreurs
         if ($alertedComment === true) {
             $newPostController = new PostController;
-            $newPostController -> showPostById($postId);
+            $newPostController->showPostById($postId);
         } else {
             throw new \Exception("Impossible de signaler le commentaire !");
         }
     }
 
+    public function validComment($id)
+    {
+        $comment = new CommentManager();
+        $comment->validateComment($id);
+        $newMessage = new Message();
+        $newMessage->setSuccess("<p>Merci, le commentaire a bien été validé !</p>");
+
+        // Vue
+        $newUserController = new UserController();
+        $newUserController->showPannelView($_SESSION['username']);
+    }
+
+    // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // //////////////////////////////////////////////              DELETE              ///////////////////////////////////////////////////////
+    // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    public function deleteComment($id)
+    {
+        $comment = new CommentManager();
+        $deletedComment = $comment->deleteComment($id);
+        // Gestion des erreurs
+        if ($deletedComment === false) {
+            throw new \Exception("Impossible de supprimer le commentaire !");
+        } else {
+            $newMessage = new Message();
+            $newMessage->setSuccess("<p>Merci, le commentaire a bien été supprimé !</p>");
+            $newUserController = new UserController();
+            $newUserController->showPannelView($_SESSION['username']);
+        }
+    }
 }

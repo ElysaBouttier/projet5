@@ -93,12 +93,24 @@ class PostManager extends BaseManager
         return $posts;
     }
 
+    //
+    public function getUserNameFromUserId(int $userId)
+    {
+        $db = $this->dbConnect();
+        $request = $db->query('SELECT U.username  FROM users U JOIN comments C ON U.id = c.user_id WHERE user_id= ?');
+        $request->execute(array((int)$userId));
+        $post = $request->fetch();
+        var_dump($post);
+        // return $username;
+    }
+
     // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // //////////////////////////////////////////////              UPDATE              ///////////////////////////////////////////////////////
     // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     // Show 
-    public function updateDraft($title, $content, $miniature_img, $status, $id){
+    public function updateDraft($title, $content, $miniature_img, $status, $id)
+    {
         $newManager = new BaseManager();
         $db = $newManager->dbConnect();
         $request = $db->prepare('UPDATE posts SET title = ?, content = ?, miniature_img = ?, update_date = NOW(), status = ? WHERE id = ?');
@@ -108,7 +120,8 @@ class PostManager extends BaseManager
     }
 
     // Show 
-    public function showEditPostView($title, $content, $miniature_img, $id){
+    public function showEditPostView($title, $content, $miniature_img, $id)
+    {
         $newManager = new BaseManager();
         $db = $newManager->dbConnect();
         $request = $db->prepare('UPDATE posts SET title = ?, content = ?, miniature_img = ?, update_date = NOW() WHERE id = ?');
@@ -121,7 +134,8 @@ class PostManager extends BaseManager
     // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //Delete
-    public function deletePost($id){
+    public function deletePost($id)
+    {
         $baseManager = new BaseManager();
         $db = $baseManager->dbConnect();
         $request = $db->prepare('DELETE FROM posts WHERE id = ?');

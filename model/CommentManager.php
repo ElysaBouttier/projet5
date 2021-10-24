@@ -1,4 +1,5 @@
 <?php
+
 namespace Elysa\Pfive\m;
 
 class CommentManager extends BaseManager
@@ -22,7 +23,8 @@ class CommentManager extends BaseManager
     // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // //////////////////////////////////////////////              READ              ///////////////////////////////////////////////////////
     // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    public function getCommentsFromPost($id){
+    public function getCommentsFromPost($id)
+    {
         // Connect to DB
         $newManager = new BaseManager();
         $db = $newManager->dbConnect();
@@ -39,7 +41,8 @@ class CommentManager extends BaseManager
         // Return a list of comment 
         return $comments;
     }
-    public function getReportedComments() {
+    public function getReportedComments()
+    {
         // Connect to DB
         $newManager = new BaseManager();
         $db = $newManager->dbConnect();
@@ -56,7 +59,8 @@ class CommentManager extends BaseManager
         return $comments;
     }
 
-    public function getUsername($id) {
+    public function getUsername($id)
+    {
         // Connect to DB
         $newManager = new BaseManager();
         $db = $newManager->dbConnect();
@@ -64,6 +68,7 @@ class CommentManager extends BaseManager
         $request = $db->query('SELECT username FROM users AS u, comments AS c WHERE u.id=c.user_id ');
         $request->execute();
         $username = $request->fetch();
+        var_dump($username);
         return $username["username"];
     }
 
@@ -82,7 +87,29 @@ class CommentManager extends BaseManager
         return $alertedComment;
     }
 
+    public function validateComment($id)
+    {
+        // Connect to DB
+        $newManager = new BaseManager();
+        $db = $newManager->dbConnect();
+        // Request
+        $request = $db->prepare('UPDATE comments SET status = 2 WHERE id = ?');
+        $comment = $request->execute(array($id));
+
+        return $comment;
+    }
+
     // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // //////////////////////////////////////////////              DELETE              ///////////////////////////////////////////////////////
     // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    public function deleteComment($id)
+    {
+        $baseManager = new BaseManager();
+        $db = $baseManager->dbConnect();
+        // Request
+        $request = $db->prepare('DELETE FROM comments WHERE id = ?');
+        $deletedComment = $request->execute(array($id));
+        return $deletedComment;
+    }
 }

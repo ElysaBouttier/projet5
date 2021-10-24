@@ -46,9 +46,21 @@ class Router
                                 $newCommentController = new CommentController();
                                 $newCommentController->alertComment($id, $postId);
                             }
-                        } else {
-                            require_once('view/frontend/404.php');
+                            else {
+                                require_once('view/frontend/404.php');
+                            }
                         }
+                        // Update signaled comment
+                        elseif ($_GET['action'] == 'validComment') {
+                            $newAdminController = new CommentController();
+                            $newAdminController->validComment($_GET['id']);
+                        }
+                        // Update signaled comment
+                        elseif ($_GET['action'] == 'deleteComment') {
+                            $newAdminController = new CommentController();
+                            $newAdminController->deleteComment($_GET['id']);
+                        }
+                        
                     }
                     // ContactController
                     elseif ($_GET['controller'] == 'ContactController') {

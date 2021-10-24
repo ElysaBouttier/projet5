@@ -13,28 +13,29 @@
             <th class="text-center">Action</th>
         </tr>
     </thead>
-    <!-- <?php
-    // foreach ($comments as $comment) {
-    ?> -->
+    <?php
+    foreach ($comments as $comment) {
+    ?>
         <tbody align="center">
             <tr>
                 <td><a href="?controller=PostController&action=showPostById&id=<?= $post->getId() ?>"
                    title="Lire le billet"><?= (html_entity_decode($post->getTitle())) ?></a></td>
-                <td><?php echo($user['username']) ?></td>
-                <td><a title="Lire le commentaire">commentaires</a></td>
-                <td>Date du commentaire</td>
+                <td><?php // var_dump($newPostManager->getUserNameFromUserId($user['id'])) ?></td>
+                <td><?= $comment->getDate() ?></a></td>
+                <td><a href="?controller=PostController&action=showPostById&id=<?= $post->getId() ?>"
+                   title="Lire le billet"><?= $comment->getContent() ?></a></td>
                 <td>
-                    <a href="" title="Valider le commentaire">
+                    <a href="?controller=CommentController&action=validComment&id=<?= $comment->getId() ?>" title="Valider le commentaire">
                         <i class="fas fa-solid fa-check"></i>
                     </a>
-                    <a href="" title="Supprimer le commentaire">
+                    <a href="?controller=CommentController&action=deleteComment&id=<?= $comment->getId() ?>" title="Supprimer le commentaire">
                         <i class="fas fa-trash-alt"></i>
                     </a>
                 </td>
             </tr>
         </tbody>
-    <!-- <?php
-    // }
-    ?> -->
+    <?php
+    }
+    ?>
 </table>
 <hr>

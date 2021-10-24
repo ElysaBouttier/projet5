@@ -32,7 +32,8 @@ class UserController
         $posts = $newPostManager->getAllPost();
         $drafts = $newPostManager->getAllDraft();
         $edito = $newUserManager -> getEdito($username);
-
+        $comments = $newCommentManager->getReportedComments();
+        
         // View
         require_once ('view/backend/pannel_config.php');
     }
