@@ -55,7 +55,7 @@ class Router
                             $newAdminController = new CommentController();
                             $newAdminController->validComment($_GET['id']);
                         }
-                        // Update signaled comment
+                        // Delete signaled comment
                         elseif ($_GET['action'] == 'deleteComment') {
                             $newAdminController = new CommentController();
                             $newAdminController->deleteComment($_GET['id']);

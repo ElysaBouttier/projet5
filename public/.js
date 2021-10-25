@@ -1,2 +1,0 @@
-// document.getElementsByClassName("img-home")[0].src="/public/img/beige.jpg"
-// a = setInterval(function(){document.getElementsByClassName("img-home")[0].src="/public/img/beige"+Math.ceil(Math.random()*4)+".jpg"}, 5000)
