@@ -35,3 +35,12 @@
       console.log(error);
     });
 // }
+
+
+
+
+
+//
+//  DOMS
+//
+//au passage : titre apparait
