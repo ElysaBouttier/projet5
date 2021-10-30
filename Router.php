@@ -30,7 +30,6 @@ class Router
                                 // Conditions ternaires
                                 $username = isset($_POST['username']) ? strip_tags($_POST['username']) : NULL;
                                 $content = isset($_POST['content']) ? strip_tags($_POST['content']) : NULL;
-
                                 $newCommentController = new CommentController();
                                 $newCommentController->addComment($_GET['id'], $username, $content);
                             } else {
@@ -165,6 +164,20 @@ class Router
                                 }
                                 $newPostController->updateDraft($id, $title, $content, $miniatureImg, $status);
                             }
+                        }
+                        // Update thumb Number
+                         elseif ($_GET['action'] == 'addThumb') {
+                            $newPostController = new PostController();
+                            $id = $_GET['id'];
+                            $userid = $_SESSION['id'];
+                            $newPostController->updateThumbToPost($id, $userid);
+                        }
+                        // Update love Number
+                        elseif ($_GET['action'] == 'addLove') {
+                            $newPostController = new PostController();
+                            $id = $_GET['id'];
+                            $userid = $_SESSION['id'];
+                            $newPostController->updateHeartToPost($id, $userid);
                         }
                         
                     }

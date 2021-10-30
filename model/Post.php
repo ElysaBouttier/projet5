@@ -12,10 +12,12 @@ class Post
     private $creation_date;
     private $update_date;
     private $status;
+    private $heart_quantity;
+    private $like_quantity;
 
 
     // CONSTRUCTOR
-    public function __construct($id, $title, $content, $miniature_img, $creation_date, $update_date, $status)
+    public function __construct($id, $title, $content, $miniature_img, $creation_date, $update_date, $status, $heart_quantity, $like_quantity)
     {
         $this->id = $id;
         $this->title = $title;
@@ -24,6 +26,8 @@ class Post
         $this->creation_date = $creation_date;
         $this->update_date = $update_date;
         $this->status = $status;
+        $this->heart_quantity = $heart_quantity;
+        $this->like_quantity = $like_quantity;
     }
 
     // GETTERS
@@ -60,6 +64,14 @@ class Post
     public function getStatus()
     {
         return $this->status;
+    }
+    public function getHeartQuantity()
+    {
+        return $this->heart_quantity;
+    }
+    public function getLikeQuantity()
+    {
+        return $this->like_quantity;
     }
 
     // SETTERS
@@ -114,6 +126,24 @@ class Post
             $this->status = $status;
         } else {
             throw new \Exception('Problem with $status in Post model!');
+        }
+    }
+    public function setHeartQuantity($heart_quantity)
+    {
+        $heart_quantity = (int) $heart_quantity;
+        if ($heart_quantity > 0) {
+            $this->heart_quantity = $heart_quantity;
+        } else {
+            throw new \Exception('Problem with $heart_quantity in Post model!');
+        }
+    }
+    public function setLikeQuantity($like_quantity)
+    {
+        $like_quantity = (int) $like_quantity;
+        if ($like_quantity > 0) {
+            $this->like_quantity = $like_quantity;
+        } else {
+            throw new \Exception('Problem with $like_quantity in Post model!');
         }
     }
 }

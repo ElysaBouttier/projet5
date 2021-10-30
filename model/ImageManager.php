@@ -13,7 +13,7 @@ class ImageManager extends BaseManager
         $newManager = new BaseManager();
         $db = $newManager->dbConnect();
         // Request
-        $request = $db->prepare('INSERT INTO images (url_img, heart_quantity, like_quantity, post_id, content) VALUES (?, 0, 0, ?, ?)');
+        $request = $db->prepare('INSERT INTO images (url_img, post_id, content) VALUES (?, ?, ?)');
         $images = $request->execute(array($id, $url_img, $content));
 
         return $images;
@@ -29,13 +29,13 @@ class ImageManager extends BaseManager
         $newManager = new BaseManager();
         $db = $newManager->dbConnect();
         // Request
-        $request = $db->prepare('SELECT id, url_img, heart_quantity, like_quantity, post_id, content FROM images WHERE post_id = ?');
+        $request = $db->prepare('SELECT id, url_img, post_id, content FROM images WHERE post_id = ?');
         $request->execute(array($id));
         $result = $request->fetchAll();
         // Push in array
         $images = [];
         foreach ($result as $image) {
-            $newImage = new Image($image['id'], $image['url_img'], $image['heart_quantity'], $image['like_quantity'], $image['post_id'], $image['content']);
+            $newImage = new Image($image['id'], $image['url_img'], $image['post_id'], $image['content']);
             $images[] = $newImage;
         }
         // Return a list of comment 

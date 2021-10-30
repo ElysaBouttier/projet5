@@ -29,6 +29,9 @@ class CommentManager extends BaseManager
         $newManager = new BaseManager();
         $db = $newManager->dbConnect();
         // Request
+
+
+        // TODO requete avec jointure pour recuperer username comment
         $request = $db->prepare('SELECT id, user_id, post_id, content, DATE_FORMAT(date_creation, \'%d/%m/%Y à %Hh%i\') AS date_creation, status FROM comments WHERE post_id = ?');
         $request->execute(array($id));
         $result = $request->fetchAll();
@@ -68,7 +71,6 @@ class CommentManager extends BaseManager
         $request = $db->query('SELECT username FROM users AS u, comments AS c WHERE u.id=c.user_id ');
         $request->execute();
         $username = $request->fetch();
-        var_dump($username);
         return $username["username"];
     }
 

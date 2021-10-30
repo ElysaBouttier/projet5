@@ -14,7 +14,7 @@ class PostManager extends BaseManager
         $newManager = new BaseManager();
         $db = $newManager->dbConnect();
         // Create new line
-        $request = $db->prepare('INSERT INTO posts ( title, content, miniature_img, creation_date, status) VALUES ( ?, ?, ?, NOW(), 0)');
+        $request = $db->prepare('INSERT INTO posts ( title, content, miniature_img, creation_date, status, heart_quantity, like_quantity) VALUES ( ?, ?, ?, NOW(), 0, 0, 0)');
         $request->execute(array($title, $content, $miniature_img));
     }
 
@@ -28,14 +28,14 @@ class PostManager extends BaseManager
         $newManager = new BaseManager();
         $db = $newManager->dbConnect();
 
-        $request = $db->query('SELECT id, title, content, miniature_img, DATE_FORMAT(creation_date,"le : %d/%m/%Y à %Hh%i") AS creation_date, DATE_FORMAT(update_date, "le : %d/%m/%Y à %Hh%i") AS update_date, status FROM posts WHERE status = 1');
+        $request = $db->query('SELECT id, title, content, miniature_img, DATE_FORMAT(creation_date,"le : %d/%m/%Y à %Hh%i") AS creation_date, DATE_FORMAT(update_date, "le : %d/%m/%Y à %Hh%i") AS update_date, status, heart_quantity, like_quantity FROM posts WHERE status = 1');
 
         $request->execute(array());
         $result = $request->fetchAll();
         $posts = [];
         // For each post put it on an array
         foreach ($result as $post) {
-            $newPost = new Post($post['id'], $post['title'], $post['content'], $post['miniature_img'], $post['creation_date'], $post['update_date'], $post['status']);
+            $newPost = new Post($post['id'], $post['title'], $post['content'], $post['miniature_img'], $post['creation_date'], $post['update_date'], $post['status'],$post['heart_quantity'], $post['like_quantity']);
             $posts[] = $newPost;
         }
         return $posts;
@@ -46,17 +46,17 @@ class PostManager extends BaseManager
         $newManager = new BaseManager();
         $db = $newManager->dbConnect();
 
-        $request = $db->query('SELECT id, title, content, miniature_img, DATE_FORMAT(creation_date,"le : %d/%m/%Y à %Hh%i") AS creation_date, DATE_FORMAT(update_date, "le : %d/%m/%Y à %Hh%i") AS update_date, status FROM posts WHERE status=0');
+        $request = $db->query('SELECT id, title, content, miniature_img, DATE_FORMAT(creation_date,"le : %d/%m/%Y à %Hh%i") AS creation_date, DATE_FORMAT(update_date, "le : %d/%m/%Y à %Hh%i") AS update_date, status, heart_quantity, like_quantity FROM posts WHERE status = 0');
 
         $request->execute(array());
         $result = $request->fetchAll();
         $drafts = [];
         // For each post put it on an array
         foreach ($result as $draft) {
-            $newDraft = new Post($draft['id'], $draft['title'], $draft['content'], $draft['miniature_img'], $draft['creation_date'], $draft['update_date'], $draft['status']);
+            $newDraft = new Post($draft['id'], $draft['title'], $draft['content'], $draft['miniature_img'], $draft['creation_date'], $draft['update_date'], $draft['status'],$draft['heart_quantity'], $draft['like_quantity']);
             $drafts[] = $newDraft;
         }
-
+        var_dump($drafts);
         return $drafts;
     }
 
@@ -65,10 +65,10 @@ class PostManager extends BaseManager
     {
         $newManager = new BaseManager();
         $db = $newManager->dbConnect();
-        $request = $db->prepare('SELECT id, title, content, miniature_img, DATE_FORMAT(creation_date,"le : %d/%m/%Y à %Hh%i") AS creation_date, DATE_FORMAT(update_date, "le : %d/%m/%Y à %Hh%i") AS update_date, status FROM posts WHERE id = ?');
+        $request = $db->prepare('SELECT id, title, content, miniature_img, DATE_FORMAT(creation_date,"le : %d/%m/%Y à %Hh%i") AS creation_date, DATE_FORMAT(update_date, "le : %d/%m/%Y à %Hh%i") AS update_date, status, heart_quantity, like_quantity FROM posts WHERE id = ?');
         $request->execute(array((int)$id));
         $post = $request->fetch();
-        $response = new Post($post['id'], $post['title'], $post['content'], $post['miniature_img'], $post['creation_date'], $post['update_date'], $post['status']);
+        $response = new Post($post['id'], $post['title'], $post['content'], $post['miniature_img'], $post['creation_date'], $post['update_date'], $post['status'],$post['heart_quantity'], $post['like_quantity']);
 
         return $response;
     }
@@ -80,13 +80,13 @@ class PostManager extends BaseManager
         $newManager = new BaseManager();
         $db = $newManager->dbConnect();
         // Request
-        $request = $db->prepare('SELECT id, title, content, miniature_img, DATE_FORMAT(creation_date,"le : %d/%m/%Y à %Hh%i") AS creation_date, DATE_FORMAT(update_date, "le : %d/%m/%Y à %Hh%i") AS update_date, status FROM posts WHERE status = 1');
+        $request = $db->prepare('SELECT id, title, content, miniature_img, DATE_FORMAT(creation_date,"le : %d/%m/%Y à %Hh%i") AS creation_date, DATE_FORMAT(update_date, "le : %d/%m/%Y à %Hh%i") AS update_date, status, heart_quantity, like_quantity FROM posts WHERE status = 1');
         $request->execute(array());
         $results = $request->fetchAll();
         // Push in array
         $post = [];
         foreach ($results as $post) {
-            $newPost = new Post($post['id'], $post['title'], $post['content'], $post['miniature_img'], $post['creation_date'], $post['update_date'], $post['status']);
+            $newPost = new Post($post['id'], $post['title'], $post['content'], $post['miniature_img'], $post['creation_date'], $post['update_date'], $post['status'], $post['heart_quantity'], $post['like_quantity']);
             $posts[] = $newPost;
         }
         // Return a list of comment 
@@ -100,15 +100,48 @@ class PostManager extends BaseManager
         $request = $db->query('SELECT U.username  FROM users U JOIN comments C ON U.id = c.user_id WHERE user_id= ?');
         $request->execute(array((int)$userId));
         $post = $request->fetch();
-        var_dump($post);
         // return $username;
+    }
+
+    public function checkHeartSelected($postId, $userId)
+    {
+        $newManager = new BaseManager();
+        $db = $newManager->dbConnect();
+        $request = $db->prepare('SELECT is_heart_selected FROM assoc_images_users WHERE fk_post_id = ? AND fk_user_id = ?');
+        $request->execute(array($postId, $userId));
+        $result = $request->fetch();
+        
+        if ($result ==1){
+            return true;
+        }
+        else{
+            return false;
+            echo('pas sélectionné');
+        }
+    }
+
+    public function checkLikeSelected($postId, $userId)
+    {
+        $newManager = new BaseManager();
+        $db = $newManager->dbConnect();
+        $request = $db->prepare('SELECT is_like_selected FROM assoc_images_users WHERE fk_post_id = ? AND fk_user_id = ?');
+        $request->execute(array($postId, $userId));
+        $result = $request->fetch();
+        
+        if ($result == 1){
+            return true;
+        }
+        else{
+            return false;
+            echo('pas sélectionné');
+        }
     }
 
     // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // //////////////////////////////////////////////              UPDATE              ///////////////////////////////////////////////////////
     // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    // Show 
+    // Make an update of the draft 
     public function updateDraft($title, $content, $miniature_img, $status, $id)
     {
         $newManager = new BaseManager();
@@ -129,6 +162,56 @@ class PostManager extends BaseManager
 
         return $post;
     }
+
+    // Add thumb to the post 
+    public function addThumbToPost($id)
+    {
+        $newManager = new BaseManager();
+        $db = $newManager->dbConnect();
+        $request = $db->prepare('UPDATE posts SET like_quantity = like_quantity + 1 WHERE id = ?');
+        $post = $request->execute(array($id));
+
+        return $post;
+    }
+    // Remove thumb to the post 
+    public function removeThumbToPost($id)
+    {
+        $newManager = new BaseManager();
+        $db = $newManager->dbConnect();
+        $request = $db->prepare('SELECT heart_quantity FROM posts WHERE id = ?');
+        $post = $request->execute(array($id));
+        print($post);
+        $request = $db->prepare('UPDATE posts SET like_quantity = like_quantity - 1 WHERE id = ?');
+        $post = $request->execute(array($id));
+
+        return $post;
+    }
+
+    // Add or remove thumb to the post 
+    public function addHeartToPost($id)
+    {
+        $newManager = new BaseManager();
+        $db = $newManager->dbConnect();
+        $request = $db->query('SELECT heart_quantity FROM posts WHERE id = ?');
+        $post = $request->execute(array($id));
+        print($post);
+        $request = $db->prepare('UPDATE posts SET heart_quantity = heart_quantity + 1 WHERE id = ?');
+        $post = $request->execute(array($id));
+
+        return $post;
+    }
+
+    public function removeHeartToPost($id)
+    {
+        $newManager = new BaseManager();
+        $db = $newManager->dbConnect();
+        $request = $db->prepare('UPDATE posts SET heart_quantity = heart_quantity - 1 WHERE id = ?');
+        $post = $request->execute(array($id));
+
+        return $post;
+    }
+
+    
     // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // //////////////////////////////////////////////              DELETE              ///////////////////////////////////////////////////////
     // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

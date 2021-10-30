@@ -11,6 +11,7 @@
     </div>
     <div class="carousel-inner">
         <div class="carousel-item active">
+            <!-- TODO : Si pas d'image pas de diapo // message : ajouter img pr visualiser post-->
             <img src="../../public/img/<?php echo $images[0]->getUrl()?>" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
                 <p><?php echo $images[0]->getContent()?></p>
@@ -25,13 +26,12 @@
                     <p><?php echo html_entity_decode($image->getContent()) ?> </p>
                     <p><?php echo html_entity_decode($imageCount) ?> nombre img </p>
 
-                </div><!-- end div carousel-caption -->
-                
-            </div> <!-- end div carousel-item -->
+                </div>
+            </div>
         <?php
         }
         ?>
-    </div> <!-- end div carousel-inner -->
+    </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Previous</span>

@@ -152,6 +152,52 @@ figcaption{
     margin: auto;
 }
 
+.like_activity{
+    display: flex;
+    margin: auto;
+    justify-content: space-evenly;
+    margin-top: 4%;
+    margin-bottom: 10%;
+}
+
+.like-fontawesome{
+    display: flex;
+}
+
+.fontawesome-btn{
+    border: 0;
+    width: 9%;
+    display: flex;
+}
+
+.far{
+    color: #4a4746;
+}
+
+.img-fontawesome{
+    font-size: 50px;
+}
+
+.number-fontawesome{
+    height: 44%;
+    width: 27px;
+    text-align: center;
+    position: relative;
+    margin-top: 18px;
+    right: 30px;
+    color: #7c7977;
+}
+
+.number-fontawesome-heart{
+    height: 56%;
+    width: 27px;
+    text-align: center;
+    position: relative;
+    margin-top: 13px;
+    right: 33px;
+    color: #7c7977;
+}
+
 .comments {
     display: flex;
     margin-top: 8%;

@@ -8,19 +8,15 @@ class Image
     // VARIABLES
     private $id;
     private $url_img;
-    private $heart_quantity;
-    private $like_quantity;
     private $post_id;
     private $content;
 
 
     // CONSTRUCTOR
-    public function __construct($id, $url_img, $heart_quantity, $like_quantity, $post_id, $content)
+    public function __construct($id, $url_img, $post_id, $content)
     {
         $this->id = $id;
         $this->url_img = $url_img;
-        $this->heart_quantity = $heart_quantity;
-        $this->like_quantity = $like_quantity;
         $this->post_id = $post_id;
         $this->content = $content;
     }
@@ -34,14 +30,6 @@ class Image
     public function getUrl()
     {
         return $this->url_img;
-    }
-    public function getHeartQuantity()
-    {
-        return $this->heart_quantity;
-    }
-    public function getLikeQuantity()
-    {
-        return $this->like_quantity;
     }
     public function getPostId()
     {
@@ -69,24 +57,6 @@ class Image
             $this->url_img = $url_img;
         } else {
             throw new \Exception('Problem with $url_img in Image model!');
-        }
-    }
-    public function setHeartQuantity($heart_quantity)
-    {
-        $heart_quantity = (int) $heart_quantity;
-        if ($heart_quantity > 0) {
-            $this->heart_quantity = $heart_quantity;
-        } else {
-            throw new \Exception('Problem with $heart_quantity in Image model!');
-        }
-    }
-    public function setLikeQuantity($like_quantity)
-    {
-        $like_quantity = (int) $like_quantity;
-        if ($like_quantity > 0) {
-            $this->like_quantity = $like_quantity;
-        } else {
-            throw new \Exception('Problem with $like_quantity in Image model!');
         }
     }
     public function setPostId($post_id)
