@@ -184,6 +184,15 @@ figcaption {
   margin-top: 7%;
 }
 
+.carousel-inner {
+  height: 30em;
+}
+
+.carousel-inner img {
+  object-fit: fill;
+  height: 30em;
+}
+
 .carousel_img {
   margin: auto;
 }

@@ -20,7 +20,7 @@
                 <div class="like-fontawesome">
                     <button type="submit" class="fontawesome-btn">
                     <i class="far fa-thumbs-up img-fontawesome"></i>
-                    <p class="number-fontawesome">5</p>
+                    <p class="number-fontawesome"><?php echo $post->getLikeQuantity() ?></p>
                     </button>
                 </div>
             </form>
@@ -29,7 +29,7 @@
                 <div class="like-fontawesome">
                     <button type="submit" class="fontawesome-btn">
                     <i class="far fa-heart img-fontawesome"></i>
-                    <p class="number-fontawesome-heart">5</p>
+                    <p class="number-fontawesome-heart"><?php echo $post->getHeartQuantity() ?></p>
                     </button>
                 </div>
             </form>
