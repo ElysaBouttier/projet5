@@ -2,7 +2,7 @@
 
     <div class="image_instagram ">
         <img src="../../public/img/beige2.jpg" class="img-home" alt="...">
-        <h1 id="author_name"> T a t y a n a</h1>
+        <h1 id="author_name"> Tatyana</h1>
     </div>
     <div>
         <p class="author_description">

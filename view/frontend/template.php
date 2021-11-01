@@ -32,7 +32,7 @@
         <!-- JS -->
         <script src="../../public/js/main.js"></script>
         
-        <!-- TinyMce 
+        <!-- TinyMce  -->
         <script src="https://cdn.tiny.cloud/1/xvujr781evyf8zv3dsyc6b88nx98022yqyxje6uvokzkyp8p/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
         <script src="https://cdn.tiny.cloud/1/xvujr781evyf8zv3dsyc6b88nx98022yqyxje6uvokzkyp8p/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>  <script>
             tinymce.init({
@@ -43,7 +43,7 @@
             tinycomments_mode: 'embedded',
             tinycomments_author: 'Author name',
             });
-        </script>-->
+        </script>
     </head>
     <body>
         <header>

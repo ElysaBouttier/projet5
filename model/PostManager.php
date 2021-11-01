@@ -28,7 +28,7 @@ class PostManager extends BaseManager
         $newManager = new BaseManager();
         $db = $newManager->dbConnect();
 
-        $request = $db->query('SELECT id, title, content, miniature_img, DATE_FORMAT(creation_date,"le : %d/%m/%Y à %Hh%i") AS creation_date, DATE_FORMAT(update_date, "le : %d/%m/%Y à %Hh%i") AS update_date, status, heart_quantity, like_quantity FROM posts WHERE status = 1');
+        $request = $db->query('SELECT id, title, content, miniature_img, DATE_FORMAT(creation_date,"le : %d/%m/%Y à %Hh%i") AS creation_date, DATE_FORMAT(update_date, "le : %d/%m/%Y à %Hh%i") AS update_date, status, heart_quantity, like_quantity, creation_date AS cdate FROM posts WHERE status = 1 ORDER BY cdate DESC');
 
         $request->execute(array());
         $result = $request->fetchAll();
@@ -46,7 +46,7 @@ class PostManager extends BaseManager
         $newManager = new BaseManager();
         $db = $newManager->dbConnect();
 
-        $request = $db->query('SELECT id, title, content, miniature_img, DATE_FORMAT(creation_date,"le : %d/%m/%Y à %Hh%i") AS creation_date, DATE_FORMAT(update_date, "le : %d/%m/%Y à %Hh%i") AS update_date, status, heart_quantity, like_quantity FROM posts WHERE status = 0');
+        $request = $db->query('SELECT id, title, content, miniature_img, DATE_FORMAT(creation_date,"le : %d/%m/%Y à %Hh%i") AS creation_date, DATE_FORMAT(update_date, "le : %d/%m/%Y à %Hh%i") AS update_date, status, heart_quantity, like_quantity, creation_date AS cdate FROM posts WHERE status = 0 ORDER BY cdate DESC');
 
         $request->execute(array());
         $result = $request->fetchAll();

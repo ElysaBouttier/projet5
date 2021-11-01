@@ -5,7 +5,7 @@
 
 <div class="container">
 
-    <h1 class="text-center title-add-post">Créer un post</h1>
+    <h1 class="text-center title-add-post">Créer un brouillon</h1>
     <form class="add-post-form" action="?controller=PostController&action=addDraft" method="POST" enctype="multipart/form-data">
         <div class="d-flex">
             <p class="text-start add-post-title-form">Titre :</p>
