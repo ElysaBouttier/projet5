@@ -2,7 +2,6 @@
 
 
 <div class="container">
-    <?php var_dump($post) ?>
     <h1 class="col-md-6 offset-md-3 title_blog"><?php echo html_entity_decode($post->getTitle()) ?></h1>
 
     <div class="content_body">
