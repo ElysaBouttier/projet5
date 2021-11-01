@@ -30,16 +30,17 @@ class CommentManager extends BaseManager
         $db = $newManager->dbConnect();
         // Request
 
-
+        $request = $db->prepare('SELECT c.*, u.username FROM comments c, users u WHERE u.id=c.user_id AND c.post_id = ?');
         // TODO requete avec jointure pour recuperer username comment
-        $request = $db->prepare('SELECT id, user_id, post_id, content, DATE_FORMAT(date_creation, \'%d/%m/%Y à %Hh%i\') AS date_creation, status FROM comments WHERE post_id = ?');
+        // $request = $db->prepare('SELECT id, user_id, post_id, content, DATE_FORMAT(date_creation, \'%d/%m/%Y à %Hh%i\') AS date_creation, status FROM comments WHERE post_id = ?');
         $request->execute(array($id));
         $result = $request->fetchAll();
         // Push in array
         $comments = [];
         foreach ($result as $comment) {
             $newComment = new Comment($comment['id'], $comment['user_id'], $comment['post_id'], $comment['content'], $comment['date_creation'], $comment['status']);
-            $comments[] = $newComment;
+            $newComment->setUsername($comment['username']);
+            $comments[] = $newComment ;
         }
         // Return a list of comment 
         return $comments;

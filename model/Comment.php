@@ -12,6 +12,7 @@ class Comment
     private $content;
     private $date_creation;
     private $status;
+    private $username;
 
 
     // CONSTRUCTOR
@@ -50,6 +51,10 @@ class Comment
     public function getStatus()
     {
         return $this->status;
+    }
+    public function getUsername()
+    {
+        return $this->username;
     }
 
 
@@ -100,6 +105,14 @@ class Comment
             $this->status = $status;
         } else {
             throw new \Exception('Problem with $status in Comment model!');
+        }
+    }
+    public function setUsername($username)
+    {
+        if (is_string($username)) {
+            $this->username = $username;
+        } else {
+            throw new \Exception('Problem with $username!');
         }
     }
 }
