@@ -115,28 +115,28 @@ class PostController
     public function updateThumbToPost($id, $userId)
     {
         $newPostManager = new PostManager();
-        $isLikeSelected = $newPostManager->checkLikeSelected($id, $userId);
+        $newPostController = new PostController();
+        $isLikeSelected = $newPostManager->updateLikeSelected($id, $userId);
+
         if ($isLikeSelected === true) {
-            $newPostManager->addThumbToPost($id);
-            throw new \Exception("+1 !");
-        } else {
             $newPostManager->removeThumbToPost($id);
-            throw new \Exception(" -1 !");
+        } else {
+            $newPostManager->addThumbToPost($id);
         }
-        header('Location: ?controller=PostController&action=showEditPostView&id=' . $id);
+        $newPostController -> showPostById($id);
     }
     public function updateHeartToPost($id, $userId)
     {
+
         $newPostManager = new PostManager();
-        $isHeartSelected = $newPostManager->checkHeartSelected($id, $userId);
-        // Gestion des erreurs
-        if ($isHeartSelected === false) {
-            $newPostManager->addHeartToPost($id);
-            throw new \Exception("+1 !");
-        } else {
+        $newPostController = new PostController();
+        $isHeartSelected = $newPostManager->updateHeartSelected($id, $userId);
+
+        if ($isHeartSelected === true) {
             $newPostManager->removeHeartToPost($id);
-            throw new \Exception(" -1 !");
+        } else {
+            $newPostManager->addHeartToPost($id);
         }
-        header('Location: ?controller=PostController&action=showEditPostView&id=' . $id);
+        $newPostController -> showPostById($id);
     }
 }

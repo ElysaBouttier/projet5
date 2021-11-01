@@ -56,7 +56,6 @@ class PostManager extends BaseManager
             $newDraft = new Post($draft['id'], $draft['title'], $draft['content'], $draft['miniature_img'], $draft['creation_date'], $draft['update_date'], $draft['status'],$draft['heart_quantity'], $draft['like_quantity']);
             $drafts[] = $newDraft;
         }
-        var_dump($drafts);
         return $drafts;
     }
 
@@ -93,7 +92,7 @@ class PostManager extends BaseManager
         return $posts;
     }
 
-    //
+    // TODO
     public function getUserNameFromUserId(int $userId)
     {
         $db = $this->dbConnect();
@@ -103,39 +102,7 @@ class PostManager extends BaseManager
         // return $username;
     }
 
-    public function checkHeartSelected($postId, $userId)
-    {
-        $newManager = new BaseManager();
-        $db = $newManager->dbConnect();
-        $request = $db->prepare('SELECT is_heart_selected FROM assoc_images_users WHERE fk_post_id = ? AND fk_user_id = ?');
-        $request->execute(array($postId, $userId));
-        $result = $request->fetch();
-        
-        if ($result ==1){
-            return true;
-        }
-        else{
-            return false;
-            echo('pas sélectionné');
-        }
-    }
 
-    public function checkLikeSelected($postId, $userId)
-    {
-        $newManager = new BaseManager();
-        $db = $newManager->dbConnect();
-        $request = $db->prepare('SELECT is_like_selected FROM assoc_images_users WHERE fk_post_id = ? AND fk_user_id = ?');
-        $request->execute(array($postId, $userId));
-        $result = $request->fetch();
-        
-        if ($result == 1){
-            return true;
-        }
-        else{
-            return false;
-            echo('pas sélectionné');
-        }
-    }
 
     // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // //////////////////////////////////////////////              UPDATE              ///////////////////////////////////////////////////////
@@ -170,7 +137,6 @@ class PostManager extends BaseManager
         $db = $newManager->dbConnect();
         $request = $db->prepare('UPDATE posts SET like_quantity = like_quantity + 1 WHERE id = ?');
         $post = $request->execute(array($id));
-
         return $post;
     }
     // Remove thumb to the post 
@@ -180,7 +146,6 @@ class PostManager extends BaseManager
         $db = $newManager->dbConnect();
         $request = $db->prepare('SELECT heart_quantity FROM posts WHERE id = ?');
         $post = $request->execute(array($id));
-        print($post);
         $request = $db->prepare('UPDATE posts SET like_quantity = like_quantity - 1 WHERE id = ?');
         $post = $request->execute(array($id));
 
@@ -192,12 +157,8 @@ class PostManager extends BaseManager
     {
         $newManager = new BaseManager();
         $db = $newManager->dbConnect();
-        $request = $db->query('SELECT heart_quantity FROM posts WHERE id = ?');
-        $post = $request->execute(array($id));
-        print($post);
         $request = $db->prepare('UPDATE posts SET heart_quantity = heart_quantity + 1 WHERE id = ?');
         $post = $request->execute(array($id));
-
         return $post;
     }
 
@@ -223,5 +184,98 @@ class PostManager extends BaseManager
         $db = $baseManager->dbConnect();
         $request = $db->prepare('DELETE FROM posts WHERE id = ?');
         $request->execute(array($id));
+    }    
+    
+    
+
+    // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // //////////////////////////////////////              ASSOC IMG USER TABLE              /////////////////////////////////////////////////
+    // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    // If assoc_image_user table doesn't exist, it will create the association
+    public function assocImagesUserExist($postId, $userId){
+        $newManager = new BaseManager();
+        $db = $newManager->dbConnect();
+
+        $request = $db->prepare('SELECT * FROM assoc_images_users WHERE fk_post_id = ? AND fk_user_id = ?');
+        $request->execute(array($postId, $userId));
+        $result = $request->fetch();
+        
+        if(!$result){
+            $request = $db->prepare('INSERT INTO assoc_images_users ( fk_post_id, fk_user_id, is_like_selected, is_heart_selected) VALUES ( ?, ?, 0, 0)');
+            $request->execute(array($postId, $userId));
+        }
+    }
+
+    // LIKE
+    // Look if "is like" is selected for this userId
+    public function checkLikeSelected($postId, $userId)
+    {
+        $newManager = new BaseManager();
+        $db = $newManager->dbConnect();
+        
+        $request = $db->prepare('SELECT is_like_selected FROM assoc_images_users WHERE fk_post_id = ? AND fk_user_id = ?');
+        $request->execute(array($postId, $userId));
+        $result = $request->fetch();
+        $result = $result['is_like_selected'];
+        return $result;
+    }
+
+    //  If like is already selected => make unselected
+    public function updateLikeSelected($postId, $userId)
+    {
+        $newManager = new BaseManager();
+        $db = $newManager->dbConnect();
+
+        $postManager = new PostManager;
+        $result = $postManager -> assocImagesUserExist($postId, $userId);
+        $result = $postManager -> checkLikeSelected($postId, $userId);
+ 
+        if ($result == 1){
+            $request = $db->prepare('UPDATE assoc_images_users SET is_like_selected = 0 WHERE fk_post_id = ? AND fk_user_id = ?');
+            $request->execute(array($postId, $userId));
+            return true;
+        }
+        else{
+            $request = $db->prepare('UPDATE assoc_images_users SET is_like_selected = 1 WHERE fk_post_id = ? AND fk_user_id = ?');
+            $request->execute(array($postId, $userId));
+            return false;
+        }
+    }
+
+    // HEART
+    // Look if "is like" is selected for this userId
+    public function checkHeartSelected($postId, $userId)
+    {
+        $newManager = new BaseManager();
+        $db = $newManager->dbConnect();
+        
+        $request = $db->prepare('SELECT is_heart_selected FROM assoc_images_users WHERE fk_post_id = ? AND fk_user_id = ?');
+        $request->execute(array($postId, $userId));
+        $result = $request->fetch();
+        $result = $result['is_heart_selected'];
+        return $result;
+    }
+
+    //  If like is already selected => make unselected
+    public function updateHeartSelected($postId, $userId)
+    {
+        $newManager = new BaseManager();
+        $db = $newManager->dbConnect();
+
+        $postManager = new PostManager;
+        $result = $postManager -> assocImagesUserExist($postId, $userId);
+        $result = $postManager -> checkHeartSelected($postId, $userId);
+ 
+        if ($result == 1){
+            $request = $db->prepare('UPDATE assoc_images_users SET is_heart_selected = 0 WHERE fk_post_id = ? AND fk_user_id = ?');
+            $request->execute(array($postId, $userId));
+            return true;
+        }
+        else{
+            $request = $db->prepare('UPDATE assoc_images_users SET is_heart_selected = 1 WHERE fk_post_id = ? AND fk_user_id = ?');
+            $request->execute(array($postId, $userId));
+            return false;
+        }
     }
 }
