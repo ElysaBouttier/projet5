@@ -1,8 +1,6 @@
 <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
 
-
-
-
+    <!-- indicators btn under images carousel  -->
     <div class="carousel-indicators">
         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 0"></button>
         <?php
@@ -13,17 +11,21 @@
         }
         ?>
     </div>
+
+    <!-- Carousel -->
     <div class="carousel-inner">
         <?php
         if ($images) {
         ?>
+            <!-- First Img and Coment on carousel -->
             <div class="carousel-item active">
-                <!-- TODO : Si pas d'image pas de diapo // message : ajouter img pr visualiser post-->
                 <img src="../../public/img/<?php echo $images[0]->getUrl() ?>" class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
                     <p><?php echo $images[0]->getContent() ?></p>
                 </div>
             </div>
+
+            <!-- Img and comment on carousel -->
             <?php
             foreach ($images as $image) {
             ?>
@@ -38,6 +40,7 @@
             <?php
             }
         }
+        // Condition to see text if there 's no img on the article
         if (!$images) {
             ?>
             <p class="text-center">Ajoutez une image pour visualiser le post</p>
@@ -46,6 +49,8 @@
         }
         ?>
     </div>
+
+    <!-- btn control -->
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Previous</span>
