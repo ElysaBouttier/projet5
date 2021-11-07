@@ -1,7 +1,7 @@
 <?php ob_start(); ?>
 
     <div class="image_instagram ">
-        <img src="../../public/img/beige2.jpg" class="img-home" alt="...">
+        <img src="../../public/wallepaper/sum.jpg" id="img-home" class="img-home" alt="...">
         <h1 id="author_name"> Tatyana</h1>
     </div>
     <div>

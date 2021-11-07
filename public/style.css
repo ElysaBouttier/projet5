@@ -1,42 +1,36 @@
 @font-face {
-  font-family: "Pierson-Regular";
-  font-style: regular;
-  src: url("font/Pierson-Regular.ttf");
-}
-@font-face {
-  font-family: "Cormorant-light";
-  font-style: light;
-  src: url("font/Cormorant-Light.ttf");
-}
-@font-face {
-  font-family: "Pierson-Thin";
-  font-style: thin;
-  src: url("font/Pierson-Thin.ttf");
-}
-@font-face {
   font-family: "Fredericka";
   font-style: regular;
   src: url("font/FrederickatheGreat-Regular.ttf");
 }
 @font-face {
-  font-family: "Tokyo";
+  font-family: "Creative Lettering";
   font-style: regular;
-  src: url("font/ZenTokyoZoo-Regular.ttf");
+  src: url("font/Creative\ Lettering.otf");
 }
+@font-face {
+  font-family: "Neolatina-gnx5";
+  font-style: regular;
+  src: url("font/NeoLatina-gnx5.ttf");
+}
+@font-face {
+  font-family: "Vonique 64";
+  font-style: regular;
+  src: url("font/Vonique\ 64.ttf");
+}
+
 
 /*  TEMPLATE  */
 html {
   height: 100%;
   font-family: Cormorant-Light, Arial, Helvetica, sans-serif;
   color: #4a4746;
-  background-color: #f4ece8;
 }
 header {
   display: flex;
   position: fixed;
   height: 100%;
   width: 12%;
-  background-color: #f4ece8;
 }
 .nav {
   height: 100%;
@@ -70,38 +64,37 @@ header {
 }
 .nav-link,
 .welcome_btn {
-  color: #4a4746;
+  color: black;
 }
 .nav-link:hover {
-  color: #8d7f7a;
 }
 body {
   height: 100%;
-  background-color: #080605;
 }
 main {
   width: 88%;
   height: 100%;
   float: right;
   flex-direction: row;
-  background-color: #f4ece8;
 }
 
 /* HOME VIEW */
 .image_instagram {
   position: relative;
+  width: 100%;
 }
 .img-home {
   min-width: 100%;
   min-height: 90%;
+  max-height: 42em;
+  max-width: 100%;
 }
 #author_name {
-  font-family: Fredericka, Cormorant-Light;
+  font-family: Creative Lettering, Fredericka, Cormorant-Light;
   position: absolute;
   top: 50%;
   text-align: center;
   width: 97%;
-  color: #4a4746;
   font-size: 5rem;
   white-space: nowrap;
   letter-spacing: 0.5em;
@@ -144,10 +137,9 @@ main {
 }
 .author_description {
   padding: 8%;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family:  cursive, 'Courier New', Courier, monospace;
 }
 .set_images {
-  background-color: #f4ece8;
   width: 100%;
   display: flex;
   padding-top: 5%;
@@ -216,7 +208,6 @@ figcaption {
 }
 
 .far {
-  color: #4a4746;
 }
 
 .img-fontawesome {
@@ -230,7 +221,6 @@ figcaption {
   position: relative;
   margin-top: 18px;
   right: 30px;
-  color: #7c7977;
 }
 
 .number-fontawesome-heart {
@@ -240,7 +230,6 @@ figcaption {
   position: relative;
   margin-top: 13px;
   right: 33px;
-  color: #7c7977;
 }
 
 .comments {
@@ -323,4 +312,56 @@ input {
 /* RGPD VIEW */
 #legals {
   margin: auto;
+}
+
+
+
+/* CHANGE STYLE */
+/* Winter Style */
+body.cold {
+  font-family: "Vonique 64", Arial, Helvetica, sans-serif;
+  color: #8ac3de;
+  background-color: #02101b;
+}
+body.cold #author_name {
+  font-family: Neolatina-gnx5, Arial, Helvetica, sans-serif;
+  color: white;
+}
+body.cold i{
+  color: #8ac3de;
+}
+
+/* Temperate Style */
+body.temperate {
+  font-family: Arial, Helvetica, sans-serif;
+  color: black;
+  background-color: #f4ece8;
+}
+body.temperate #author_name {
+  font-family: "Fredericka", Arial, Helvetica, sans-serif;
+  color: #4a4746;
+}
+body.temperate i{
+  color: #4a4746;
+}
+
+/* Summer Style */
+body.summer {
+  font-family: "Creative Lettering", Arial, Helvetica, sans-serif;
+  color: #4a4746;
+  background-color: white;
+}
+body.temperate #author_name {
+  font-family: cursive, "Courier New", Courier, monospace;
+  color: #4a4746;
+}
+body.summer i{
+  color: rgb(253,147,109);
+}
+
+/* 
+ */
+
+body.hide {
+  display: none;
 }
