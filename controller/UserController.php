@@ -68,7 +68,6 @@ class UserController
                 !empty($_POST['username']) && !empty($_POST['password']) && !empty($_POST['password_confirm'])
                 && !empty($_POST['email'])  && !empty($_POST['firstname']) && !empty($_POST['lastname'])
             ) {
-
                 // Check the username lenght 
                 $usernameLength = strlen($username);
                 if ($usernameLength <= 40) {
@@ -99,8 +98,8 @@ class UserController
                                                     $username = htmlspecialchars($username);
                                                     $password = htmlspecialchars($password);
                                                     $email = htmlspecialchars($email);
-                                                    $email = htmlspecialchars($firstname);
-                                                    $email = htmlspecialchars($lastname);
+                                                    $firstname = htmlspecialchars($firstname);
+                                                    $lastname = htmlspecialchars($lastname);
                                                     $newUserManager->addUser($username, $password, $email, $firstname, $lastname);
                                                     $newMessage->setSuccess("<p>Inscription validée ! Vous pouvez vous connecter!</p>");
                                                 } else {

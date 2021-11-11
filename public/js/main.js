@@ -5,6 +5,7 @@ function getTemperature() {
     query: "Toulouse",
   };
 
+  // document.querySelector("body").classList.add("hide");
   // API get request
   axios
     .get("http://api.weatherstack.com/current", { params })
@@ -27,13 +28,14 @@ function changeStyle(temperature) {
   if (temperature < 12) {
     newFont.changeIntoCold();
   }
-  if (temperature >= 12 && temperature <= 24) {
+  else if (temperature >= 12 && temperature <= 24) {
     newFont.changeIntoTemp();
-  } else {
+  }
+  else if (temperature > 25) {
     newFont.changeIntoHot();
   }
   // Make that the template isnt visible if the api request isn't ready
-  document.querySelector("body").classList.remove("hide");
+  // document.querySelector("body").classList.remove("hide");
 }
 
 getTemperature();

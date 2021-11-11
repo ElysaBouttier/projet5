@@ -11,7 +11,7 @@ class Font {
 
   changeIntoCold() {
     // changer image winter
-    this.imgInHomePage.src = "../../public/wallepaper/winter.jpg";
+    this.imgInHomePage.src = "../../public/wallpaper/winter.jpg";
     
     // delete other class name from body html
     document.querySelector("body").classList.remove("temperate");
@@ -21,7 +21,7 @@ class Font {
 
   changeIntoTemp() {
     // changer image temp
-    this.imgInHomePage.src = "../../public/wallepaper/temperate.jpg";
+    this.imgInHomePage.src = "../../public/wallpaper/temperate.jpg";
 
     // delete other class name from body html
     document.querySelector("body").classList.remove("cold");
@@ -30,7 +30,7 @@ class Font {
   }
   changeIntoHot() {
     // changer image sum.jpg
-    this.imgInHomePage.src = "../../public/wallepaper/sum.jpg";
+    this.imgInHomePage.src = "../../public/wallpaper/sum.jpg";
 
     // delete other class name from body html
     document.querySelector("body").classList.remove("temperate");

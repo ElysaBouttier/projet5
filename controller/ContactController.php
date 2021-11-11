@@ -61,12 +61,4 @@ class ContactController
             echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
         }
     }
-
-    // public function sendMessage(){
-    //     $to= '';
-    //     $subject='';
-    //     $message = '';
-
-    //     mail($to, $subject, $message);
-    // }
 }

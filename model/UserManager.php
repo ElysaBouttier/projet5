@@ -10,7 +10,6 @@ class UserManager extends BaseManager
   public function addUser($username, $password, $email, $firstname, $lastname)
   {
     $db = $this->dbConnect();
-
     $request = $db->prepare('INSERT INTO users (username, password, email, firstname, lastname, about, is_admin) VALUES (?, ?, ?, ?, ?," ", 1)');
     $request->execute(array($username, $password, $email, $firstname, $lastname));
   }

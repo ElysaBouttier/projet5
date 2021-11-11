@@ -45,7 +45,7 @@
     </script>
 </head>
 
-<body class="hide">
+<body>
     <header>
         <nav class="nav_device_laptop">
             <ul class="nav flex-column">

@@ -12,9 +12,7 @@
                 <form action="?controller=UserController&action=registerAction" method="POST" class="col-9">
                     <div class="form-group">
                         <label>Pseudo :</label>
-                        <input type="pseudo" name="username" class="form-control" placeholder="entrez votre pseudo" value="<?php if (isset($username)) {
-                                                                                                                                echo $username;
-                                                                                                                            } ?>">
+                        <input type="pseudo" name="username" class="form-control" placeholder="entrez votre pseudo">
                     </div>
                     <hr>
                     <div class="form-group">
@@ -39,8 +37,7 @@
                     <hr>
                     <div class="form-group">
                         <label>Email :</label>
-                        <input type="email" name="email" placeholder="exemple@hotmail.fr" class="form-control" value="<?php if (isset($email)) {
-                                                                                                                        } ?>">
+                        <input type="email" name="email" placeholder="exemple@hotmail.fr" class="form-control">
                     </div>
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" required>
