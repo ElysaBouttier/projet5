@@ -45,14 +45,14 @@ class PostController
     public function addDraft($title, $content, $miniatureImg, $username)
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            if (!empty($title) && !empty($miniatureImg) && !empty($content)) {
+            if (!empty($title) && !empty($miniatureImg)) {
                 $newPostManager = new PostManager();
                 $newPostManager->addDraft($title, $content, $miniatureImg);
                 $newMessage = new Message();
                 $newMessage->setSuccess("<p>Votre oeuvre à bien été créée, veuillez ajouter des photos !</p>");
             } else {
                 $newMessage = new Message();
-                $newMessage->setError("<p>Tous les champs doivent être rempli !</p>");
+                $newMessage->setError("<p>Veuillez ajouter un titre et une image !</p>");
             }
         }
         $newUserManager = new UserController();
