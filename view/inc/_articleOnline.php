@@ -12,32 +12,33 @@
         </tr>
     </thead>
     <?php
-    foreach ($posts as $post)
-    {
-        ?>
-        <tbody align="center">
-        <tr>
-            <td><a href="?controller=PostController&action=showPostById&id=<?= $post->getId() ?>"
-                   title="Lire le billet"><?= (html_entity_decode($post->getTitle())) ?></a></td>
-                   
-            <td><?= substr(nl2br(html_entity_decode($post->getContent())), 0, 15) ?></td>
-            <td><?= $post->getUpdateDate() ?></td>
-            <td align="center">
-                <a href="?controller=PostController&action=showEditPostView&id=<?= $post->getId() ?>"
-                   title="Modifier le billet">
-                    <i class="fas fa-pencil-alt"></i>
-                </a>
-                <a href="?controller=PostController&action=deletePost&id=<?= $post->getId() ?>"
-                   title="Supprimer le billet"
-                   onclick="return(confirm('ATTENTION ! Voulez-vous définitivement supprimer cet article ?'))">
-                    <i class="fas fa-trash-alt"></i>
-                </a>
-            </td>
-        </tr>
-        </tbody>
-        <?php
+    if ($postsPagination != null) {
+        foreach ($postsPagination as $index => $post) {
+    ?>
+            <tbody>
+                <tr <?php echo $index % 2 ? ' class="even"' : ''; ?>>
+                    <td><a href="?controller=PostController&action=showPostById&id=<?= $post->getId() ?>" title="Lire le billet"><?= (html_entity_decode($post->getTitle())) ?></a></td>
+
+                    <td><?= substr(nl2br(html_entity_decode($post->getContent())), 0, 15) ?></td>
+                    <td><?= $post->getUpdateDate() ?></td>
+                    <td>
+                        <a href="?controller=PostController&action=showEditPostView&id=<?= $post->getId() ?>" title="Modifier le billet">
+                            <i class="fas fa-pencil-alt"></i>
+                        </a>
+                        <a href="?controller=PostController&action=deletePost&id=<?= $post->getId() ?>" title="Supprimer le billet" onclick="return(confirm('ATTENTION ! Voulez-vous définitivement supprimer cet article ?'))">
+                            <i class="fas fa-trash-alt"></i>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+
+    <?php
+        }
     }
     ?>
 </table>
-
-<hr>
+<?php
+if ($postsPagination != null) {
+    $postsNum->render();
+}
+?>

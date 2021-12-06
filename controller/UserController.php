@@ -6,6 +6,7 @@ use Elysa\Pfive\m\Message as Message;
 use Elysa\Pfive\m\UserManager as UserManager;
 use Elysa\Pfive\m\PostManager as PostManager;
 use Elysa\Pfive\m\CommentManager as CommentManager;
+use Zebra_Pagination\Zebra_Pagination;
 
 
 class UserController
@@ -33,6 +34,17 @@ class UserController
         $drafts = $newPostManager->getAllDraft();
         $edito = $newUserManager -> getEdito($username);
         $comments = $newCommentManager->getReportedComments();
+
+        // Pagination
+        // $pagination = new Zebra_Pagination;
+        $postsPagination = $newPostManager -> makePagination($posts);
+        $postsNum = $newPostManager -> giveNumberOfPage($posts);
+
+        $draftsPagination = $newPostManager -> makePagination($drafts);
+        $draftsNum = $newPostManager -> giveNumberOfPage($drafts);
+
+        $commentsPagination = $newPostManager -> makePagination($comments);
+        $commentsNum = $newPostManager -> giveNumberOfPage($comments);
         
         // View
         require_once ('view/backend/pannel_config.php');
@@ -168,7 +180,6 @@ class UserController
                     } else {
                         header("Location: index.php?controller=UserController&action=showHomeView");
                     }
-                    // require_once('./view/frontend/home.php');
                     exit;
                 } else {
                     $newMessage->setError("<p>Erreur d'identifiants!</p>");

@@ -10,8 +10,10 @@ use Elysa\Pfive\c\CommentController;
 
 session_start();
 // Autoloader 
-require_once('vendor/autoload.php');
-require_once('./public/vendor/autoload.php');
+// require_once('vendor/autoload.php');
+require('vendor/autoload.php');
+// require_once('./public/vendor/autoload.php');
+// require_once('../projet5/public/vendor/autoload.php');
 
 
 class Router
@@ -135,7 +137,9 @@ class Router
                         elseif ($_GET['action'] == 'addDraft') {
                             $title = isset($_POST['title']) ? strip_tags($_POST['title']) : NULL;
                             $content = isset($_POST['content']) ? $_POST['content'] : NULL;
-                            $miniatureImg = $_FILES["miniature_img"]["name"];
+                            $miniatureImg = isset($_FILES["miniature_img"]["name"]) ? $_FILES["miniature_img"]["name"] : NULL;
+                            // $miniatureImg = $_FILES["miniature_img"]["name"];
+                            // var_dump($_FILES["miniature_img"]);
                             $username = isset($_POST['username']) ? $_POST['username'] : NULL;
                             $newPostController = new PostController();
                             $newPostController->addDraft($title, $content, $miniatureImg, $username);

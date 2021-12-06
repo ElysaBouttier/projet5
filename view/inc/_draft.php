@@ -12,16 +12,17 @@
         </tr>
     </thead>
     <?php
-    foreach ($drafts as $draft)
-    {
+    if($draftsPagination!=null){
+        foreach ($draftsPagination as $index => $draft) {
+    
         ?>
-        <tbody align="center">
+        <tbody>
         <tr>
             <td><a href="?controller=PostController&action=showPostById&id=<?= $draft->getId() ?>"
                    title="Lire le billet"><?= (html_entity_decode($draft->getTitle())) ?></a></td>
             <td><?= substr(nl2br(html_entity_decode($draft->getContent())), 0, 15) ?></td>
             <td><?= $draft->getUpdateDate() ?></td>
-            <td align="center">
+            <td >
                 <a href="?controller=PostController&action=showEditPostView&id=<?= $draft->getId() ?>"
                    title="Modifier le billet">
                     <i class="fas fa-pencil-alt"></i>
@@ -35,8 +36,9 @@
         </tr>
         </tbody>
         <?php
-    }
+    }}
     ?>
 </table>
-
-<hr>
+<?php
+   $draftsNum->render();
+?>

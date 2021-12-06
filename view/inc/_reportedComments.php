@@ -14,9 +14,10 @@
         </tr>
     </thead>
     <?php
+    if ($commentsPagination != null) {
     foreach ($comments as $comment) {
     ?>
-        <tbody align="center">
+        <tbody>
             <tr>
                 <td><a href="?controller=PostController&action=showPostById&id=<?= $post->getId() ?>"
                    title="Lire le billet"><?= (html_entity_decode($post->getTitle())) ?></a></td>
@@ -35,7 +36,11 @@
             </tr>
         </tbody>
     <?php
-    }
+    }}
     ?>
 </table>
-<hr>
+<?php
+if ($commentsPagination != null) {
+    $commentsNum->render();
+}
+?>

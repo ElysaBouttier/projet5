@@ -7,7 +7,6 @@ use SplSubject;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-
 class ContactController
 {
     public function showContactView()
