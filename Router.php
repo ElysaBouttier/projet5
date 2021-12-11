@@ -75,8 +75,17 @@ class Router
                             $newContactController->showRgpdView();
                         }
                         elseif ($_GET['action'] == 'sendMessage') {
-                            $newContactController = new ContactController();
-                            $newContactController->sendMessage();
+                            if (isset($_POST['name']) && $_POST['email']) {
+                                $name = isset($_POST['name']) ? ($_POST['name']) : NULL;
+                                $email = isset($_POST['email']) ? $_POST['email'] : NULL;
+                                $subject = isset($_POST['subject']) ? $_POST['subject'] : NULL;
+                                $content = isset($_POST['content']) ? $_POST['content'] : NULL;
+                                $newContactController = new ContactController();
+                                $newContactController->sendMessage($name, $email, $subject, $content);
+                            } else {
+                                // error 404
+                                require_once('view/frontend/404.php');
+                            }
                         }
                     }
                     // ImageController

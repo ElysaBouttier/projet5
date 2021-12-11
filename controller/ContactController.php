@@ -18,7 +18,7 @@ class ContactController
         require_once('./view/frontend/rgpd.php');
     }
 
-    public function sendMessage()
+    public function sendMessage($name, $email, $subject, $content)
     {
 
         //Create an instance; passing `true` enables exceptions
@@ -35,7 +35,7 @@ class ContactController
             $mail->Password   = 'Test123456789!!';                               //SMTP password
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
             $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
-
+            $mail->CharSet = 'UTF-8';
             //Recipients
             $mail->setFrom('ne-pas-repondre@noreply.com', 'Noreply');
             $mail->addAddress('lili@elysabouttier.fr');     //Add a recipient
@@ -51,7 +51,40 @@ class ContactController
             //Content
             $mail->isHTML(true);                                  //Set email format to HTML
             $mail->Subject = 'Message provenant du site internet';
-            $mail->Body    = 'This is the HTML message body <b>in bold!</b>';
+            $mail->Body    = "
+            <html>
+            <head>
+            <title>Message en provenance du site Tatyana</title>
+            </head>
+            <body>                
+            <div style='width:800px;background:#fff;border-style:groove;'>
+            <div style='width:50%; height:30px; text-align:left;'><a href='http://tatyana.elysabouttier.fr'>Accéder au site </a></div>
+            <hr width='100%' size='2' color='#A4168E'>   
+            <h4 style='color:#ea6512;margin-top:5px;'> Hello,
+            </h4>
+            <p>Un nouveau message vous à été envoyé via le formulaire de contact de votre site concernant : \"$subject \" </p>
+            <hr/>
+            <div style='height:210px;'>
+            <table cellspacing='0' width='100%' >
+            <thead>
+            <col width='40px' />
+            <col width='150px' />
+            <tr>          
+            <th style='color:#0A903B'>En provenance de</th>
+            <th style='color:#0A903B'>Message</th>                                                                            
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+            <td>$name ($email)</td>
+            <td> $content</td>
+            </tr>
+            </tbody>
+            </table>                        
+            </div> 
+            </div>              
+            </body>
+            </html>";
             // $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
             $mail->send();
