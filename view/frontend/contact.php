@@ -13,19 +13,19 @@ require './vendor/autoload.php';
                 <div class="col-md-6">
                     <div class="form-group">
                         <label class="label" for="name">Nom Prénom</label>
-                        <input type="text" class="form-control" name="name" id="name" placeholder="Nom et Prénom">
+                        <input type="text" class="form-control" name="name" required="required" id="name" placeholder="Nom et Prénom">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <label class="label" for="email">Email</label>
-                        <input type="email" class="form-control" name="email" id="email" placeholder="Email">
+                        <input type="email" class="form-control" name="email" required="required" id="email" placeholder="Email">
                     </div>
                 </div>
                 <div class="col-md-12">
                     <div class="form-group">
                         <label class="label" for="subject">Titre</label>
-                        <input type="text" class="form-control" name="subject" id="subject" placeholder="Titre">
+                        <input type="text" class="form-control" name="subject" required="required" id="subject" placeholder="Titre">
                     </div>
                 </div>
                 <div class="col-md-12">

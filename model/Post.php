@@ -9,6 +9,7 @@ class Post
     private $id;
     private $title;
     private $content;
+    private $miniature_img;
     private $creation_date;
     private $update_date;
     private $status;

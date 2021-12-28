@@ -131,6 +131,11 @@ class PostManager extends BaseManager
     {
         $newManager = new BaseManager();
         $db = $newManager->dbConnect();
+        var_dump($title);
+        var_dump($content);
+        var_dump($miniature_img);
+        var_dump($status);
+        var_dump($id);
         $request = $db->prepare('UPDATE posts SET title = ?, content = ?, miniature_img = ?, update_date = NOW(), status = ? WHERE id = ?');
         $post = $request->execute(array($title, $content, $miniature_img, $status, $id));
 

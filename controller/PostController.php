@@ -61,6 +61,7 @@ class PostController
 
     public function updateDraft($id, $title, $content, $miniatureImg, $status)
     {
+        var_dump($status);
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $newImageManager = new ImageManager();
             $allImages = $newImageManager->getAllImageFromPost($id);

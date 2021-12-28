@@ -11,20 +11,20 @@ require_once('./view/inc/_addImg.php');
         <div class="d-flex">
             <p class="text-start add-post-title-form">Titre :</p>
             <label for="title" class="add-post-label-title">
-                <input class="add-post-input-title" type="title" style="width:100%" id="title" name="title" placeholder="<?php echo $post->getTitle() ?>">
+                <input class="add-post-input-title" type="title" style="width:100%" id="title" name="title" value="<?php echo $post->getTitle() ?>">
             </label>
         </div>
 
         <div class="d-flex add-post-img-div">
             <p class="text-start  add-post-img-title">Image de présentation : </p>
-            <label for="miniature-img" class="">
-                <input class="input-add-post" type="file" id="miniature_img" name="miniature_img" accept="image/png, image/jpeg, image/jpg">
-            </label>
-            <img src="<?php '/public/img/' . $post->getMiniatureImg() ?>" alt="">
+                <label for="miniature-img" class="">
+                    <input class="input-add-post" type="file" id="miniature_img" name="miniature_img" value="<?php echo $post->getMiniatureImg() ?>" accept="image/png, image/jpeg, image/jpg">
+                </label>
+            <img src="../../public/img/<?php echo $post->getMiniatureImg()  ?>" class="img-fluid" alt="...">
         </div>
         <div class="d-flex row add-post-text-div">
             <p class="text-start  add-post-text-title">Texte de présentation :</p>
-            <textarea id="content" name="content" rows="5" cols="33"><?php echo $post->getContent() ?></textarea>
+            <textarea id="content_edit_post" name="content" rows="5" cols="33"><?php echo $post->getContent() ?></textarea>
         </div>
         <div class="form-check">
             <input class="form-check-input" type="radio" name="status" id="draft" value="draft" checked>
@@ -33,7 +33,7 @@ require_once('./view/inc/_addImg.php');
             </label>
         </div>
         <div class="form-check">
-            <input class="form-check-input" type="radio" name="status" id="online" value="online" >
+            <input class="form-check-input" type="radio" name="status" id="online" value="online">
             <label class="form-check-label" for="online">
                 En ligne
             </label>

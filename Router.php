@@ -40,14 +40,13 @@ class Router
                             }
                         }
                         // Signal the comment 
-                        elseif ($_GET['action'] == 'alertComment') {                            
+                        elseif ($_GET['action'] == 'alertComment') {
                             if (isset($_GET['id']) && $_GET['id'] > 0 && isset($_GET['postId']) && $_GET['postId'] > 0) {
                                 $id = $_GET['id'];
                                 $postId = $_GET['postId'];
                                 $newCommentController = new CommentController();
                                 $newCommentController->alertComment($id, $postId);
-                            }
-                            else {
+                            } else {
                                 require_once('view/frontend/404.php');
                             }
                         }
@@ -61,7 +60,6 @@ class Router
                             $newAdminController = new CommentController();
                             $newAdminController->deleteComment($_GET['id']);
                         }
-                        
                     }
                     // ContactController
                     elseif ($_GET['controller'] == 'ContactController') {
@@ -69,12 +67,10 @@ class Router
                         if ($_GET['action'] == 'showContactView') {
                             $newContactController = new ContactController();
                             $newContactController->showContactView();
-                        }
-                        elseif ($_GET['action'] == 'showRgpdView') {
+                        } elseif ($_GET['action'] == 'showRgpdView') {
                             $newContactController = new ContactController();
                             $newContactController->showRgpdView();
-                        }
-                        elseif ($_GET['action'] == 'sendMessage') {
+                        } elseif ($_GET['action'] == 'sendMessage') {
                             if (isset($_POST['name']) && $_POST['email']) {
                                 $name = isset($_POST['name']) ? ($_POST['name']) : NULL;
                                 $email = isset($_POST['email']) ? $_POST['email'] : NULL;
@@ -96,7 +92,7 @@ class Router
                                 $url_img = isset($_POST['url_img']) ? strip_tags($_POST['url_img']) : NULL;
                                 $content = isset($_POST['content']) ? $_POST['content'] : NULL;
                                 $newImgController = new ImageController();
-                                $newImgController->addImg($_GET['id'],$url_img, $content);
+                                $newImgController->addImg($_GET['id'], $url_img, $content);
                             } else {
                                 // error 404
                                 require_once('view/frontend/404.php');
@@ -123,9 +119,7 @@ class Router
                         elseif ($_GET['action'] == 'showAddPostView') {
                             $newPostController = new PostController();
                             $newPostController->showAddPostView();
-                        }
-
-                        elseif ($_GET['action'] == 'showEditPostView') {
+                        } elseif ($_GET['action'] == 'showEditPostView') {
                             $newAdminController = new PostController();
                             $newAdminController->showEditPostView($_GET['id']);
                         }
@@ -153,33 +147,34 @@ class Router
                             $newPostController = new PostController();
                             $newPostController->addDraft($title, $content, $miniatureImg, $username);
                         }
-                        
-                         // Go to blog page
+
+                        // Go to blog page
                         elseif ($_GET['action'] == 'deletePost') {
                             $newPostController = new PostController();
                             $newPostController->deletePost($_GET['id']);
                         }
 
                         // Add draft online or update it
-                         elseif ($_GET['action'] == 'updatePost') {
+                        elseif ($_GET['action'] == 'updatePost') {
+                            
                             if (isset($_GET['id']) && $_GET['id'] > 0) {
                                 $id = isset($_GET['id']) ? strip_tags($_GET['id']) : NULL;
                                 $title = isset($_POST['title']) ? strip_tags($_POST['title']) : NULL;
                                 $content = isset($_POST['content']) ? strip_tags($_POST['content']) : NULL;
                                 $miniatureImg = $_FILES["miniature_img"]["name"];
                                 $newPostController = new PostController();
-
-                                if ($_POST['status'] == "draft"){
+                                if ($_POST['status'] == "draft") {
                                     $status = 0;
                                 }
-                                if ($_POST['status'] == "online"){
+                                if ($_POST['status'] == "online") {
                                     $status = 1;
                                 }
-                                $newPostController->updateDraft($id, $title, $content, $miniatureImg, $status);
+
+                               $newPostController->updateDraft($id, $title, $content, $miniatureImg, $status);
                             }
                         }
                         // Update thumb Number
-                         elseif ($_GET['action'] == 'addThumb') {
+                        elseif ($_GET['action'] == 'addThumb') {
                             $newPostController = new PostController();
                             $id = $_GET['id'];
                             $userid = $_SESSION['id'];
@@ -192,7 +187,6 @@ class Router
                             $userid = $_SESSION['id'];
                             $newPostController->updateHeartToPost($id, $userid);
                         }
-                        
                     }
 
                     // UserController

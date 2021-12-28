@@ -3,6 +3,7 @@
 namespace Elysa\Pfive\c;
 
 use SplSubject;
+use Elysa\Pfive\m\Message as Message;
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -31,7 +32,6 @@ class ContactController
             $mail->Host       = 'auth.smtp.1and1.fr';                   //Set the SMTP server to send through
             $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
             $mail->Username   = 'lili@elysabouttier.fr';                     //SMTP username
-            // Test123456789!!
             $mail->Password   = 'Test123456789!!';                               //SMTP password
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
             $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
@@ -57,10 +57,10 @@ class ContactController
             <title>Message en provenance du site Tatyana</title>
             </head>
             <body>                
-            <div style='width:800px;background:#fff;border-style:groove;'>
+            <div style='width:600px;background:#fff;border-style:groove;'>
             <div style='width:50%; height:30px; text-align:left;'><a href='http://tatyana.elysabouttier.fr'>Accéder au site </a></div>
-            <hr width='100%' size='2' color='#A4168E'>   
-            <h4 style='color:#ea6512;margin-top:5px;'> Hello,
+            <hr width='100%' size='2'>   
+            <h4 style='color:blue;margin-top:5px;text-align:center;'> Hello,
             </h4>
             <p>Un nouveau message vous à été envoyé via le formulaire de contact de votre site concernant : \"$subject \" </p>
             <hr/>
@@ -76,8 +76,8 @@ class ContactController
             </thead>
             <tbody>
             <tr>
-            <td>$name ($email)</td>
-            <td> $content</td>
+            <td style='text-align:center'>$name ($email)</td>
+            <td style='text-align:center'> $content</td>
             </tr>
             </tbody>
             </table>                        
@@ -85,10 +85,18 @@ class ContactController
             </div>              
             </body>
             </html>";
-            // $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
-            $mail->send();
-            echo 'Message has been sent';
+            $newMessage = new Message();
+            if ($email && $name && $content) {
+                $mail->send();
+                $newMessage->setSuccess("<p>Message envoyé!</p>");
+            } else {
+                $newMessage->setError("<p>Veuillez remplir tous les champs!</p>");
+            }
+
+            // Vue
+            $newUserController = new UserController();
+            $newUserController->showHomeView();
         } catch (Exception $e) {
             echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
         }
