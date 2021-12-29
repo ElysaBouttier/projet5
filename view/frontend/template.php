@@ -20,7 +20,7 @@
 
     <!-- JQuery -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    
+
     <!-- Pagination -->
     <link rel="stylesheet" href="path/to/zebra_pagination.css" type="text/css">
     <script src="path/to/zebra_pagination.js"></script>
@@ -162,11 +162,13 @@
     </header>
 
     <main>
-        <?php
-        require_once('./view/inc/_login.php');
-        require_once('./view/inc/_messageError.php');
-        echo $content;
-        ?>
+        <div class="container">
+            <?php
+            require_once('./view/inc/_login.php');
+            require_once('./view/inc/_messageError.php');
+            echo $content;
+            ?>
+        </div>
     </main>
 
     <!-- JS -->

@@ -134,16 +134,16 @@ class UserController
                                     $newMessage->setError("<p>Cette adresse email est déjà utilisée !</p>");
                                 }
                             } else {
-                                $newMessage->setError("<p>Ce username est déjà utilisé !</p>");
+                                $newMessage->setError("<p>Ce pseudo est déjà utilisé !</p>");
                             }
                         } else {
-                            $newMessage->setError("<p>username invalide !</p>");
+                            $newMessage->setError("<p>Pseudo invalide !</p>");
                         }
                     } else {
                         $newMessage->setError("<p>Adresse email invalide !</p>");
                     }
                 } else {
-                    $newMessage->setError("<p>Votre username ne doit pas dépasser 40 caractères !</p>");
+                    $newMessage->setError("<p>Votre pseudo ne doit pas dépasser 40 caractères !</p>");
                 }
             } else {
                 $newMessage->setError("<p>Veuillez remplir tous les champs !</p>");

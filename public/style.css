@@ -19,7 +19,6 @@
   src: url("font/Vonique\ 64.ttf");
 }
 
-
 /*  TEMPLATE  */
 html {
   height: 100%;
@@ -78,23 +77,29 @@ main {
   flex-direction: row;
 }
 
+.container {
+  padding: 0;
+  max-width: 100%;
+}
+
 /* HOME VIEW */
 .image_instagram {
   position: relative;
   width: 100%;
 }
 .img-home {
+  padding: 0;
   min-width: 100%;
-  min-height: 90%;
+  min-height: 15em;
   max-height: 42em;
   max-width: 100%;
 }
 #author_name {
   font-family: Creative Lettering, Fredericka, Cormorant-Light;
   position: absolute;
-  top: 50%;
+  top: 45%;
   text-align: center;
-  width: 97%;
+  width: 100%;
   font-size: 5rem;
   white-space: nowrap;
   letter-spacing: 0.5em;
@@ -135,36 +140,55 @@ main {
     opacity: 1;
   }
 }
+
+.edito {
+  margin: 0;
+}
+
 .author_description {
   padding: 8%;
-  font-family:  cursive, 'Courier New', Courier, monospace;
+  font-family: cursive, "Courier New", Courier, monospace;
+  margin: auto;
 }
 .set_images {
   width: 100%;
   display: flex;
   padding-top: 5%;
+  place-content: space-evenly;
+  margin-bottom: 20%;
 }
 .figure {
   width: 45%;
-  height: 20em;
+  height: 11em;
   margin: auto;
   position: relative;
   transform: scale(1);
-  filter: grayscale(0.6);
-  transition: filter 400ms ease, transform 400ms;
+  transition:display 600ms, transform 600ms;
 }
+
 .figure:hover {
-  transform: scale(1.1);
-  filter: grayscale(0);
+  transform: scale(1.3);
 }
+.figure figcaption {
+  color: rgb(255, 255, 255);
+  position: absolute;
+  top: 50%;
+  left: 4%;
+  width: 81%;
+  height: 50%;
+  display: none;
+}
+
+.figure:hover figcaption {
+  background: linear-gradient(0deg, rgba(0,0,0,0.5494572829131652) 0%, rgba(0,0,0,0) 100%);
+  display: initial;
+  transition: display 400ms;
+}
+
 .figure-img {
   height: 100%;
 }
-figcaption {
-  position: absolute;
-  top: 50%;
-  left: 25%;
-}
+
 
 /* BLOG VIEW */
 
@@ -314,8 +338,6 @@ input {
   margin: auto;
 }
 
-
-
 /* CHANGE STYLE */
 /* Winter Style */
 body.cold {
@@ -327,7 +349,7 @@ body.cold #author_name {
   font-family: Neolatina-gnx5, Arial, Helvetica, sans-serif;
   color: white;
 }
-body.cold i{
+body.cold i {
   color: #8ac3de;
 }
 
@@ -341,7 +363,7 @@ body.temperate #author_name {
   font-family: "Fredericka", Arial, Helvetica, sans-serif;
   color: #4a4746;
 }
-body.temperate i{
+body.temperate i {
   color: #4a4746;
 }
 
@@ -355,8 +377,8 @@ body.temperate #author_name {
   font-family: cursive, "Courier New", Courier, monospace;
   color: #4a4746;
 }
-body.summer i{
-  color: rgb(253,147,109);
+body.summer i {
+  color: rgb(253, 147, 109);
 }
 
 /* 

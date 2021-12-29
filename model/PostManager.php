@@ -221,12 +221,12 @@ class PostManager extends BaseManager
         $newManager = new BaseManager();
         $db = $newManager->dbConnect();
 
-        $request = $db->prepare('SELECT * FROM assoc_images_users WHERE fk_post_id = ? AND fk_user_id = ?');
+        $request = $db->prepare('SELECT * FROM assoc_posts_users WHERE fk_post_id = ? AND fk_user_id = ?');
         $request->execute(array($postId, $userId));
         $result = $request->fetch();
 
         if (!$result) {
-            $request = $db->prepare('INSERT INTO assoc_images_users ( fk_post_id, fk_user_id, is_like_selected, is_heart_selected) VALUES ( ?, ?, 0, 0)');
+            $request = $db->prepare('INSERT INTO assoc_posts_users ( fk_post_id, fk_user_id, is_like_selected, is_heart_selected) VALUES ( ?, ?, 0, 0)');
             $request->execute(array($postId, $userId));
         }
     }
@@ -238,7 +238,7 @@ class PostManager extends BaseManager
         $newManager = new BaseManager();
         $db = $newManager->dbConnect();
 
-        $request = $db->prepare('SELECT is_like_selected FROM assoc_images_users WHERE fk_post_id = ? AND fk_user_id = ?');
+        $request = $db->prepare('SELECT is_like_selected FROM assoc_posts_users WHERE fk_post_id = ? AND fk_user_id = ?');
         $request->execute(array($postId, $userId));
         $result = $request->fetch();
         $result = $result['is_like_selected'];
@@ -256,11 +256,11 @@ class PostManager extends BaseManager
         $result = $postManager->checkLikeSelected($postId, $userId);
 
         if ($result == 1) {
-            $request = $db->prepare('UPDATE assoc_images_users SET is_like_selected = 0 WHERE fk_post_id = ? AND fk_user_id = ?');
+            $request = $db->prepare('UPDATE assoc_posts_users SET is_like_selected = 0 WHERE fk_post_id = ? AND fk_user_id = ?');
             $request->execute(array($postId, $userId));
             return true;
         } else {
-            $request = $db->prepare('UPDATE assoc_images_users SET is_like_selected = 1 WHERE fk_post_id = ? AND fk_user_id = ?');
+            $request = $db->prepare('UPDATE assoc_posts_users SET is_like_selected = 1 WHERE fk_post_id = ? AND fk_user_id = ?');
             $request->execute(array($postId, $userId));
             return false;
         }
@@ -273,7 +273,7 @@ class PostManager extends BaseManager
         $newManager = new BaseManager();
         $db = $newManager->dbConnect();
 
-        $request = $db->prepare('SELECT is_heart_selected FROM assoc_images_users WHERE fk_post_id = ? AND fk_user_id = ?');
+        $request = $db->prepare('SELECT is_heart_selected FROM assoc_posts_users WHERE fk_post_id = ? AND fk_user_id = ?');
         $request->execute(array($postId, $userId));
         $result = $request->fetch();
         $result = $result['is_heart_selected'];
@@ -291,11 +291,11 @@ class PostManager extends BaseManager
         $result = $postManager->checkHeartSelected($postId, $userId);
 
         if ($result == 1) {
-            $request = $db->prepare('UPDATE assoc_images_users SET is_heart_selected = 0 WHERE fk_post_id = ? AND fk_user_id = ?');
+            $request = $db->prepare('UPDATE assoc_posts_users SET is_heart_selected = 0 WHERE fk_post_id = ? AND fk_user_id = ?');
             $request->execute(array($postId, $userId));
             return true;
         } else {
-            $request = $db->prepare('UPDATE assoc_images_users SET is_heart_selected = 1 WHERE fk_post_id = ? AND fk_user_id = ?');
+            $request = $db->prepare('UPDATE assoc_posts_users SET is_heart_selected = 1 WHERE fk_post_id = ? AND fk_user_id = ?');
             $request->execute(array($postId, $userId));
             return false;
         }
