@@ -9,7 +9,7 @@
 <!-- edito text -->
 <div class="edito row">
     <p class="author_description col-11">
-        <?php echo ($edito); ?>
+        <?php echo ($edito);?>
     </p>
 </div>
 
@@ -21,7 +21,7 @@
             <figure class="figure">
                 <a class="article" href="?controller=PostController&action=showPostById&id=<?= $post->getId() ?>" title="Voir l'oeuvre">
                     <figcaption class="figure-caption">
-                        <h1>
+                        <h1 class="title-caption">
                             <?php echo $post->getTitle() ?>
                         </h1>
                         <p>

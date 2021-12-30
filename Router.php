@@ -8,7 +8,6 @@ use Elysa\Pfive\c\PostController;
 use Elysa\Pfive\c\ImageController;
 use Elysa\Pfive\c\CommentController;
 
-session_start();
 // Autoloader 
 // require_once('vendor/autoload.php');
 require('vendor/autoload.php');
