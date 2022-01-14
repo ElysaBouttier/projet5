@@ -105,6 +105,34 @@ header {
 body {
   height: 100%;
 }
+
+#black {
+  height: 100em;
+  background-color: black;
+  display: flex;
+  position: absolute;
+  z-index: 1001;
+  width: 100%;
+  -webkit-animation: fade-out 2s ease-out both;
+  animation: fade-out 2s ease-out both;
+}
+@-webkit-keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
 main {
   width: 88%;
   height: 100%;
@@ -225,7 +253,7 @@ main {
 
 .figure {
   width: 23em;
-  height: 13em;
+  height: 13.4em;
   margin: auto;
   position: relative;
   transform: scale(1);
@@ -253,7 +281,7 @@ main {
 .figure figcaption {
   color: rgb(255, 255, 255);
   position: absolute;
-  top: 50%;
+  top: 48.5%;
   left: 3%;
   width: 23em;
   height: 8em;
@@ -270,8 +298,8 @@ main {
       rgba(0, 0, 0, 0.5494572829131652) 0%,
       rgba(0, 0, 0, 0) 100%
     );
-    width: 97%;
-    top: 54%;
+    width: 95%;
+    top: 53%;
     left: 2%;
     height: 9em;
   }

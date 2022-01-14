@@ -45,6 +45,7 @@ function getTemperature() {
 // Update style with temperature params
 function changeStyle(temperature) {
   let newFont = new Font("body", "img-home");
+  temperature = 15;
   if (temperature < 12) {
     newFont.changeIntoCold();
   } else if (temperature >= 12 && temperature <= 24) {
@@ -54,4 +55,10 @@ function changeStyle(temperature) {
   }
 }
 
+// Hide black overlay
+function hideOverlay(){
+  document.getElementById("black").style.display = "none";
+}
+
 getTemperature();
+setTimeout(hideOverlay, 2000);

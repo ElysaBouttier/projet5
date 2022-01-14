@@ -44,12 +44,13 @@
         });
     </script>
 
-    <!-- JS
-    <script rel="preload" src="../../public/js/front.js" as="script"></script>
-    <script rel="preload" src="../../public/js/main.js" as="script"></script> -->
 </head>
 
 <body>
+    <div id="black">
+    </div>
+
+
     <header>
         <nav class="nav_device_laptop">
             <ul class="nav flex-column">
