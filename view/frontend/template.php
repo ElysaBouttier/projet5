@@ -47,9 +47,6 @@
 </head>
 
 <body>
-    <div id="black">
-    </div>
-
 
     <header>
         <nav class="nav_device_laptop">
@@ -172,9 +169,7 @@
         </div>
     </main>
 
-    <!-- JS -->
-    <script src="../../public/js/front.js"></script>
-    <script src="../../public/js/main.js"></script>
+
 </body>
 
 </html>

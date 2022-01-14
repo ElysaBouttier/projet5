@@ -177,11 +177,14 @@ class UserController
                     // Redirection after connection on index.php
                     if ($admin == 0) {
                         header("Location: index.php?controller=UserController&action=showPannelView");
-                    } else {
+                    } elseif ($admin == 1) {
                         header("Location: index.php?controller=UserController&action=showHomeView");
                     }
                     exit;
                 } else {
+                    header("Location: index.php?controller=UserController&action=showHomeView");
+                    print "coucou";
+                    $newMessage = new Message();
                     $newMessage->setError("<p>Erreur d'identifiants!</p>");
                 }
             } else {

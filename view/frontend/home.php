@@ -1,15 +1,16 @@
 <?php ob_start(); ?>
-
+<div id="overlay">
+</div>
 <!-- main img -->
 <div class="image_instagram col-12">
-    <img src="../../public/wallpaper/.jpg" id="img-home" class="img-home col-10" alt="...">
+    <img src="" id="img-home" class="img-home col-10" alt="...">
     <h1 id="author_name" class="author_name col-8"> Tatyana</h1>
 </div>
 
 <!-- edito text -->
 <div class="edito row">
     <p class="author_description col-11">
-        <?php echo ($edito);?>
+        <?php echo ($edito); ?>
     </p>
 </div>
 
@@ -18,23 +19,27 @@
     <?php
     foreach ($posts as $post) {
     ?>
-            <figure class="figure">
-                <a class="article" href="?controller=PostController&action=showPostById&id=<?= $post->getId() ?>" title="Voir l'oeuvre">
-                    <figcaption class="figure-caption">
-                        <h1 class="title-caption">
-                            <?php echo $post->getTitle() ?>
-                        </h1>
-                        <p>
-                            <?php echo $post->getContent() ?>
-                        </p>
-                    </figcaption>
-                    <img src="../../public/img/<?php echo $post->getMiniatureImg() ?>" class="figure-img" alt="...">
-                </a>
-            </figure>
+        <figure class="figure">
+            <a class="article" href="?controller=PostController&action=showPostById&id=<?= $post->getId() ?>" title="Voir l'oeuvre">
+                <figcaption class="figure-caption">
+                    <h1 class="title-caption">
+                        <?php echo $post->getTitle() ?>
+                    </h1>
+                    <p>
+                        <?php echo $post->getContent() ?>
+                    </p>
+                </figcaption>
+                <img src="../../public/img/<?php echo $post->getMiniatureImg() ?>" class="figure-img" alt="...">
+            </a>
+        </figure>
     <?php
     }
     ?>
 </div>
+
+<!-- JS -->
+<script src="../../public/js/front.js"></script>
+<script src="../../public/js/main.js"></script>
 
 <?php $content = ob_get_clean(); ?>
 

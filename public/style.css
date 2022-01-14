@@ -106,19 +106,24 @@ body {
   height: 100%;
 }
 
-#black {
+#overlay {
   height: 100em;
   background-color: black;
   display: flex;
   position: absolute;
   z-index: 1001;
   width: 100%;
-  -webkit-animation: fade-out 2s ease-out both;
-  animation: fade-out 2s ease-out both;
+  left: 0;
+  -webkit-animation: fade-out 4s ease-out both;
+  animation: fade-out 4s ease-out both;
 }
+
 @-webkit-keyframes fade-out {
   0% {
     opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
   }
   100% {
     opacity: 0;
@@ -127,6 +132,9 @@ body {
 @keyframes fade-out {
   0% {
     opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
   }
   100% {
     opacity: 0;
@@ -417,6 +425,52 @@ main {
 }
 .contact_us_h3 {
   text-align: center;
+}
+
+.form-group-contact {
+  position: relative;
+}
+
+#contactForm
+.fas {
+  position: absolute;
+  bottom: 27px;
+  left: 88%;
+}
+
+#contactForm
+small {
+  visibility: hidden;
+}
+
+#errorName {
+  color: #e74c3c;
+  visibility: hidden;
+}
+
+#successName {
+  color: #167a2f;
+  visibility: hidden;
+}
+
+#errorMail {
+  color: #e74c3c;
+  visibility: hidden;
+}
+
+#successMail {
+  color: #167a2f;
+  visibility: hidden;
+}
+
+#errorSubject {
+  color: #e74c3c;
+  visibility: hidden;
+}
+
+#successSubject {
+  color: #167a2f;
+  visibility: hidden;
 }
 
 /* LOGIN VIEW */

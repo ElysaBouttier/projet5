@@ -11,21 +11,30 @@ require './vendor/autoload.php';
         <form method="POST" action="?controller=ContactController&action=sendMessage" id="contactForm" name="contactForm" class="contactForm">
             <div class="row">
                 <div class="col-md-6">
-                    <div class="form-group">
+                    <div class="form-group-contact">
                         <label class="label" for="name">Nom Prénom</label>
                         <input type="text" class="form-control" name="name" required="required" id="name" placeholder="Nom et Prénom">
+                        <i class="fas fa-check-circle" id="successName"></i>
+                        <i class="fas fa-exclamation-circle" id="errorName"></i>
+                        <small>Invalide</small>
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div class="form-group">
+                    <div class="form-group-contact">
                         <label class="label" for="email">Email</label>
                         <input type="email" class="form-control" name="email" required="required" id="email" placeholder="Email">
+                        <i class="fas fa-check-circle" id="successMail"></i>
+                        <i class="fas fa-exclamation-circle" id="errorMail"></i>
+                        <small>Invalide</small>
                     </div>
                 </div>
                 <div class="col-md-12">
-                    <div class="form-group">
+                    <div class="form-group-contact">
                         <label class="label" for="subject">Titre</label>
                         <input type="text" class="form-control" name="subject" required="required" id="subject" placeholder="Titre">
+                        <i class="fas fa-check-circle" id="successSubject"></i>
+                        <i class="fas fa-exclamation-circle" id="errorSubject"></i>
+                        <small>Invalide</small>
                     </div>
                 </div>
                 <div class="col-md-12">
@@ -45,7 +54,10 @@ require './vendor/autoload.php';
     </div>
 </div>
 
-<?php $content = ob_get_clean(); ?>
 
+<!-- JS -->
+<script src="../../public/js/validationForm.js"></script>
+
+<?php $content = ob_get_clean(); ?>
 <!-- Vue require -->
 <?php require_once('template.php'); ?>

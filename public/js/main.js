@@ -1,7 +1,8 @@
+
 // Update style in terms of temperature
 function getTemperature() {
   const params = {
-    access_key: "4d55b55c416847fbb8ead421c090fa66",
+    access_key: "302922489c9c27a4a35378efab40af4e",
     query: "Toulouse",
   };
 
@@ -45,7 +46,6 @@ function getTemperature() {
 // Update style with temperature params
 function changeStyle(temperature) {
   let newFont = new Font("body", "img-home");
-  temperature = 15;
   if (temperature < 12) {
     newFont.changeIntoCold();
   } else if (temperature >= 12 && temperature <= 24) {
@@ -57,8 +57,8 @@ function changeStyle(temperature) {
 
 // Hide black overlay
 function hideOverlay(){
-  document.getElementById("black").style.display = "none";
+  document.getElementById("overlay").style.display = "none";
 }
 
 getTemperature();
-setTimeout(hideOverlay, 2000);
+setTimeout(hideOverlay, 4000);
