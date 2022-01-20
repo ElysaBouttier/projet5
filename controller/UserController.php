@@ -179,11 +179,11 @@ class UserController
                         header("Location: index.php?controller=UserController&action=showPannelView");
                     } elseif ($admin == 1) {
                         header("Location: index.php?controller=UserController&action=showHomeView");
+                        $newMessage = new Message();
+                        $newMessage->setSuccess("<p>Bienvenue!</p>");
                     }
                     exit;
                 } else {
-                    header("Location: index.php?controller=UserController&action=showHomeView");
-                    print "coucou";
                     $newMessage = new Message();
                     $newMessage->setError("<p>Erreur d'identifiants!</p>");
                 }
@@ -191,6 +191,6 @@ class UserController
                 $newMessage->setError("<p>Tous les champs doivent être remplis !</p>");
             }
         }
-        require_once('view/inc/_login.php');
+        require_once('view/frontend/error_connection.php');
     }
 }

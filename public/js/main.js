@@ -62,3 +62,4 @@ function hideOverlay(){
 
 getTemperature();
 setTimeout(hideOverlay, 4000);
+

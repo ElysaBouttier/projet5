@@ -485,6 +485,72 @@ small {
   border-left: solid 1px #80808078;
 }
 
+/* ERROR LOGIN VIEW */
+.error-connection-container{
+  width: 100%;
+  height: 35em;
+}
+
+.error-connection-div{
+  display: flex;
+  background: #fff;
+  text-align: center;
+  max-width: 60%;
+  margin: auto;
+  height: inherit;
+}
+
+.error-connection-div-form{
+  height: 50%;
+  justify-content: center;
+  display: flex;
+  margin: auto;
+  width: auto;
+  border: 1px solid;
+  border-radius: 4px;
+  background-color: #d6d6d638;
+  -webkit-box-shadow: 2px 0px 18px -3px #535353; 
+  box-shadow: 2px 0px 18px -3px #535353;
+}
+
+.error-connection-div-form, form{
+  align-self: center;
+  display: flex;
+  flex-flow: column;
+}
+
+.error-connection-title{
+  font-family: Ubuntu-Bold;
+  font-weight: bold;
+    font-size: 30px;
+    color: #403866;
+    line-height: 1.2;
+    text-transform: uppercase;
+    width: 100%;
+}
+
+.error-connection-input{
+  padding: 7%;
+}
+.error-connection-password-input{
+  padding-top: 0;
+}
+
+.error-connection-input, input{
+  color: #403866;
+}
+
+.error-connection-input-btn{
+  margin-top: 9%;
+  
+}
+
+.error-connection-input-btn, button{
+  width: 95%;
+  margin: auto;
+    margin-top: 9%;
+}
+
 /* REGISTRER VIEW */
 .registrer-content {
   display: flex;
