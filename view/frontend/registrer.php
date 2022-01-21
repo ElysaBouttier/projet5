@@ -1,13 +1,12 @@
 <?php ob_start(); ?>
 
 <div class="container">
-    <div class="row">
+    <div class="row registrer-content-div">
         <div class="col-12 registrer-content">
 
             <div class="col-12 text-center">
                 <h1 class="titleRegistrer">Inscription</h1>
             </div>
-            <br />
             <div class="form-registrer">
                 <form action="?controller=UserController&action=registerAction" method="POST" class="col-9">
                     <div class="form-group">
@@ -48,7 +47,7 @@
                         </label>
                     </div>
                     <br>
-                    <button type="submit" class="btn btn-primary">M'inscrire</button>
+                    <button type="submit" class="btn btn-primary registrer-btn">M'inscrire</button>
 
                 </form>
             </div>
