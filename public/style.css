@@ -347,6 +347,10 @@ main {
   }
 }
 
+.modal-dialog {
+  font-family: cursive, "Courier New", Courier, monospace
+}
+
 /* BLOG VIEW */
 
 .title_blog {
@@ -420,15 +424,39 @@ main {
 }
 
 /* CONTACT VIEW */
-.contactForm {
-  margin-top: 10%;
+
+.contact-container{
+  width: 60%;
+  height: 44em;
 }
+
 .contact_us_h3 {
   text-align: center;
 }
 
+.contact-div{
+  display: flex;
+  background: #fff;
+  text-align: center;
+  max-width: 90%;
+  margin: auto;
+  height: inherit;
+}
+
+.contact-div-div{
+  padding: 4%;
+  border: 1px solid;
+  border-radius: 4px;
+  background-color: #d6d6d638;
+  box-shadow: 2px 0px 18px -3px #535353;
+}
+
 .form-group-contact {
   position: relative;
+}
+
+.contact-btn {
+  margin-top: 2%;
 }
 
 #contactForm
@@ -436,6 +464,18 @@ main {
   position: absolute;
   bottom: 27px;
   left: 88%;
+}
+
+#contactForm, label {
+  text-align: left;
+}
+
+#contactForm .contact_us_h3 {
+  font-family: Ubuntu-Bold;
+  font-weight: bold;
+  font-size: 30px;
+  color: #403866;
+  text-transform: uppercase;
 }
 
 #contactForm
@@ -477,12 +517,18 @@ small {
 .label-login-form {
   margin-bottom: 12%;
 }
+
 .button-login {
   align-self: center;
 }
+
 .not-registrer {
   padding-left: 11%;
   border-left: solid 1px #80808078;
+}
+
+.login-modal-div{
+  width: 57%;
 }
 
 /* ERROR LOGIN VIEW */

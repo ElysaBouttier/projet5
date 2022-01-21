@@ -6,7 +6,7 @@
 			<div class="col-12 error-connection-div-form">
 				<form class="" action="?controller=UserController&action=loginAction" method="POST">
 					<span class="error-connection-title">
-						Login
+						Connexion
 					</span>
                     <label for="username" class="error-connection-label">
 					<div class="error-connection-input">
@@ -24,7 +24,7 @@
 
 					<div class="error-connection-input-btn">
 						<button class="btn btn-primary">
-							Connexion
+							Se connecter
 						</button>
 					</div>
 

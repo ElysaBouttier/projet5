@@ -7,7 +7,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body d-flex justify-content-center">
-        <div class="col-6">
+        <div class="col-6 login-modal-div">
 
             <!-- Login form -->
             <form action="?controller=UserController&action=loginAction" method="POST">
@@ -29,7 +29,7 @@
         </div>
 
         <div class="d-flex col-4 not-registrer">
-            <a class="nav-link btn-link h-25 button-login" href="?controller=UserController&action=showRegistrerView" title="Mentions Légales">Pas encore inscrit ?</a>   
+            <a class="nav-link btn-link button-login" href="?controller=UserController&action=showRegistrerView" title="Mentions Légales">Pas encore inscrit ?</a>   
         </div>
       </div>
     </div>
