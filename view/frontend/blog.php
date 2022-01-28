@@ -6,7 +6,7 @@
     <h1 class="col-md-6 offset-md-3 title_blog"><?php echo html_entity_decode($post->getTitle()) ?></h1>
 
     <div class="content_body">
-        <div class="col-10 carousel_img">
+        <div class="carousel_img">
             <!-- Carousel -->
             <?php
             require_once('./view/inc/_article.php');

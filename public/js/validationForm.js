@@ -14,13 +14,14 @@ nameInput.addEventListener("blur", (e) => {
 });
 
 emailInput.addEventListener("blur", (e) => {
-  if (emailInput.value !== "") {
-    document.getElementById("errorMail").style.visibility = "hidden";
-    document.getElementById("successMail").style.visibility = "visible";
-  } else {
-    document.getElementById("errorMail").style.visibility = "visible";
-    document.getElementById("successMail").style.visibility = "hidden";
-  }
+  let mailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    if (emailInput.value !== "" & mailRegex.test(emailInput.value)) {
+      document.getElementById("errorMail").style.visibility = "hidden";
+      document.getElementById("successMail").style.visibility = "visible";
+    } else {
+      document.getElementById("errorMail").style.visibility = "visible";
+      document.getElementById("successMail").style.visibility = "hidden";
+    }
 });
 
 subjectInput.addEventListener("blur", (e) => {

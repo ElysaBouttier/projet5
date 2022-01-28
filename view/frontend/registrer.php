@@ -12,31 +12,49 @@
                     <div class="form-group">
                         <label>Pseudo :</label>
                         <input type="pseudo" name="username" class="form-control" placeholder="entrez votre pseudo">
+                        <i class="fas fa-check-circle" id="successName"></i>
+                        <i class="fas fa-exclamation-circle" id="errorName"></i>
+                        <small>Invalide</small>
                     </div>
                     <hr>
                     <div class="form-group">
                         <label>Prénom :</label>
                         <input type="firstname" name="firstname" class="form-control" placeholder="entrez votre prénom">
+                        <i class="fas fa-check-circle" id="successName"></i>
+                        <i class="fas fa-exclamation-circle" id="errorName"></i>
+                        <small>Invalide</small>
                     </div>
                     <hr>
                     <div class="form-group">
                         <label>Nom :</label>
                         <input type="lastename" name="lastname" class="form-control" placeholder="entrez votre nom">
+                        <i class="fas fa-check-circle" id="successName"></i>
+                        <i class="fas fa-exclamation-circle" id="errorName"></i>
+                        <small>Invalide</small>
                     </div>
                     <hr>
                     <div class="form-group">
                         <label>Mot de passe :</label>
                         <input type="password" name="password" placeholder="minimum 8 caractères au moins une lettre minuscule, une lettre majuscule, un chiffre, un caractère spéciale" class="form-control">
+                        <i class="fas fa-check-circle" id="successName"></i>
+                        <i class="fas fa-exclamation-circle" id="errorName"></i>
+                        <small>Invalide</small>
                     </div>
                     <hr>
                     <div class="form-group">
                         <label>Confirmez le mot de passe :</label>
                         <input type="password" name="password_confirm" placeholder="minimum 8 caractères au moins une lettre majuscule, une lettre minuscule, un chiffre, un caractère spéciale" class="form-control">
+                        <i class="fas fa-check-circle" id="successName"></i>
+                        <i class="fas fa-exclamation-circle" id="errorName"></i>
+                        <small>Invalide</small>
                     </div>
                     <hr>
                     <div class="form-group">
                         <label>Email :</label>
-                        <input type="email" name="email" placeholder="exemple@hotmail.fr" class="form-control">
+                        <input type="email" name="email" placeholder="exemple@hotmail.fr" class="form-control" >
+                        <i class="fas fa-check-circle" id="successMail"></i>
+                        <i class="fas fa-exclamation-circle" id="errorMail"></i>
+                        <small>Invalide</small>
                     </div>
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" required>

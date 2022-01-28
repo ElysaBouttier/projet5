@@ -22,9 +22,7 @@
                     <td><?= substr(nl2br(html_entity_decode($post->getContent())), 0, 15) ?></td>
                     <td><?= $post->getUpdateDate() ?></td>
                     <td>
-                        <a href="?controller=PostController&action=showEditPostView&id=<?= $post->getId() ?>" title="Modifier le billet">
-                            <i class="fas fa-pencil-alt"></i>
-                        </a>
+                        <a href="?controller=PostController&action=showEditPostView&id=<?= $post->getId() ?>" title="Modifier le billet"><i class="fas fa-pencil-alt"></i></a>
                         <a href="?controller=PostController&action=deletePost&id=<?= $post->getId() ?>" title="Supprimer le billet" onclick="return(confirm('ATTENTION ! Voulez-vous définitivement supprimer cet article ?'))">
                             <i class="fas fa-trash-alt"></i>
                         </a>

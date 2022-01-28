@@ -88,6 +88,9 @@ header {
 .fas {
   font-size: xx-large;
 }
+/* .table-hover, a, i {
+  text-decoration: none;
+} */
 
 .nav_burger {
   height: 30%;
@@ -348,30 +351,60 @@ main {
 }
 
 .modal-dialog {
-  font-family: cursive, "Courier New", Courier, monospace
+  font-family: cursive, "Courier New", Courier, monospace;
 }
 
 /* BLOG VIEW */
 
 .title_blog {
   text-align: center;
+  font-family: Ubuntu-Bold;
+  font-weight: bold;
+  font-size: 30px;
+  color: #403866;
+  text-transform: uppercase;
 }
 
 .content_body {
   margin-top: 7%;
 }
 
-.carousel-inner {
-  height: 30em;
+.carousel-caption {
+  position: absolute;
+  bottom: 0%;
+  left: 60%;
+  width: 40%;
+  height: 100%;
+  color: #4f5c79;
 }
 
-.carousel-inner img {
-  object-fit: fill;
-  height: 30em;
+.carousel-img {
+  width: 100%;
+  height: 100%;
 }
 
 .carousel_img {
-  margin: auto;
+  padding: 2%;
+  margin: 1%;
+  border: 1px solid lightgrey;
+  box-shadow: 5px 5px 36px 1px rgb(0 0 0 / 57%);
+  background-color: #d3d3d37a;
+}
+
+.carousel-control-next-icon {
+  color: black;
+}
+
+.carousel-control-next {
+  margin-right: 41%;
+}
+.carousel-control {
+  top: 64%;
+}
+
+.carousel-control span {
+  background-color: #434242;
+  border-radius: 10px;
 }
 
 .like_activity {
@@ -390,9 +423,6 @@ main {
   border: 0;
   width: 9%;
   display: flex;
-}
-
-.far {
 }
 
 .img-fontawesome {
@@ -425,7 +455,7 @@ main {
 
 /* CONTACT VIEW */
 
-.contact-container{
+.contact-container {
   width: 60%;
   height: 44em;
 }
@@ -434,7 +464,7 @@ main {
   text-align: center;
 }
 
-.contact-div{
+.contact-div {
   display: flex;
   background: #fff;
   text-align: center;
@@ -443,7 +473,7 @@ main {
   height: inherit;
 }
 
-.contact-div-div{
+.contact-div-div {
   padding: 4%;
   border: 1px solid;
   border-radius: 4px;
@@ -459,14 +489,14 @@ main {
   margin-top: 2%;
 }
 
-#contactForm
-.fas {
+#contactForm .fas {
   position: absolute;
   bottom: 27px;
   left: 88%;
 }
 
-#contactForm, label {
+#contactForm,
+label {
   text-align: left;
 }
 
@@ -478,8 +508,7 @@ main {
   text-transform: uppercase;
 }
 
-#contactForm
-small {
+#contactForm small {
   visibility: hidden;
 }
 
@@ -516,6 +545,7 @@ small {
 /* LOGIN VIEW */
 .label-login-form {
   margin-bottom: 12%;
+  padding-right: 3%;
 }
 
 .button-login {
@@ -527,17 +557,17 @@ small {
   border-left: solid 1px #80808078;
 }
 
-.login-modal-div{
+.login-modal-div {
   width: 57%;
 }
 
 /* ERROR LOGIN VIEW */
-.error-connection-container{
+.error-connection-container {
   width: 100%;
   height: 35em;
 }
 
-.error-connection-div{
+.error-connection-div {
   display: flex;
   background: #fff;
   text-align: center;
@@ -546,7 +576,7 @@ small {
   height: inherit;
 }
 
-.error-connection-div-form{
+.error-connection-div-form {
   height: 50%;
   justify-content: center;
   display: flex;
@@ -555,53 +585,63 @@ small {
   border: 1px solid;
   border-radius: 4px;
   background-color: #d6d6d638;
-  -webkit-box-shadow: 2px 0px 18px -3px #535353; 
+  -webkit-box-shadow: 2px 0px 18px -3px #535353;
   box-shadow: 2px 0px 18px -3px #535353;
 }
 
-.error-connection-div-form, form{
+.error-connection-div-form,
+form {
   align-self: center;
   display: flex;
   flex-flow: column;
 }
 
-.error-connection-title{
+.error-connection-title {
   font-family: Ubuntu-Bold;
   font-weight: bold;
-    font-size: 30px;
-    color: #403866;
-    line-height: 1.2;
-    text-transform: uppercase;
-    width: 100%;
+  font-size: 30px;
+  color: #403866;
+  line-height: 1.2;
+  text-transform: uppercase;
+  width: 100%;
 }
 
-.error-connection-input{
+.error-connection-input {
   padding: 7%;
 }
-.error-connection-password-input{
+.error-connection-password-input {
   padding-top: 0;
 }
 
-.error-connection-input, input{
+.error-connection-input,
+input {
   color: #403866;
 }
 
-.error-connection-input-btn{
+.error-connection-input-btn {
   margin-top: 9%;
-  
 }
 
-.error-connection-input-btn, button{
+.error-connection-input-btn,
+button {
   width: 95%;
   margin: auto;
-    margin-top: 9%;
+  margin-top: 9%;
 }
 
 /* REGISTRER VIEW */
 
-.registrer-content-div{
+.registrer-content-div {
   width: 100%;
   justify-content: center;
+}
+
+.titleRegistrer {
+  font-family: Ubuntu-Bold;
+  font-weight: bold;
+  font-size: 30px;
+  color: #403866;
+  text-transform: uppercase;
 }
 
 .registrer-content {
@@ -630,15 +670,16 @@ small {
 
 .form-group,
 input {
-  margin-top: 3%;  
+  margin-top: 3%;
 }
 
 .form-group,
-input, label input {
+input,
+label input {
   margin-top: 5px;
 }
 
-.registrer-btn{
+.registrer-btn {
   margin-bottom: 5%;
   margin-top: 4%;
   margin-left: 0;
