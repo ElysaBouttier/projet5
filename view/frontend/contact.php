@@ -14,23 +14,23 @@ require './vendor/autoload.php';
                 <label class="label" for="name">Nom et Prénom</label>
                 <div class="form-group-contact">
                     <input type="text" class="form-control" name="name" required="required" id="name" placeholder="Nom et Prénom">
-                    <i class="fas fa-check-circle" id="successName"></i>
-                    <i class="fas fa-exclamation-circle" id="errorName"></i>
-                    <small>Invalide</small>
+                    <i class="fas fa-check-circle formSuccess" id="successName" ></i>
+                    <i class="fas fa-exclamation-circle formError" id="errorName"></i>
+                    <small class="smallErrorIndication">Invalide</small>
                 </div>
                 <label class="label" for="email">Email</label>
                 <div class="form-group-contact">
                     <input type="email" class="form-control" name="email" required="required" id="email" placeholder="Email">
-                    <i class="fas fa-check-circle" id="successMail"></i>
-                    <i class="fas fa-exclamation-circle" id="errorMail"></i>
-                    <small>Invalide</small>
+                    <i class="fas fa-check-circle formSuccess" id="successMail"></i>
+                    <i class="fas fa-exclamation-circle formError" id="errorMail"></i>
+                    <small class="smallErrorIndication">Invalide</small>
                 </div>
                 <label class="label" for="subject">Titre</label>
                 <div class="form-group-contact">
                     <input type="text" class="form-control" name="subject" required="required" id="subject" placeholder="Titre">
-                    <i class="fas fa-check-circle" id="successSubject"></i>
-                    <i class="fas fa-exclamation-circle" id="errorSubject"></i>
-                    <small>Invalide</small>
+                    <i class="fas fa-check-circle formSuccess" id="successSubject"></i>
+                    <i class="fas fa-exclamation-circle formError" id="errorSubject"></i>
+                    <small class="smallErrorIndication">Invalide</small>
                 </div>
                 <label class="label" for="#">Message</label>
                 <div class="form-group">
@@ -49,6 +49,7 @@ require './vendor/autoload.php';
 
 <!-- JS -->
 <script src="../../public/js/validationForm.js"></script>
+<!-- <script src="../../public/js/test.js"></script> -->
 
 <?php $content = ob_get_clean(); ?>
 <!-- Vue require -->
