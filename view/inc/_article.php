@@ -18,15 +18,15 @@
 
             <!-- Img and comment on carousel -->
             <?php 
-            foreach ($images as $image) {
+            for( $i=1; $i< count($images); $i++) {
             ?>
                 <div class="carousel-item">
                     <div class="carousel-img-div col-7">
-                        <img src="../../public/img/<?php echo $image->getUrl() ?>" class="carousel-img" alt="...">
+                        <img src="../../public/img/<?php echo $images[$i]->getUrl() ?>" class="carousel-img" alt="...">
                     </div>
                     <div class="caroussel-img-content">
                         <div class="carousel-caption">
-                            <p><?php echo html_entity_decode($image->getContent()) ?> </p>
+                            <p><?php echo html_entity_decode($images[$i]->getContent()) ?> </p>
                         </div>
                     </div>
                 </div>

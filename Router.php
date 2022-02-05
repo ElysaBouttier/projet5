@@ -1,18 +1,14 @@
 <?php
 
-// namespace Elysa\Pfive\c;
-
 use Elysa\Pfive\c\ContactController;
 use Elysa\Pfive\c\UserController;
 use Elysa\Pfive\c\PostController;
 use Elysa\Pfive\c\ImageController;
 use Elysa\Pfive\c\CommentController;
 
+session_start();
 // Autoloader 
-// require_once('vendor/autoload.php');
 require('vendor/autoload.php');
-// require_once('./public/vendor/autoload.php');
-// require_once('../projet5/public/vendor/autoload.php');
 
 
 class Router

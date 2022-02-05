@@ -1,6 +1,6 @@
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
+  <div class="modal-dialog login-container">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Espace de connexion</h5>
@@ -14,7 +14,7 @@
             <label for="username" class="col-12 label-login-form">
               <p class="text-center">Pseudo :</p>
               <div class="d-flex justify-content-center">
-                <input type="username" class="form-control" id="username" name="username" placeholder="Pseudo">
+                <input type="username" class="form-control" id="usernameLogin" name="username" placeholder="Pseudo">
               </div>
             </label>
 
