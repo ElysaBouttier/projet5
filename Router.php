@@ -151,12 +151,12 @@ class Router
 
                         // Add draft online or update it
                         elseif ($_GET['action'] == 'updatePost') {
-                            
+
                             if (isset($_GET['id']) && $_GET['id'] > 0) {
                                 $id = isset($_GET['id']) ? strip_tags($_GET['id']) : NULL;
                                 $title = isset($_POST['title']) ? strip_tags($_POST['title']) : NULL;
                                 $content = isset($_POST['content']) ? strip_tags($_POST['content']) : NULL;
-                                $miniatureImg = $_FILES["miniature_img"]["name"];
+                                //$miniatureImg = $_FILES["miniature_img"]["name"];
                                 $newPostController = new PostController();
                                 if ($_POST['status'] == "draft") {
                                     $status = 0;
@@ -165,9 +165,20 @@ class Router
                                     $status = 1;
                                 }
 
-                               $newPostController->updateDraft($id, $title, $content, $miniatureImg, $status);
+                                $newPostController->updateDraft($id, $title, $content, $status);
                             }
                         }
+                        // Add draft online or update it
+                        elseif ($_GET['action'] == 'updateImgPost') {
+
+                            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                                $id = isset($_GET['id']) ? strip_tags($_GET['id']) : NULL;
+                                $miniatureImg = $_FILES["miniature_img"]["name"];
+                                $newPostController = new PostController();
+                                $newPostController->updateMiniatureImg($miniatureImg, $id);
+                            }
+                        }
+
                         // Update thumb Number
                         elseif ($_GET['action'] == 'addThumb') {
                             $newPostController = new PostController();

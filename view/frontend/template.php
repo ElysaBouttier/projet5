@@ -91,49 +91,46 @@
                     <!-- -------------------------------------------------------
                     -----------------------  AddArticle View  -----------------------
                     Only if session on AND admin connected   -->
-                    <ul class="nav_burger">
-                        <?php
-                        if ((isset($_SESSION) && !empty($_SESSION) && ($_SESSION['is_admin'] == 0))) {
-                        ?>
-                            <li>
-                                <a href="?controller=PostController&action=showAddPostView" class="nav-link">
-                                    <i class="fas fa-newspaper"></i>
-                                    <i class="far fa-plus-square"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="?controller=UserController&action=showPannelView" class="nav-link">
-                                    <i class="fas fa-wrench"></i>
-                                </a>
-                            </li>
-                        <?php
-                        }
-                        ?>
+                    <?php
+                    if ((isset($_SESSION) && !empty($_SESSION) && ($_SESSION['is_admin'] == 0))) {
+                    ?>
+                        <li>
+                            <a href="?controller=PostController&action=showAddPostView" class="nav-link">
+                                <i class="fas fa-newspaper"></i>
+                                <i class="far fa-plus-square"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="?controller=UserController&action=showPannelView" class="nav-link">
+                                <i class="fas fa-wrench"></i>
+                            </a>
+                        </li>
+                    <?php
+                    }
+                    ?>
 
 
-                        <!-- -------------------------------------------------------
+                    <!-- -------------------------------------------------------
                     -----------------------  Blog and Contact View  -----------------------
                     Only if session off OR user connected   -->
-                        <ul class="nav_burger">
-                            <?php
-                            if ((isset($_SESSION) && !empty($_SESSION) && ($_SESSION['is_admin'] == 1)) || (empty($_SESSION))) {
-                            ?>
-                                <li>
-                                    <a href="?controller=ContactController&action=showRgpdView" class="nav-link">
-                                        <i class="fas fa-balance-scale"></i>
-                                    </a>
-                                </li>
+                    <?php
+                    if ((isset($_SESSION) && !empty($_SESSION) && ($_SESSION['is_admin'] == 1)) || (empty($_SESSION))) {
+                    ?>
+                        <li>
+                            <a href="?controller=ContactController&action=showRgpdView" class="nav-link">
+                                <i class="fas fa-balance-scale"></i>
+                            </a>
+                        </li>
 
-                                <li>
-                                    <a href="?controller=ContactController&action=showContactView" class="nav-link">
-                                        <i class="fas fa-envelope"></i>
-                                    </a>
-                                </li>
-                            <?php
-                            }
-                            ?>
-                        </ul>
-                    </ul>
+                        <li>
+                            <a href="?controller=ContactController&action=showContactView" class="nav-link">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                        </li>
+                    <?php
+                    }
+                    ?>
+                </ul>
         </nav>
 
         <nav class="navbar navbar-expand-lg navbar-light bg-light" id="display-none">

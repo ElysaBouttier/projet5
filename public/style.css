@@ -780,7 +780,7 @@ label input {
   position: relative;
 }
 
-/* ADDPOST VIEW */
+/* ADD POST VIEW */
 .title-add-post {
   padding-top: 3%;
   padding-bottom: 16%;
@@ -790,9 +790,11 @@ label input {
   margin-bottom: 15%;
 }
 .add-post-title-form {
-  width: 37%;
-  text-align-last: left;
+  margin-bottom: 0;
+  margin-right: 2%;
+  align-self: center;
 }
+
 .add-post-label-title {
   width: 60%;
 }
@@ -805,6 +807,69 @@ label input {
 .add-post-img-title {
   text-align-last: left;
   width: 37%;
+}
+
+/* EDIT POST VIEW */
+.container-edit-post {
+  background-color: rgb(249, 251, 253);
+  border-left: 1px solid rgb(227, 235, 246);
+}
+
+.title-edit-post {
+  width: 100%;
+  height: 10%;
+  background-color: white;
+}
+
+.title-edit-post h1 {
+  padding-top: 1%;
+  padding-bottom: 3%;
+  border-bottom: 1px solid rgb(227, 235, 246);
+}
+
+.div-title-edit {
+  padding: 2%;
+  background-color: white;
+  -webkit-box-shadow: 0px 11px 8px -15px rgb(0 0 0 / 68%);
+  box-shadow: 0px 11px 8px -15px rgb(0 0 0 / 68%);
+  margin-top: 2%;
+}
+
+.edit-img-text {
+  display: flex;
+  width: 100%;
+}
+
+.img-miniature-edit {
+  display: flex;
+  margin: 5%;
+  padding: 3%;
+  background-color: white;
+  -webkit-box-shadow: 0px 11px 8px -15px rgb(0 0 0 / 68%);
+  box-shadow: 0px 11px 8px -15px rgb(0 0 0 / 68%);
+}
+
+.add-post-text {
+  margin: 2%;
+  display: flex;
+  display: table-row-group;
+}
+
+.add-post-text-title {
+  margin-bottom: 0;
+  height: 2em;
+}
+
+.edit-post-text-div {
+  padding: 3%;
+  margin: 5%;
+  background-color: white;
+  -webkit-box-shadow: 0px 11px 8px -15px rgb(0 0 0 / 68%);
+  box-shadow: 0px 11px 8px -15px rgb(0 0 0 / 68%);
+}
+
+.img-get-miniature-edit {
+  height: 11em;
 }
 
 /* IMG AND DESCRIPTION VIEW */

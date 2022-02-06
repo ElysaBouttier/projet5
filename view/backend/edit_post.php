@@ -2,38 +2,64 @@
 
 <?php
 require_once('./view/inc/_addImg.php');
+require_once('./view/inc/_updateImg.php');
 ?>
 
-<div class="container">
+<div class="container container-edit-post">
 
-    <h1 class="text-center title-add-post">Modifier l'oeuvre</h1>
+    <div class="title-edit-post">
+        <h1 class="title-edit-post">Modifier l'oeuvre</h1>
+    </div>
     <form class="add-post-form" action="?controller=PostController&action=updatePost&id=<?php echo $post->getId() ?>" method="POST" enctype="multipart/form-data">
-        <div class="d-flex">
+        <div class="d-flex div-title-edit">
             <p class="text-start add-post-title-form">Titre :</p>
             <label for="title" class="add-post-label-title">
                 <input class="add-post-input-title" type="title" style="width:100%" id="title" name="title" value="<?php echo $post->getTitle() ?>">
             </label>
         </div>
 
-        <div class="d-flex add-post-img-div">
-            <p class="text-start  add-post-img-title">Image de présentation : </p>
-                <label for="miniature-img" class="">
-                    <input class="input-add-post" type="file" id="miniature_img" name="miniature_img" value="<?php echo $post->getMiniatureImg() ?>" accept="image/png, image/jpeg, image/jpg">
-                </label>
-            <img src="../../public/img/<?php echo $post->getMiniatureImg()  ?>" class="img-fluid" alt="...">
+        <div class="edit-img-text">
+            <div class="img-miniature-edit col-4">
+                <a href="" data-bs-toggle="modal" data-bs-target="#updateImg">
+                    <img src="../../public/img/<?php echo $post->getMiniatureImg()  ?>" class="img-fluid img-get-miniature-edit" alt="...">
+                    <p>Modifier</p>
+                </a>
+            </div>
+
+
+            <div class="edit-post-text-div col-6">
+                <p class="text-start  add-post-text-title">Texte de présentation :</p>
+                <textarea id="content_edit_post" name="content" rows="5" cols="33"><?php echo $post->getContent() ?></textarea>
+            </div>
         </div>
-        <div class="d-flex row add-post-text-div">
-            <p class="text-start  add-post-text-title">Texte de présentation :</p>
-            <textarea id="content_edit_post" name="content" rows="5" cols="33"><?php echo $post->getContent() ?></textarea>
-        </div>
+
         <div class="form-check">
-            <input class="form-check-input" type="radio" name="status" id="draft" value="draft" checked>
+            <?php
+            if ($post->getStatus() == 0) {
+            ?>
+                <input class="form-check-input" type="radio" name="status" id="draft" value="draft" checked>
+            <?php
+            } else {            ?>
+                <input class="form-check-input" type="radio" name="status" id="draft" value="draft">
+            <?php }
+            ?>
+
             <label class="form-check-label" for="draft">
                 Brouillon
             </label>
         </div>
+
         <div class="form-check">
-            <input class="form-check-input" type="radio" name="status" id="online" value="online">
+            <?php
+            if ($post->getStatus() == 1) {
+            ?>
+                <input class="form-check-input" type="radio" name="status" id="online" value="online" checked>
+            <?php
+            } else {            ?>
+                <input class="form-check-input" type="radio" name="status" id="online" value="online">
+            <?php }
+            ?>
+
             <label class="form-check-label" for="online">
                 En ligne
             </label>

@@ -59,20 +59,29 @@ class PostController
         $newUserManager->showPannelView($username);
     }
 
-    public function updateDraft($id, $title, $content, $miniatureImg, $status)
+    public function updateDraft($id, $title, $content, $status)
     {
-        var_dump($status);
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $newImageManager = new ImageManager();
             $allImages = $newImageManager->getAllImageFromPost($id);
             $post = new PostManager();
-            $post->updateDraft($title, $content, $miniatureImg, $status, $id);
+            $post->updateDraft($title, $content, $status, $id);
             $newMessage = new Message();
             $newMessage->setSuccess("<p>Merci, votre oeuvre a bien été modifié !</p>");
         }
         header('Location: ?controller=PostController&action=showEditPostView&id=' . $id);
     }
-
+    
+    public function updateMiniatureImg($miniatureImg, $id)
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $post = new PostManager();
+            $post->updateMiniatureImg($miniatureImg, $id);
+            $newMessage = new Message();
+            $newMessage->setSuccess("<p>Merci, votre oeuvre a bien été modifié !</p>");
+        }
+        header('Location: ?controller=PostController&action=showEditPostView&id=' . $id);
+    }
 
     // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////  
     // //////////////////////////////////////////////              POST              /////////////////////////////////////////////////////////

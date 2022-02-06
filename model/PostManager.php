@@ -127,17 +127,22 @@ class PostManager extends BaseManager
     // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     // Make an update of the draft 
-    public function updateDraft($title, $content, $miniature_img, $status, $id)
+    public function updateDraft($title, $content, $status, $id)
     {
         $newManager = new BaseManager();
         $db = $newManager->dbConnect();
-        var_dump($title);
-        var_dump($content);
-        var_dump($miniature_img);
-        var_dump($status);
-        var_dump($id);
-        $request = $db->prepare('UPDATE posts SET title = ?, content = ?, miniature_img = ?, update_date = NOW(), status = ? WHERE id = ?');
-        $post = $request->execute(array($title, $content, $miniature_img, $status, $id));
+        $request = $db->prepare('UPDATE posts SET title = ?, content = ?, update_date = NOW(), status = ? WHERE id = ?');
+        $post = $request->execute(array($title, $content, $status, $id));
+
+        return $post;
+    }
+
+    public function updateMiniatureImg($miniatureImg, $id)
+    {
+        $newManager = new BaseManager();
+        $db = $newManager->dbConnect();
+        $request = $db->prepare('UPDATE posts SET miniature_img = ?, update_date = NOW() WHERE id = ?');
+        $post = $request->execute(array($miniatureImg, $id));
 
         return $post;
     }
