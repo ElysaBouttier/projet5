@@ -13,19 +13,21 @@
     <?php
     require_once('./view/inc/_reportedComments.php');
     ?>
-        
+
     <?php
     require_once('./view/inc/_addEdito.php');
-    ?>   
+    ?>
 
 
-    <div>
+    <div class="edito-div">
         <h3>Edito :</h3>
-        <p>
-            <?php 
-             echo $edito 
-            ?>
-        </p>
+        <div class="edito-p">
+            <p>
+                <?php
+                echo $edito
+                ?>
+            </p>
+        </div>
         <!-- Button trigger modal -->
         <button type="button" class="btn btn-primary update-edito-button" data-bs-toggle="modal" data-bs-target="#updateEdito">
             Modifier

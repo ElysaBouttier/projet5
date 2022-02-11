@@ -6,11 +6,11 @@
 <table class="table table-striped table-hover" id="reportedComments">
     <thead>
         <tr>
-            <th class="text-center">Nom de l'oeuvre</th>
-            <th class="text-center">Auteur</th>
-            <th class="text-center">Date de publication</th>
-            <th class="text-center">Commentaire</th>
-            <th class="text-center">Action</th>
+            <th>Nom de l'oeuvre</th>
+            <th>Auteur</th>
+            <th>Date de publication</th>
+            <th>Commentaire</th>
+            <th class="pannel-th-action">Action</th>
         </tr>
     </thead>
     <?php
@@ -22,10 +22,10 @@
                 <td><a href="?controller=PostController&action=showPostById&id=<?= $post->getId() ?>"
                    title="Lire le billet"><?= (html_entity_decode($post->getTitle())) ?></a></td>
                 <td><?php echo html_entity_decode($comment->getUsername()) ?></td>
-                <td><?= $comment->getDate() ?></a></td>
+                <td class="pannel-td-date"><?= $comment->getDate() ?></a></td>
                 <td><a href="?controller=PostController&action=showPostById&id=<?= $post->getId() ?>"
                    title="Lire le billet"><?= $comment->getContent() ?></a></td>
-                <td>
+                <td class="pannel-td-action">
                     <a href="?controller=CommentController&action=validComment&id=<?= $comment->getId() ?>" title="Valider le commentaire">
                         <i class="fas fa-solid fa-check"></i>
                     </a>

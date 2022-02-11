@@ -784,8 +784,46 @@ label input {
 }
 
 /* PANNEL CONFIG VIEW */
-.update-edito-button{
+.update-edito-button {
   margin-bottom: 50px;
+  margin-top: 0;
+}
+
+.pannel-th-action {
+  width: flex;
+  width: 82px;
+}
+
+.pannel-td-action {
+  width: flex;
+  width: 82px;
+}
+
+.pannel-td-date {
+  width: 182px;
+}
+
+.edito-div h3 {
+  text-decoration: underline;
+}
+
+.edito-p {
+  width: 100%;
+  height: 9em;
+  padding: 2%;
+  border-top: 1px solid;
+  background: #f2f2f2;
+  margin-bottom: 2%;
+  border-bottom: 1px solid #dfe2e6;
+}
+
+/* EDITO VIEW */
+.add-post-submit {
+  transition: all 0.4s ease-in-out;
+}
+
+.add-post-submit:hover {
+  transform: scale(1.1);
 }
 
 /* ADD POST VIEW */
@@ -886,6 +924,11 @@ label input {
 
 .img-get-miniature-edit {
   height: 11em;
+  transition: all 0.4s ease-in-out;
+}
+
+.img-get-miniature-edit:hover {
+  transform: scale(1.1);
 }
 
 .online {
@@ -912,6 +955,11 @@ label input {
   width: 32%;
   min-width: 240px;
   justify-content: center;
+  transition: all 0.4s ease-in-out;
+}
+
+.edit-post-submit:hover {
+  transform: scale(1.1);
 }
 
 .addPostImg {
@@ -922,6 +970,11 @@ label input {
 
 .addPostImgLogo {
   width: 100%;
+  transition: all 0.4s ease-in-out;
+}
+
+.addPostImgLogo:hover {
+  transform: scale(1.1);
 }
 
 .addPostImgTitle {
@@ -958,6 +1011,11 @@ label input {
 
 .img-and-description-div-delete {
   margin: auto;
+  transition: all 0.4s ease-in-out;
+}
+
+.img-and-description-div-delete:hover {
+  transform: scale(1.1);
 }
 
 .delete-button {

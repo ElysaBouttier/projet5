@@ -24,7 +24,7 @@
             <p class="text-start  add-post-text-title">Texte de présentation :</p>
             <textarea id="content" name="content" rows="5" cols="33"></textarea>
         </div>
-        <input type="submit" class="d-flex mx-auto btn btn-primary" value="Mettre en brouillon">
+        <input type="submit" class="d-flex mx-auto btn btn-primary add-post-submit" value="Mettre en brouillon">
     </form>
     
 </div>
