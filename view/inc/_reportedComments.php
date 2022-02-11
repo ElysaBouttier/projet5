@@ -6,7 +6,7 @@
 <table class="table table-striped table-hover" id="reportedComments">
     <thead>
         <tr>
-            <th class="text-center">Titre</th>
+            <th class="text-center">Nom de l'oeuvre</th>
             <th class="text-center">Auteur</th>
             <th class="text-center">Date de publication</th>
             <th class="text-center">Commentaire</th>
@@ -21,7 +21,7 @@
             <tr>
                 <td><a href="?controller=PostController&action=showPostById&id=<?= $post->getId() ?>"
                    title="Lire le billet"><?= (html_entity_decode($post->getTitle())) ?></a></td>
-                <td><?php // var_dump($newPostManager->getUserNameFromUserId($user['id'])) ?></td>
+                <td><?php echo html_entity_decode($comment->getUsername()) ?></td>
                 <td><?= $comment->getDate() ?></a></td>
                 <td><a href="?controller=PostController&action=showPostById&id=<?= $post->getId() ?>"
                    title="Lire le billet"><?= $comment->getContent() ?></a></td>

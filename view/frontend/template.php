@@ -97,7 +97,7 @@
                         <li>
                             <a href="?controller=PostController&action=showAddPostView" class="nav-link">
                                 <i class="fas fa-newspaper"></i>
-                                <i class="far fa-plus-square"></i>
+                                <i class="far fa-plus-square fa-xs"></i>
                             </a>
                         </li>
                         <li>

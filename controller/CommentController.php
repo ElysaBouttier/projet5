@@ -37,7 +37,7 @@ class CommentController
     // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     public function alertComment($id, $postId)
-    {
+    {      
         $newCommentManager = new CommentManager();
         $alertedComment = $newCommentManager->alertComment($id);
         // Gestion des erreurs

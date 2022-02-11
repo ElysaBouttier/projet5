@@ -51,7 +51,7 @@ class CommentManager extends BaseManager
         $newManager = new BaseManager();
         $db = $newManager->dbConnect();
         // Request
-        $request = $db->query('SELECT id, user_id, post_id, content, DATE_FORMAT(date_creation, \'%d/%m/%Y à %Hh%i\') AS date_creation, status FROM comments WHERE status = 1 ORDER BY status DESC LIMIT 10');
+        $request = $db->query('SELECT id, user_id, post_id, content, DATE_FORMAT(date_creation, \'%d/%m/%Y à %Hh%i\') AS date_creation, status FROM comments WHERE status = 1 ORDER BY date_creation DESC LIMIT 10');
         $request->execute(array());
         $result = $request->fetchAll();
         // Push in array

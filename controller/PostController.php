@@ -2,6 +2,7 @@
 
 namespace Elysa\Pfive\c;
 
+use Elysa\Pfive\m\Comment;
 use Elysa\Pfive\m\Message as Message;
 use Elysa\Pfive\m\PostManager as PostManager;
 use Elysa\Pfive\m\CommentManager as CommentManager;
@@ -96,6 +97,7 @@ class PostController
         $imageCount = $newImageManager->countImagesFromPost($id);
         $newCommentManager = new CommentManager();
         $comments = $newCommentManager->getCommentsFromPost($id);
+        // $commentUsername = $newCommentManager->getUsername($userId);
 
         // Vue
         require_once('view/frontend/blog.php');

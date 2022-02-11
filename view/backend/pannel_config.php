@@ -27,7 +27,7 @@
             ?>
         </p>
         <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#updateEdito">
+        <button type="button" class="btn btn-primary update-edito-button" data-bs-toggle="modal" data-bs-target="#updateEdito">
             Modifier
         </button>
     </div>

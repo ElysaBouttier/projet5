@@ -88,9 +88,6 @@ header {
 .fas {
   font-size: xx-large;
 }
-/* .table-hover, a, i {
-  text-decoration: none;
-} */
 
 .nav_burger {
   height: 30%;
@@ -98,6 +95,10 @@ header {
   list-style-type: none;
   padding: 0;
   align-self: center;
+}
+
+.nav-link {
+  display: flex;
 }
 
 .nav-link,
@@ -263,9 +264,11 @@ main {
 }
 
 .figure {
-  width: 23em;
+  width: auto;
+  margin-bottom: 30px;
   height: 13.4em;
-  margin: auto;
+  margin-left: auto;
+  margin-right: auto;
   position: relative;
   transform: scale(1);
   transition: display 600ms, transform 600ms;
@@ -780,6 +783,11 @@ label input {
   position: relative;
 }
 
+/* PANNEL CONFIG VIEW */
+.update-edito-button{
+  margin-bottom: 50px;
+}
+
 /* ADD POST VIEW */
 .title-add-post {
   padding-top: 3%;
@@ -822,6 +830,7 @@ label input {
 }
 
 .title-edit-post h1 {
+  padding-left: 7px;
   padding-top: 1%;
   padding-bottom: 3%;
   border-bottom: 1px solid rgb(227, 235, 246);
@@ -842,6 +851,7 @@ label input {
 
 .img-miniature-edit {
   display: flex;
+  flex-direction: column;
   margin: 5%;
   padding: 3%;
   background-color: white;
@@ -856,8 +866,14 @@ label input {
 }
 
 .add-post-text-title {
-  margin-bottom: 0;
+  margin-bottom: 5%;
   height: 2em;
+}
+
+.add-post-img-title {
+  margin-bottom: 7%;
+  height: 2em;
+  width: 100%;
 }
 
 .edit-post-text-div {
@@ -872,7 +888,78 @@ label input {
   height: 11em;
 }
 
+.online {
+  height: 5rem;
+  display: flex;
+  margin: auto;
+  align-content: space-around;
+  background-color: white;
+  -webkit-box-shadow: 0px 11px 8px -15px rgb(0 0 0 / 68%);
+  box-shadow: 0px 11px 8px -15px rgb(0 0 0 / 68%);
+  width: 32%;
+  min-width: 240px;
+}
+
+.form-check {
+  width: 50%;
+  align-self: center;
+  width: 10em;
+  margin-left: 9%;
+}
+
+.edit-post-submit {
+  margin-top: 20px;
+  width: 32%;
+  min-width: 240px;
+  justify-content: center;
+}
+
+.addPostImg {
+  width: 20%;
+  border: 1px solid #e6edf7;
+  margin-left: 2%;
+}
+
+.addPostImgLogo {
+  width: 100%;
+}
+
+.addPostImgTitle {
+  padding-top: 1%;
+  padding-bottom: 3%;
+  border-bottom: 1px solid rgb(227, 235, 246);
+  background-color: white;
+  padding-left: 7px;
+}
+
+.edit-post-img-and-description {
+  margin-top: 16px;
+}
+
 /* IMG AND DESCRIPTION VIEW */
+.img-and-description-div {
+  display: flex;
+  margin-bottom: 3px;
+}
+
+.img-and-description-div:hover {
+  background-color: #eaecee;
+}
+
+.img-and-description-div-img {
+  width: 20%;
+}
+
+.img-and-description-div-p {
+  width: 60%;
+  padding-left: 10px;
+  align-self: center;
+}
+
+.img-and-description-div-delete {
+  margin: auto;
+}
+
 .delete-button {
   text-align-last: right;
 }

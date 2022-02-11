@@ -20,6 +20,7 @@ require_once('./view/inc/_updateImg.php');
 
         <div class="edit-img-text">
             <div class="img-miniature-edit col-4">
+                <p class="text-start  add-post-img-title">Image de présentation :</p>
                 <a href="" data-bs-toggle="modal" data-bs-target="#updateImg">
                     <img src="../../public/img/<?php echo $post->getMiniatureImg()  ?>" class="img-fluid img-get-miniature-edit" alt="...">
                     <p>Modifier</p>
@@ -33,45 +34,53 @@ require_once('./view/inc/_updateImg.php');
             </div>
         </div>
 
-        <div class="form-check">
-            <?php
-            if ($post->getStatus() == 0) {
-            ?>
-                <input class="form-check-input" type="radio" name="status" id="draft" value="draft" checked>
-            <?php
-            } else {            ?>
-                <input class="form-check-input" type="radio" name="status" id="draft" value="draft">
-            <?php }
-            ?>
+        <div class="online">
+            <div class="form-check">
+                <?php
+                if ($post->getStatus() == 0) {
+                ?>
+                    <input class="form-check-input" type="radio" name="status" id="draft" value="draft" checked>
+                <?php
+                } else {
+                ?>
+                    <input class="form-check-input" type="radio" name="status" id="draft" value="draft">
+                <?php
+                }
+                ?>
 
-            <label class="form-check-label" for="draft">
-                Brouillon
-            </label>
+                <label class="form-check-label" for="draft">
+                    Brouillon
+                </label>
+            </div>
+
+            <div class="form-check">
+                <?php
+                if ($post->getStatus() == 1) {
+                ?>
+                    <input class="form-check-input" type="radio" name="status" id="online" value="online" checked>
+                <?php
+                } else {
+                ?>
+                    <input class="form-check-input" type="radio" name="status" id="online" value="online">
+                <?php
+                }
+                ?>
+
+                <label class="form-check-label" for="online">
+                    En ligne
+                </label>
+            </div>
         </div>
 
-        <div class="form-check">
-            <?php
-            if ($post->getStatus() == 1) {
-            ?>
-                <input class="form-check-input" type="radio" name="status" id="online" value="online" checked>
-            <?php
-            } else {            ?>
-                <input class="form-check-input" type="radio" name="status" id="online" value="online">
-            <?php }
-            ?>
-
-            <label class="form-check-label" for="online">
-                En ligne
-            </label>
-        </div>
-        <input type="submit" class="d-flex mx-auto btn btn-primary" name="onlineAction" value="Valider">
+        <input type="submit" class="d-flex mx-auto btn btn-primary edit-post-submit" name="onlineAction" value="Valider">
     </form>
 
     <!-- Button trigger modal -->
-    <p>
-        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addImgModal">Ajouter une image</button>
-    </p>
-    <div class="">
+    <h3 class="addPostImgTitle">Ajouter des images et descriptions à l'oeuvre</h3>
+    <button data-bs-toggle="modal" class="addPostImg" data-bs-target="#addImgModal"> 
+        <img class="addPostImgLogo" src="../../public/img/add-image.png">
+    </button>
+    <div class="edit-post-img-and-description">
         <?php
         require_once('./view/inc/_imgAndDescription.php');
         ?>
