@@ -53,7 +53,7 @@ class CommentManager extends BaseManager
         // Request
         $request = $db->query('SELECT id, user_id, post_id, content, DATE_FORMAT(date_creation, \'%d/%m/%Y à %Hh%i\') AS date_creation, status FROM comments WHERE status = 1 ORDER BY date_creation DESC LIMIT 10');
         $request->execute(array());
-        $result = $request->fetchAll();
+        $result = $request->fetchAll();       
         // Push in array
         $comments = [];
         foreach ($result as $comment) {
@@ -63,16 +63,15 @@ class CommentManager extends BaseManager
         return $comments;
     }
 
-    public function getUsername($id)
+    public function getUsername($userId) //passer tableau userId 
     {
         // Connect to DB
         $newManager = new BaseManager();
         $db = $newManager->dbConnect();
         // Request
-        $request = $db->query('SELECT username FROM users AS u, comments AS c WHERE u.id=c.user_id ');
-        $request->execute();
-        $username = $request->fetch();
-        return $username["username"];
+        $request = $db->prepare('SELECT username FROM users WHERE id=?');
+        $username = $request->execute(array($userId));
+        return $username;
     }
 
     // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

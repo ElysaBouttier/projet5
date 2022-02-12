@@ -783,6 +783,15 @@ label input {
   position: relative;
 }
 
+.registrer-checkbox {
+  width: 100%;
+  display: flex;
+}
+
+#flexCheckDefault {
+  margin-right: 5px;
+  width: 35px;
+}
 /* PANNEL CONFIG VIEW */
 .update-edito-button {
   margin-bottom: 50px;

@@ -21,7 +21,7 @@
             <tr>
                 <td><a href="?controller=PostController&action=showPostById&id=<?= $post->getId() ?>"
                    title="Lire le billet"><?= (html_entity_decode($post->getTitle())) ?></a></td>
-                <td><?php echo html_entity_decode($comment->getUsername()) ?></td>
+                <td><?php //echo html_entity_decode($comment->getUsername($comment->getUserId())) ?></td>
                 <td class="pannel-td-date"><?= $comment->getDate() ?></a></td>
                 <td><a href="?controller=PostController&action=showPostById&id=<?= $post->getId() ?>"
                    title="Lire le billet"><?= $comment->getContent() ?></a></td>

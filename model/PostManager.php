@@ -98,7 +98,7 @@ class PostManager extends BaseManager
     public function makePagination($element)
     {
         $newPostManager = new PostManager;
-        $records_per_page = 2;
+        $records_per_page = 4;
 
         $pagination = $newPostManager->giveNumberOfPage($element);
         $elements = array_slice(
@@ -113,7 +113,7 @@ class PostManager extends BaseManager
     public function giveNumberOfPage($element)
     {
         // Pagination
-        $records_per_page = 2;
+        $records_per_page = 4;
         $pagination = new Zebra_Pagination();
 
         // instantiate the pagination posts object

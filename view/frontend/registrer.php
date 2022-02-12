@@ -56,7 +56,7 @@
                         <i class="fas fa-exclamation-circle formError" id="errorMail"></i>
                         <small class="smallErrorIndication">Invalide</small>
                     </div>
-                    <div class="form-check">
+                    <div class="registrer-checkbox">
                         <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" required>
                         <label class="form-check-label" for="flexCheckDefault">
                             J'autorise ce site à concerver mes données personnelles transmises via ce formulaire.

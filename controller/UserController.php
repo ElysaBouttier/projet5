@@ -34,6 +34,8 @@ class UserController
         $drafts = $newPostManager->getAllDraft();
         $edito = $newUserManager -> getEdito($username);
         $comments = $newCommentManager->getReportedComments();
+        //TODO $usernames appelé du manager
+        //$usernames = 
 
         // Pagination
         // $pagination = new Zebra_Pagination;
