@@ -97,8 +97,7 @@ class PostController
         $imageCount = $newImageManager->countImagesFromPost($id);
         $newCommentManager = new CommentManager();
         $comments = $newCommentManager->getCommentsFromPost($id);
-        // $commentUsername = $newCommentManager->getUsername($userId);
-
+       
         // Vue
         require_once('view/frontend/blog.php');
 

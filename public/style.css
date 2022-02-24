@@ -310,12 +310,13 @@ main {
     background: linear-gradient(
       0deg,
       rgba(0, 0, 0, 0.5494572829131652) 0%,
+      rgba(0, 0, 0, 0.5494572829131652) 50%,
       rgba(0, 0, 0, 0) 100%
     );
     width: 95%;
     top: 53%;
     left: 2%;
-    height: 9em;
+    height: 8em;
   }
 }
 
@@ -379,6 +380,10 @@ main {
   width: 40%;
   height: 100%;
   color: #4f5c79;
+}
+
+.carousel-caption-p span {
+  background-color: unset;
 }
 
 .carousel-img {
@@ -826,6 +831,11 @@ label input {
   border-bottom: 1px solid #dfe2e6;
 }
 
+.edito-p p {
+  overflow-y: scroll;
+  height: 100%;
+}
+
 /* EDITO VIEW */
 .add-post-submit {
   transition: all 0.4s ease-in-out;
@@ -1047,7 +1057,7 @@ body.cold #author_name {
   font-family: Neolatina-gnx5, Arial, Helvetica, sans-serif;
   color: white;
 }
-body.cold i {
+body.cold a {
   color: #8ac3de;
 }
 
@@ -1061,7 +1071,7 @@ body.temperate #author_name {
   font-family: "Fredericka", Arial, Helvetica, sans-serif;
   color: #4a4746;
 }
-body.temperate i {
+body.temperate a {
   color: #4a4746;
 }
 
@@ -1075,7 +1085,7 @@ body.temperate #author_name {
   font-family: cursive, "Courier New", Courier, monospace;
   color: #4a4746;
 }
-body.summer i {
+body.summer a {
   color: rgb(253, 147, 109);
 }
 

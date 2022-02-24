@@ -24,7 +24,7 @@ class UserManager extends BaseManager
     $request = $db->prepare('SELECT * FROM users WHERE username = ?');
     $request->execute(array($username));
     $user = $request->fetch();
-    return $user;    
+    return $user;
   }
 
   // If username exist return the number of username.
@@ -79,6 +79,36 @@ class UserManager extends BaseManager
     $userId = $request->fetch();
     return $userId['id'];
   }
+
+  private function getUsernameByUserId($id)
+  {
+    $db = $this->dbConnect();
+    // Request
+    $request = $db->prepare('SELECT U.username, C.* FROM users U JOIN comments C ON U.id = C.user_id
+     WHERE C.id=?');
+    $request->execute(array($id));
+    $username = $request->fetchAll();
+    foreach ($username as $comment) {
+      $newComment = new Comment($comment['id'], $comment['user_id'], $comment['post_id'], $comment['content'], $comment['date_creation'], $comment['status']);
+      $newComment->setUsername($comment['username']);
+      $comments[] = $newComment;
+    }
+    return $comments;
+  }
+
+  // commentaire 1 écrit par toto
+  // comm 2 ecrit par admin
+  public function getUsernames($comments)
+  {
+    for ($i = 0; $i < count($comments); $i++) {
+      $id = $comments[$i]->getId();
+      $user = $this->getUsernameByUserId($id);
+      $username = $user[0];
+      // var_dump($username);
+    }
+    return $username;
+  }
+
 
   // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   // //////////////////////////////////////////////              UPDATE              ///////////////////////////////////////////////////////

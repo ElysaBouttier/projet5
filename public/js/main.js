@@ -5,15 +5,15 @@ function getTemperature() {
     query: "Toulouse",
   };
 
-  // API get request
   axios
-    .get("http://api.weatherstack.com/current", { params })
+  
+  .get('https://api.meteo-concept.com/api/forecast/daily?token=42af599197f2215eaf74a2ce8458cde5bf98f29a60c0dcb7d8d7f9c1e6aeb6e4&insee=31555')
 
     // Get temperature and change Style
     .then((response) => {
       const apiResponse = response.data;
-      console.log("La température à " + params.query + " est de : " + apiResponse.current.temperature + "°");
-      this.temperature = apiResponse.current.temperature;
+      console.log("La température minimum à " + params.query + " est de : " + apiResponse.forecast[0].tmin + "°");
+      this.temperature = apiResponse.forecast[0].tmin;
       changeStyle(this.temperature);
     })
     .catch((error) => {

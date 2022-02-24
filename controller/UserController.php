@@ -6,6 +6,7 @@ use Elysa\Pfive\m\Message as Message;
 use Elysa\Pfive\m\UserManager as UserManager;
 use Elysa\Pfive\m\PostManager as PostManager;
 use Elysa\Pfive\m\CommentManager as CommentManager;
+use stdClass;
 use Zebra_Pagination\Zebra_Pagination;
 
 
@@ -15,41 +16,40 @@ class UserController
     {
         $newPostManager = new PostManager();
         $newUserManager = new UserManager();
-        $edito = $newUserManager -> getEdito();
-        $posts = $newPostManager -> getAllPost();
+        $edito = $newUserManager->getEdito();
+        $posts = $newPostManager->getAllPost();
         require_once('./view/frontend/home.php');
     }
 
     public function showPannelView($username)
     {
         $user_name = $_SESSION['username'];
-        
+
         // Objet
         $newPostManager = new PostManager();
         $newCommentManager = new CommentManager();
         $newUserManager = new UserManager();
         // Method
-        $user = $newUserManager-> getUser($user_name);
+        $user = $newUserManager->getUser($user_name);
         $posts = $newPostManager->getAllPost();
         $drafts = $newPostManager->getAllDraft();
-        $edito = $newUserManager -> getEdito($username);
+        $edito = $newUserManager->getEdito($username);
         $comments = $newCommentManager->getReportedComments();
-        //TODO $usernames appelé du manager
-        //$usernames = 
-
+        // $userName = $newUserManager-> getUsernames($comments);
+      
+        // var_dump($usernames);
         // Pagination
-        // $pagination = new Zebra_Pagination;
-        $postsPagination = $newPostManager -> makePagination($posts);
-        $postsNum = $newPostManager -> giveNumberOfPage($posts);
+        $postsPagination = $newPostManager->makePagination($posts);
+        $postsNum = $newPostManager->giveNumberOfPage($posts);
 
-        $draftsPagination = $newPostManager -> makePagination($drafts);
-        $draftsNum = $newPostManager -> giveNumberOfPage($drafts);
+        $draftsPagination = $newPostManager->makePagination($drafts);
+        $draftsNum = $newPostManager->giveNumberOfPage($drafts);
 
-        $commentsPagination = $newPostManager -> makePagination($comments);
-        $commentsNum = $newPostManager -> giveNumberOfPage($comments);
-        
+        $commentsPagination = $newPostManager->makePagination($comments);
+        $commentsNum = $newPostManager->giveNumberOfPage($comments);
+
         // View
-        require_once ('view/backend/pannel_config.php');
+        require_once('view/backend/pannel_config.php');
     }
 
     public function updateEdito($content, $username)
@@ -61,8 +61,8 @@ class UserController
         // Method
         $posts = $newPostManager->getAllPost();
         $drafts = $newPostManager->getAllDraft();
-        $edito = $newUserManager -> getEdito($username);
-        $newUserManager -> updateEdito($content);
+        $edito = $newUserManager->getEdito($username);
+        $newUserManager->updateEdito($content);
 
         // View
         header("Location: index.php?controller=UserController&action=showPannelView");

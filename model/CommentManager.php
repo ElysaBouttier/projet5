@@ -51,13 +51,14 @@ class CommentManager extends BaseManager
         $newManager = new BaseManager();
         $db = $newManager->dbConnect();
         // Request
-        $request = $db->query('SELECT id, user_id, post_id, content, DATE_FORMAT(date_creation, \'%d/%m/%Y à %Hh%i\') AS date_creation, status FROM comments WHERE status = 1 ORDER BY date_creation DESC LIMIT 10');
+        $request = $db->query('SELECT u.username, c.id, c.user_id, c.post_id, c.content, DATE_FORMAT(c.date_creation, \'%d/%m/%Y à %Hh%i\') AS date_creation, c.status FROM comments c, users u WHERE c.status = 1 ORDER BY c.date_creation DESC LIMIT 10');
         $request->execute(array());
-        $result = $request->fetchAll();       
+        $result = $request->fetchAll();      
         // Push in array
         $comments = [];
         foreach ($result as $comment) {
             $newComment = new Comment($comment['id'], $comment['user_id'], $comment['post_id'], $comment['content'], $comment['date_creation'], $comment['status']);
+            $newComment->setUsername($comment['username']);
             $comments[] = $newComment;
         }
         return $comments;

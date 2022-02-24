@@ -82,7 +82,7 @@
             </div>
 
             <?php
-            if (isset($_SESSION) && !empty($_SESSION) && $_SESSION['is_admin'] != 0) {
+            if (isset($_SESSION) && !empty($_SESSION)) {
             ?>
                 <div class="blog_add_comment">
                     <?php
