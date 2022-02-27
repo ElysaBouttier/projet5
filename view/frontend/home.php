@@ -3,7 +3,7 @@
 </div>
 <!-- main img -->
 <div class="image_instagram col-12">
-    <img src="" id="img-home" class="img-home col-10" alt="...">
+    <img src="../../public/img/grey.jpg" id="img-home" class="img-home col-10" alt="...">
     <h1 id="author_name" class="author_name col-8"> Tatyana</h1>
 </div>
 
@@ -20,17 +20,19 @@
     foreach ($posts as $post) {
     ?>
         <figure class="figure">
-            <a class="article" href="?controller=PostController&action=showPostById&id=<?= $post->getId() ?>" title="Voir l'oeuvre">
-                <figcaption class="figure-caption">
+            <figcaption class="article">
+                <a class="figure-caption" href="?controller=PostController&action=showPostById&id=<?= $post->getId() ?>" title="Voir l'oeuvre">
+                    <img src="../../public/img/<?php echo $post->getMiniatureImg() ?>" class="figure-img" alt="...">
+                </a>
+                <span class="figcaption-span">
                     <h1 class="title-caption">
                         <?php echo $post->getTitle() ?>
                     </h1>
                     <p>
                         <?php echo $post->getContent() ?>
                     </p>
-                </figcaption>
-                <img src="../../public/img/<?php echo $post->getMiniatureImg() ?>" class="figure-img" alt="...">
-            </a>
+                </span>
+            </figcaption>
         </figure>
     <?php
     }

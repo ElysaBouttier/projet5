@@ -8,7 +8,7 @@
       </div>
       <div class="modal-body">
         <form action="?controller=UserController&action=editEdito" method="post">
-          <textarea id="content" name="content" cols="30" rows="5" class="mceEditor"><?php echo $edito ?></textarea></br>
+          <textarea id="content" name="content" cols="30" rows="5" class="mceEditor"><?php echo $edito ?></textarea><br>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
             <button type="submit" class="btn btn-primary">Save changes</button>

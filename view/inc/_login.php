@@ -11,20 +11,23 @@
 
           <!-- Login form -->
           <form action="?controller=UserController&action=loginAction" method="POST">
-            <label for="username" class="col-12 label-login-form">
-              <p class="text-center">Pseudo :</p>
-              <div class="d-flex justify-content-center">
-                <input type="username" class="form-control" id="usernameLogin" name="username" placeholder="Pseudo">
-              </div>
-            </label>
 
-            <label for="password" class="col-12 label-login-form">
-              <p class="text-center">Mot de Passe :</p>
+            <div>
+              <label for="usernameLogin" class="col-12 text-center label-login-form">Pseudo
+              </label>
               <div class="d-flex justify-content-center">
-                <input type="password" class="form-control" id="password" name="password" placeholder="Password">              
+                <input type="text" class="form-control" id="usernameLogin" name="username" placeholder="Pseudo">
               </div>
-            </label>
-            <input type="submit" class="d-flex justify-content-center mx-auto" value="Me Connecter">
+            </div>
+
+            <div class="div-login-form">
+              <label for="password" class="col-12 text-center label-login-form"> Mot de Passe :
+              </label>
+              <div class="d-flex justify-content-center">
+                <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+              </div>
+            </div>
+            <input type="submit" class="d-flex justify-content-center mx-auto submit-login-form" value="Me Connecter">
           </form>
         </div>
 

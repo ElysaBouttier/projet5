@@ -238,7 +238,7 @@ class Router
                         // Connection
                         elseif ($_GET['action'] == 'loginAction') {
                             if (empty($_SESSION)) {
-                                $username = isset($_POST['username']) ? strip_tags($_POST['username']) : NULL;
+                                $username = isset($_POST['usernameLogin']) ? strip_tags($_POST['usernameLogin']) : NULL;
                                 $password = isset($_POST['password']) ? strip_tags($_POST['password']) : NULL;
                                 $newUserController = new UserController();
                                 $newUserController->login($username, $password);

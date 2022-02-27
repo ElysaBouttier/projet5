@@ -59,8 +59,8 @@
                     <div class="registrer-checkbox">
                         <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" required>
                         <label class="form-check-label" for="flexCheckDefault">
-                            J'autorise ce site à concerver mes données personnelles transmises via ce formulaire.
-                            Aucune exploitation commerciale ne sera faite des données concervées.
+                            J'autorise ce site à conserver mes données personnelles transmises via ce formulaire.
+                            Aucune exploitation commerciale ne sera faite des données conservées.
                             Voir notre <a href="?controller=ContactController&action=showRgpdView">politique de gestion des données personnelles.</a>
                         </label>
                     </div>

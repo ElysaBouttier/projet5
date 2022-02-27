@@ -36,7 +36,7 @@
     <script>
         tinymce.init({
             selector: 'textarea',
-            plugins: 'a11ychecker advcode casechange formatpainter linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tinycomments tinymcespellchecker',
+            plugins: 'advcode casechange formatpainter linkchecker autolink lists checklist permanentpen powerpaste',
             toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | outdent indent',
             toolbar_mode: 'floating',
             tinycomments_mode: 'embedded',
@@ -52,15 +52,15 @@
         <nav class="nav_device_laptop">
             <ul class="nav flex-column">
 
-                <!-- -------------------------------------------------------
-                    -----------------------  FIRST  -----------------------
-                    -------------------------------------------------------   -->
+                <!-- 
+                  FIRST  
+                -->
                 <!-- If session off -->
                 <?php
                 if (empty($_SESSION)) {
                 ?>
                     <li class="welcome_btn">
-                        <a href="" class="welcome_btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <a href="" class="welcome_btn" data-bs-toggle="modal" data-bs-target="#exampleModal" title="Se connecter">
                             <i class="fab fa-artstation"></i>
                         </a>
                     </li>
@@ -78,59 +78,58 @@
                 }
                 ?>
 
-                <!-- -------------------------------------------------------
-                    -----------------------  Home View  -----------------------
-                    -------------------------------------------------------   -->
-                <ul class="nav_burger">
-                    <li>
-                        <a href="?controller=UserController&action=showHomeView" class="nav-link active">
-                            <i class="fas fa-home"></i>
+                <!--
+                Home View  
+                -->
+                <li class="template_li">
+                    <a href="?controller=UserController&action=showHomeView" class="nav-link active">
+                        <i class="fas fa-home"></i>
+                    </a>
+                </li>
+
+                <!--
+                    AddArticle View
+                    Only if session on AND admin connected   -->
+                <?php
+                if ((isset($_SESSION) && !empty($_SESSION) && ($_SESSION['is_admin'] == 0))) {
+                ?>
+                    <li class="template_li">
+                        <a href="?controller=PostController&action=showAddPostView" class="nav-link">
+                            <i class="fas fa-newspaper"></i>
+                            <i class="far fa-plus-square fa-xs"></i>
+                        </a>
+                    </li>
+                    <li class="template_li">
+                        <a href="?controller=UserController&action=showPannelView" class="nav-link">
+                            <i class="fas fa-wrench"></i>
+                        </a>
+                    </li>
+                <?php
+                }
+                ?>
+
+
+                <!-- 
+                    Blog and Contact View 
+                    Only if session off OR user connected   -->
+                <?php
+                if ((isset($_SESSION) && !empty($_SESSION) && ($_SESSION['is_admin'] == 1)) || (empty($_SESSION))) {
+                ?>
+                    <li class="template_li">
+                        <a href="?controller=ContactController&action=showRgpdView" class="nav-link">
+                            <i class="fas fa-balance-scale"></i>
                         </a>
                     </li>
 
-                    <!-- -------------------------------------------------------
-                    -----------------------  AddArticle View  -----------------------
-                    Only if session on AND admin connected   -->
-                    <?php
-                    if ((isset($_SESSION) && !empty($_SESSION) && ($_SESSION['is_admin'] == 0))) {
-                    ?>
-                        <li>
-                            <a href="?controller=PostController&action=showAddPostView" class="nav-link">
-                                <i class="fas fa-newspaper"></i>
-                                <i class="far fa-plus-square fa-xs"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="?controller=UserController&action=showPannelView" class="nav-link">
-                                <i class="fas fa-wrench"></i>
-                            </a>
-                        </li>
-                    <?php
-                    }
-                    ?>
-
-
-                    <!-- -------------------------------------------------------
-                    -----------------------  Blog and Contact View  -----------------------
-                    Only if session off OR user connected   -->
-                    <?php
-                    if ((isset($_SESSION) && !empty($_SESSION) && ($_SESSION['is_admin'] == 1)) || (empty($_SESSION))) {
-                    ?>
-                        <li>
-                            <a href="?controller=ContactController&action=showRgpdView" class="nav-link">
-                                <i class="fas fa-balance-scale"></i>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="?controller=ContactController&action=showContactView" class="nav-link">
-                                <i class="fas fa-envelope"></i>
-                            </a>
-                        </li>
-                    <?php
-                    }
-                    ?>
-                </ul>
+                    <li class="template_li">
+                        <a href="?controller=ContactController&action=showContactView" class="nav-link">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </li>
+                <?php
+                }
+                ?>
+            </ul>
         </nav>
 
         <nav class="navbar navbar-expand-lg navbar-light bg-light" id="display-none">

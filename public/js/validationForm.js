@@ -109,7 +109,8 @@ function compareInputs(domElement, domElementToCheck, e) {
   });
 
   // compare passwords
-  registrerInputCheckPassword.addEventListener("blur", (e) => {
+  if (registrerInputCheckPassword){
+    registrerInputCheckPassword.addEventListener("blur", (e) => {
     if (
       registrerInputPassword.value != null ||
       registrerInputCheckPassword.value != null
@@ -117,4 +118,5 @@ function compareInputs(domElement, domElementToCheck, e) {
       compareInputs(registrerInputPassword, registrerInputCheckPassword, e);
     }
   });
+  }
 })();

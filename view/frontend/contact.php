@@ -32,7 +32,7 @@ require './vendor/autoload.php';
                     <i class="fas fa-exclamation-circle formError" id="errorSubject"></i>
                     <small class="smallErrorIndication">Invalide</small>
                 </div>
-                <label class="label" for="#">Message</label>
+                <label class="label" for="content">Message</label>
                 <div class="form-group">
                     <textarea name="content" class="form-control" id="content" cols="30" rows="4" placeholder="Message"></textarea>
                 </div>

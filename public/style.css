@@ -1,21 +1,17 @@
 @font-face {
   font-family: "Fredericka";
-  font-style: regular;
   src: url("font/FrederickatheGreat-Regular.ttf");
 }
 @font-face {
   font-family: "Creative Lettering";
-  font-style: regular;
   src: url("font/Creative\ Lettering.otf");
 }
 @font-face {
   font-family: "Neolatina-gnx5";
-  font-style: regular;
   src: url("font/NeoLatina-gnx5.ttf");
 }
 @font-face {
   font-family: "Vonique 64";
-  font-style: regular;
   src: url("font/Vonique\ 64.ttf");
 }
 
@@ -169,6 +165,11 @@ main {
   }
 }
 
+.template_li {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 /* HOME VIEW */
 .image_instagram {
   position: relative;
@@ -252,9 +253,7 @@ main {
 .set_images {
   width: 100%;
   display: flex;
-  padding-top: 5%;
   place-content: space-evenly;
-  margin-bottom: 20%;
 }
 
 @media screen and (max-width: 580px) {
@@ -264,26 +263,18 @@ main {
 }
 
 .figure {
-  width: auto;
-  margin-bottom: 30px;
-  height: 13.4em;
-  margin-left: auto;
-  margin-right: auto;
-  position: relative;
+  width: 24em;
   transform: scale(1);
   transition: display 600ms, transform 600ms;
 }
 
 @media screen and (max-width: 580px) {
   .figure {
-    width: 100%;
-    height: 15em;
-    margin: 5px;
   }
 }
 
 .figure:hover {
-  transform: scale(1.3);
+  transform: scale(1.1);
 }
 
 @media screen and (max-width: 580px) {
@@ -293,40 +284,33 @@ main {
 }
 
 .figure figcaption {
-  color: rgb(255, 255, 255);
-  position: absolute;
-  top: 48.5%;
-  left: 3%;
-  width: 23em;
-  height: 8em;
-  display: none;
-  padding-left: 3%;
+  width: 19em;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 @media screen and (max-width: 580px) {
   .figure figcaption {
     color: #e3e3e3;
-    display: unset;
     background: linear-gradient(
       0deg,
       rgba(0, 0, 0, 0.5494572829131652) 0%,
       rgba(0, 0, 0, 0.5494572829131652) 50%,
       rgba(0, 0, 0, 0) 100%
     );
-    width: 95%;
-    top: 53%;
-    left: 2%;
-    height: 8em;
   }
+}
+
+.title-caption {
+  margin-top: 30%;
 }
 
 @media screen and (max-width: 580px) {
   .title-caption {
-    margin-top: 11%;
   }
 }
 
-.figure:hover figcaption {
+.figure:hover figcaption a {
   background: linear-gradient(
     0deg,
     rgba(0, 0, 0, 0.5494572829131652) 0%,
@@ -343,14 +327,50 @@ main {
   }
 }
 
+.figure figcaption a {
+  width: 100%;
+}
+
+.figcaption-span {
+  position: absolute;
+  left: 40px;
+  bottom: 7px;
+  width: 21em;
+  height: 15.8em;
+  padding: 2%;
+  color: #8ac3de;
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.5494572829131652) 0%,
+    rgba(0, 0, 0, 0.5494572829131652) 50%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
+.figure:hover .figcaption-span {
+  visibility: hidden;
+}
+
+@media screen and (max-width: 580px) {
+  .figcaption-span {
+    background: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.5494572829131652) 0%,
+      rgba(0, 0, 0, 0.5494572829131652) 50%,
+      rgba(0, 0, 0, 0) 100%
+    );
+    visibility: visible;
+  }
+}
+
 .figure-img {
-  height: 100%;
+  width: 24em;
+  height: 18em;
 }
 
 @media screen and (max-width: 580px) {
   .figure-img {
-    width: 100%;
-    margin-top: 10px;
+    width: 21.6em;
   }
 }
 
@@ -637,7 +657,7 @@ label {
 }
 
 .label-login-form {
-  margin-bottom: 12%;
+  margin-bottom: 7%;
   padding-right: 3%;
 }
 
@@ -652,6 +672,18 @@ label {
 
 .login-modal-div {
   width: 57%;
+}
+
+.login-modal-div form {
+  margin-right: 5%;
+}
+
+.div-login-form {
+  margin-top: 5%;
+}
+
+.submit-login-form{
+  margin-top: 8%;
 }
 
 /* ERROR LOGIN VIEW */
@@ -804,12 +836,10 @@ label input {
 }
 
 .pannel-th-action {
-  width: flex;
   width: 82px;
 }
 
 .pannel-td-action {
-  width: flex;
   width: 82px;
 }
 
@@ -868,10 +898,19 @@ label input {
 }
 .add-post-img-div {
   width: 100%;
+  flex-direction: column;
+  margin-top: 20px;
 }
 .add-post-img-title {
-  text-align-last: left;
-  width: 37%;
+  margin-bottom: 0;
+}
+
+.add-post-img-title label {
+  margin-bottom: 38px;
+}
+
+.add-post-text-div{
+  width: 100%;
 }
 
 /* EDIT POST VIEW */

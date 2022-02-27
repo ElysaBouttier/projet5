@@ -8,8 +8,8 @@
 
         <p>Site de présentation d'oeuvres d'arts</p>
         <p>Le site www.tatyana.elysabouttier.fr est la propriété exclusive de Mme ...... Tatyana </p>
-        <p> Adresse </br>
-            Adresse </br>
+        <p> Adresse <br>
+            Adresse <br>
             64000 Pau
         </p>
         <p>Contactez la sur la rubrique Contact</p>
